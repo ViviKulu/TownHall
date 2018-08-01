@@ -1,6 +1,6 @@
 [  
    {  
-      "zip_code":10451,
+      "zip_code":"10451",
       "community_board":"Community Board 1 - BX",
       "location":"Southwestern Bronx",
       "neighborhoods":"Mott Haven, Port Morris, Melrose",
@@ -19,7 +19,7 @@
       }
    },
    {  
-      "zip_code":10454,
+      "zip_code":"10454",
       "community_board":"Community Board 1 - BX",
       "location":"Southwestern Bronx",
       "neighborhoods":"Mott Haven, Port Morris, Melrose",
@@ -38,7 +38,7 @@
       }
    },
    {  
-      "zip_code":10455,
+      "zip_code":"10455",
       "location":"Southwestern Bronx",
       "community_board":"Community Board 1 - BX",
       "neighborhoods":"Mott Haven, Port Morris, Melrose",
@@ -57,7 +57,7 @@
       }
    },
    {  
-      "zip_code":10456,
+      "zip_code":"10456",
       "location":"Southwestern Bronx",
       "community_board":"Community Board 1 - BX",
       "neighborhoods":"Mott Haven, Port Morris, Melrose",
@@ -76,7 +76,7 @@
       }
    },
    {  
-      "zip_code":11205,
+      "zip_code":"11205",
       "location":"North Central Brooklyn",
       "community_board":"Community Board 3 - BK",
       "neighborhood":"Bedford–Stuyvesant, Stuyvesant Heights, and Ocean Hill",
@@ -95,7 +95,7 @@
       }
    },
    {  
-      "zip_code":11206,
+      "zip_code":"11206",
       "location":"North Central Brooklyn",
       "community_board":"Community Board 3 - BK",
       "neighborhood":"Bedford–Stuyvesant, Stuyvesant Heights, and Ocean Hill",
@@ -114,7 +114,7 @@
       }
    },
    {  
-      "zip_code":11216,
+      "zip_code":"11216",
       "location":"North Central Brooklyn",
       "community_board":"Community Board 3 - BK",
       "neighborhood":"Bedford–Stuyvesant, Stuyvesant Heights, and Ocean Hill",
@@ -133,7 +133,7 @@
       }
    },
    {  
-      "zip_code":11221,
+      "zip_code":"11221",
       "location":"North Central Brooklyn",
       "community_board":"Community Board 3 - BK",
       "neighborhood":"Bedford–Stuyvesant, Stuyvesant Heights, and Ocean Hill",
@@ -152,7 +152,7 @@
       }
    },
    {  
-      "zip_code":11223,
+      "zip_code":"11223",
       "location":"North Central Brooklyn",
       "community_board":"Community Board 3 - BK",
       "neighborhood":"Bedford–Stuyvesant, Stuyvesant Heights, and Ocean Hill",
@@ -171,7 +171,7 @@
       }
    },
    {  
-      "zip_code":11238,
+      "zip_code":"11238",
       "location":"North Central Brooklyn",
       "community_board":"Community Board 3 - BK",
       "neighborhood":"Bedford–Stuyvesant, Stuyvesant Heights, and Ocean Hill",
