@@ -1,7 +1,7 @@
-{  
-   "zip_code":10453,
-   "cb_info":[  
-      {  
+[  
+   {  
+      "zip_code":10453,
+      "cb_info":{  
          "address":"BCC Campus, McCracken Hall, Room 12/13, W. 181st Street at Dr. Martin Luther King, Jr. Blvd. Bronx, NY 10453",
          "phone":7183642030,
          "fax":7182201767,
@@ -14,6 +14,6 @@
          "precinct":46,
          "precinct_phone":7182205211
       }
-   ]
-}
+   }
+]
 
