@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TownHall</string>
+    <string name="hoodsOfZipCode">consist of neighborhoods:</string>
 </resources>
