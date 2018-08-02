@@ -7,7 +7,7 @@ public class ZipCode {
 
     @SerializedName("zip_code")
     @Expose
-    private int zipCode;
+    private String zipCode;
     @SerializedName("community_board")
     @Expose
     private String communityBoard;
@@ -24,11 +24,11 @@ public class ZipCode {
     @Expose
     private String neighborhood;
 
-    public int getZipCode() {
+    public String getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(int zipCode) {
+    public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 

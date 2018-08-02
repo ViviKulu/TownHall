@@ -1,5 +1,6 @@
 package com.example.vivianbabiryekulumba.townhall.recycler;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.vivianbabiryekulumba.townhall.NavigationActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.ZipCode;
 
@@ -25,7 +27,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     @NonNull
     @Override
     public CommBoardAdapter.CommBoardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comm_board_itemview, parent, false);
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comm_board_itemview, parent, false);
         return new CommBoardViewHolder(view);
     }
 
@@ -44,6 +46,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     public class CommBoardViewHolder extends RecyclerView.ViewHolder {
 
         TextView comm_Of_tv;
+        TextView zip_code_tv;
         TextView address;
         TextView phone;
         TextView fax;
@@ -60,6 +63,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             super(itemView);
 
             comm_Of_tv = itemView.findViewById(R.id.comm_of_tv);
+            zip_code_tv = itemView.findViewById(R.id.zip_code_tv);
             address = itemView.findViewById(R.id.address_tv);
             phone = itemView.findViewById(R.id.phone_tv);
             fax = itemView.findViewById(R.id.fax_tv);
@@ -75,6 +79,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
 
         public void onBind(ZipCode zipCode) {
             comm_Of_tv.setText(zipCode.getCommunityBoard());
+            zip_code_tv.setText(zipCode.getZipCode());
             address.setText(zipCode.getCbInfo().getAddress());
             phone.setText(zipCode.getCbInfo().getPhone());
             fax.setText(zipCode.getCbInfo().getFax());
