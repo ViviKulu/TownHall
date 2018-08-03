@@ -8,16 +8,10 @@
         android:title="@string/home"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/post_petitions"
+        android:id="@+id/petitions"
         android:checked="true"
         android:icon="@drawable/board_review"
         android:title="@string/petitions"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/post_events"
-        android:checked="false"
-        android:icon="@drawable/events"
-        android:title="@string/events"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/community_events"

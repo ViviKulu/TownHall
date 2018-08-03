@@ -1,21 +1,18 @@
 package com.example.vivianbabiryekulumba.townhall;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
+import com.example.vivianbabiryekulumba.townhall.fragments.CommEventsFrag;
 import com.example.vivianbabiryekulumba.townhall.fragments.HomeFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.PostEventFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.PostPetitionFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.ViewCommEvents;
+import com.example.vivianbabiryekulumba.townhall.fragments.PetitionFrag;
 import com.example.vivianbabiryekulumba.townhall.viewpager.ViewPagerAdapter;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -24,14 +21,14 @@ public class NavigationActivity extends AppCompatActivity {
     ViewPager viewPager;
     MenuItem prevMenuItem;
     HomeFrag homeFrag;
-    PostEventFrag postEventFrag;
-    PostPetitionFrag postPetitionFrag;
-    ViewCommEvents viewCommEvents;
+    PetitionFrag petitionFrag;
+    CommEventsFrag commEventsFrag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
 
         viewPager = findViewById(R.id.viewpager);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -44,11 +41,8 @@ public class NavigationActivity extends AppCompatActivity {
                             case R.id.home_frag:
                                 viewPager.setCurrentItem(0);
                                 break;
-                            case R.id.post_petitions:
+                            case R.id.petitions:
                                 viewPager.setCurrentItem(1);
-                                break;
-                            case R.id.post_events:
-                                viewPager.setCurrentItem(2);
                                 break;
                             case R.id.community_events:
                                 viewPager.setCurrentItem(3);
@@ -100,18 +94,17 @@ public class NavigationActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         homeFrag = new HomeFrag();
-        postEventFrag = new PostEventFrag();
-        postPetitionFrag = new PostPetitionFrag();
-        viewCommEvents = new ViewCommEvents();
+        petitionFrag = new PetitionFrag();
+        commEventsFrag = new CommEventsFrag();
         adapter.addFragment(homeFrag);
-        adapter.addFragment(postEventFrag);
-        adapter.addFragment(postPetitionFrag);
-        adapter.addFragment(viewCommEvents);
+        adapter.addFragment(petitionFrag);
+        adapter.addFragment(commEventsFrag);
         viewPager.setAdapter(adapter);
     }
 
-    public void onClick(View v) {
-        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.swing_up_left);
-        v.startAnimation(animation);
+    public void onClick(View view) {
+        Intent intent = new Intent(NavigationActivity.this, MapsActivity.class);
+        startActivity(intent);
+
     }
 }
