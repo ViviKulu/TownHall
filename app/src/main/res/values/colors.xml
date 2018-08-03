@@ -8,4 +8,9 @@
     <color name="tab_checked">#F3CD70</color>
     <color name="tab_unchecked">#FFFFFF</color>
     <color name="view_pager_color">#FD3E0A</color>
+    <color name="blue_grey_500">#607D8B</color>
+    <color name="blue_grey_600">#546E7A</color>
+    <color name="blue_grey_700">#455A64</color>
+    <color name="blue_grey_800">#37474F</color>
+    <color name="blue_grey_900">#263238</color>
 </resources>

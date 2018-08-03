@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "992529669817",
+    "firebase_url": "https://townhall-2eb8a.firebaseio.com",
+    "project_id": "townhall-2eb8a",
+    "storage_bucket": "townhall-2eb8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992529669817:android:4af9b5c66a8ec7e5",
+        "android_client_info": {
+          "package_name": "com.example.vivianbabiryekulumba.townhall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992529669817-8d37332pvehqsb46thepepvtfsqhncvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vivianbabiryekulumba.townhall",
+            "certificate_hash": "96df10a7aaa06ebcc458e62f90c38692385582d5"
+          }
+        },
+        {
+          "client_id": "992529669817-s80m5h2tj60ftgfumnhs63laemfe70vc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_eRRdJz8SX_a2AfXZE1AcPAbWcOcBo_4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992529669817-s80m5h2tj60ftgfumnhs63laemfe70vc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

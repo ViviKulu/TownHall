@@ -1,7 +1,6 @@
 package com.example.vivianbabiryekulumba.townhall.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,11 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 
-import com.example.vivianbabiryekulumba.townhall.MapActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.ZipCode;
 import com.example.vivianbabiryekulumba.townhall.network_service.NetworkService;
@@ -29,8 +25,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.example.vivianbabiryekulumba.townhall.R.string.location_for_comm_board;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +52,7 @@ public class HomeFrag extends Fragment {
         recyclerView = rootView.findViewById(R.id.recyclerview);
         getRetrofit();
 //        sendData();
+
         return rootView;
     }
 
@@ -92,7 +87,6 @@ public class HomeFrag extends Fragment {
             }
         });
     }
-
 //    private void sendData() {
 //        Intent i = new Intent(getActivity().getBaseContext(),
 //                MapActivity.class);

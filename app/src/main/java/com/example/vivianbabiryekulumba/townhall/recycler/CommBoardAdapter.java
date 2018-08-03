@@ -1,6 +1,5 @@
 package com.example.vivianbabiryekulumba.townhall.recycler;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.vivianbabiryekulumba.townhall.NavigationActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.ZipCode;
 
@@ -27,7 +25,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     @NonNull
     @Override
     public CommBoardAdapter.CommBoardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comm_board_itemview, parent, false);
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comm_board_itemview_front_card, parent, false);
         return new CommBoardViewHolder(view);
     }
 
@@ -79,19 +77,18 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
 
         public void onBind(ZipCode zipCode) {
             comm_Of_tv.setText(zipCode.getCommunityBoard());
-            zip_code_tv.setText(zipCode.getZipCode());
-            address.setText(zipCode.getCbInfo().getAddress());
-            phone.setText(zipCode.getCbInfo().getPhone());
-            fax.setText(zipCode.getCbInfo().getFax());
-            email.setText(zipCode.getCbInfo().getEmail());
-            website.setText(zipCode.getCbInfo().getWebsite());
-            chair.setText(zipCode.getCbInfo().getChair());
-            district_manager.setText(zipCode.getCbInfo().getDistrictManager());
-            board_meeting.setText(zipCode.getCbInfo().getBoardMeeting());
-            cabinet_meeting.setText(zipCode.getCbInfo().getCabinetMeeting());
-            precinct.setText(zipCode.getCbInfo().getPrecinct());
-            precinct_phone.setText(zipCode.getCbInfo().getPrecinctPhone());
-
+            zip_code_tv.setText(String.format("Zip code: %s", zipCode.getZipCode()));
+            address.setText(String.format("Address: %s", zipCode.getCbInfo().getAddress()));
+            phone.setText(String.format("Phone number: %s", zipCode.getCbInfo().getPhone()));
+            fax.setText(String.format("Fax number : %s", zipCode.getCbInfo().getFax()));
+            email.setText(String.format("Email: %s", zipCode.getCbInfo().getEmail()));
+            website.setText(String.format("Website: %s", zipCode.getCbInfo().getWebsite()));
+            chair.setText(String.format("Chair: %s", zipCode.getCbInfo().getChair()));
+            district_manager.setText(String.format("District Manager: %s", zipCode.getCbInfo().getDistrictManager()));
+            board_meeting.setText(String.format("Board meeting: %s", zipCode.getCbInfo().getBoardMeeting()));
+            cabinet_meeting.setText(String.format("Cabinet meeting: %s", zipCode.getCbInfo().getCabinetMeeting()));
+            precinct.setText(String.format("Precinct: %s", zipCode.getCbInfo().getPrecinct()));
+            precinct_phone.setText(String.format("Precinct phone: %s", zipCode.getCbInfo().getPrecinctPhone()));
         }
     }
 }
