@@ -3,14 +3,14 @@ package com.example.vivianbabiryekulumba.townhall.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ZipCode {
+public class CommBoard {
 
-    @SerializedName("zip_code")
-    @Expose
-    private String zipCode;
     @SerializedName("community_board")
     @Expose
     private String communityBoard;
+    @SerializedName("zip_codes")
+    @Expose
+    private String zipCodes;
     @SerializedName("location")
     @Expose
     private String location;
@@ -20,17 +20,6 @@ public class ZipCode {
     @SerializedName("cb_info")
     @Expose
     private CbInfo cbInfo;
-    @SerializedName("neighborhood")
-    @Expose
-    private String neighborhood;
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
 
     public String getCommunityBoard() {
         return communityBoard;
@@ -38,6 +27,14 @@ public class ZipCode {
 
     public void setCommunityBoard(String communityBoard) {
         this.communityBoard = communityBoard;
+    }
+
+    public String getZipCodes() {
+        return zipCodes;
+    }
+
+    public void setZipCodes(String zipCodes) {
+        this.zipCodes = zipCodes;
     }
 
     public String getLocation() {
@@ -62,14 +59,6 @@ public class ZipCode {
 
     public void setCbInfo(CbInfo cbInfo) {
         this.cbInfo = cbInfo;
-    }
-
-    public String getNeighborhood() {
-        return neighborhood;
-    }
-
-    public void setNeighborhood(String neighborhood) {
-        this.neighborhood = neighborhood;
     }
 
 }

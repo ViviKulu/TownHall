@@ -9,16 +9,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
-import com.example.vivianbabiryekulumba.townhall.models.ZipCode;
+import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 
 import java.util.List;
 
 public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.CommBoardViewHolder> {
 
-    private List<ZipCode> zipCodeList;
+    private List<CommBoard> zipCodeList;
     private static final String TAG = "CommBoardAdapter";
 
-    public CommBoardAdapter(List<ZipCode> zipCodeList) {
+    public CommBoardAdapter(List<CommBoard> zipCodeList) {
         this.zipCodeList = zipCodeList;
     }
 
@@ -75,20 +75,21 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             precinct_phone = itemView.findViewById(R.id.precinct_phone_tv);
         }
 
-        public void onBind(ZipCode zipCode) {
-            comm_Of_tv.setText(zipCode.getCommunityBoard());
-            zip_code_tv.setText(String.format("Zip code: %s", zipCode.getZipCode()));
-            address.setText(String.format("Address: %s", zipCode.getCbInfo().getAddress()));
-            phone.setText(String.format("Phone number: %s", zipCode.getCbInfo().getPhone()));
-            fax.setText(String.format("Fax number : %s", zipCode.getCbInfo().getFax()));
-            email.setText(String.format("Email: %s", zipCode.getCbInfo().getEmail()));
-            website.setText(String.format("Website: %s", zipCode.getCbInfo().getWebsite()));
-            chair.setText(String.format("Chair: %s", zipCode.getCbInfo().getChair()));
-            district_manager.setText(String.format("District Manager: %s", zipCode.getCbInfo().getDistrictManager()));
-            board_meeting.setText(String.format("Board meeting: %s", zipCode.getCbInfo().getBoardMeeting()));
-            cabinet_meeting.setText(String.format("Cabinet meeting: %s", zipCode.getCbInfo().getCabinetMeeting()));
-            precinct.setText(String.format("Precinct: %s", zipCode.getCbInfo().getPrecinct()));
-            precinct_phone.setText(String.format("Precinct phone: %s", zipCode.getCbInfo().getPrecinctPhone()));
+        public void onBind(CommBoard commBoard) {
+            //Add intent service for the address, the phone number, the email, the website, chair and district manager, precinct phone.
+            comm_Of_tv.setText(commBoard.getCommunityBoard());
+            zip_code_tv.setText(String.format("Zip codes: %s", commBoard.getZipCodes()));
+            address.setText(String.format("Address: %s", commBoard.getCbInfo().getAddress()));
+            phone.setText(String.format("Phone number: %s", commBoard.getCbInfo().getPhone()));
+            fax.setText(String.format("Fax number : %s", commBoard.getCbInfo().getFax()));
+            email.setText(String.format("Email: %s", commBoard.getCbInfo().getEmail()));
+            website.setText(String.format("Website: %s", commBoard.getCbInfo().getWebsite()));
+            chair.setText(String.format("Chair: %s", commBoard.getCbInfo().getChair()));
+            district_manager.setText(String.format("District Manager: %s", commBoard.getCbInfo().getDistrictManager()));
+            board_meeting.setText(String.format("Board meeting: %s", commBoard.getCbInfo().getBoardMeeting()));
+            cabinet_meeting.setText(String.format("Cabinet meeting: %s", commBoard.getCbInfo().getCabinetMeeting()));
+            precinct.setText(String.format("Precinct: %s", commBoard.getCbInfo().getPrecinct()));
+            precinct_phone.setText(String.format("Precinct phone: %s", commBoard.getCbInfo().getPrecinctPhone()));
         }
     }
 }

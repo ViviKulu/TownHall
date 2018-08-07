@@ -30,7 +30,7 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:26.1.0"
 
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
@@ -39,6 +39,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:15.0.1'
     implementation 'com.google.android.gms:play-services-drive:15.0.1'
     implementation 'com.google.android.gms:play-services-auth:15.0.1'
+
+    implementation 'com.google.maps:google-maps-services:0.2.9'
+    implementation 'org.slf4j:slf4j-nop:1.7.25'
 
 }
 

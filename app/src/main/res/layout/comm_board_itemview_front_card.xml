@@ -11,7 +11,6 @@
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="1dp"
         app:cardElevation="20dp"
-        android:onClick="onClick"
         >
 
         <TextView

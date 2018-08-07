@@ -127,4 +127,5 @@ public class CbInfo {
         this.precinctPhone = precinctPhone;
     }
 
+
 }
