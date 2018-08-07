@@ -1,0 +1,230 @@
+[
+  {
+    "community_board": "Community Board 1",
+    "zip_codes": "10013, 10007, 10038, 10005, 10280",
+    "location": "Manhattan",
+    "neighborhoods": "Tribeca, Seaport/Civic Center, Financial District, Battery Park City",
+    "cb_info": {
+      "address": "Manhattan Community Board 1, 1 Centre Street, Room 2202-N, New York, NY 10007",
+      "phone": "212-669-7970",
+      "fax": "212-669-7899",
+      "email": "man01@cb.nyc.gov",
+      "website": "https://www1.nyc.gov/site/manhattancb1/index.page",
+      "chair": "Anthony Notaro, Jr.",
+      "district_manager": "Vacant",
+      "board_meeting": "Fourth Tuesday, 6:00pm",
+      "cabinet_meeting": "Third Tuesday, 11:00am",
+      "precinct": "1 | 5 | 7",
+      "precinct_phone": "1: 212-334-0611 | 5: 212-334-0711 | 7: 212-477-7311"
+    }
+  },
+  {
+    "community_board": "Community Board 2",
+    "zip_codes": "10011, 10012, 10013, 10014, 10065, 10075, 10021, 10028, 10128, 10002, 10003, 10009",
+    "location": "Manhattan",
+    "neighborhoods": "Greenwich Village, West Village, NoHo, SoHo, Lower East Side, Chinatown, Little Italy",
+    "cb_info": {
+      "address": "Manhattan Community Board 2, 3 Washington Square Village, #1A, New York, NY 10012",
+      "phone": "212-979-2272",
+      "fax": "212-254-5102",
+      "email": "bgormley@cb.nyc.gov",
+      "website": "http://www.nyc.gov/html/mancb2/html/home/home.shtml",
+      "chair": "Terri Cude",
+      "district_manager": "Bob Gormley",
+      "board_meeting": "Second to last Thursday, 6:30pm",
+      "cabinet_meeting": "Second Thursday, 10:00am",
+      "precinct": "1 | 5 | 6 | 9",
+      "precinct_phone": "1: 212-334-0611 | 5: 212-334-0711 | 6: 212-741-4811 | 9: 212-477-7811"
+    }
+  },
+  {
+    "community_board": "Community Board 3",
+    "zip_codes": "10009, 10002, 10003, 10012, 10013, 10038",
+    "location": "Manhattan",
+    "neighborhoods": "Tompkins Square, East Village, Lower East Side, Chinatown, Two Bridges",
+    "cb_info": {
+      "address": "Manhattan Community Board 3, 59 East 4th Street, New York, NY 10003",
+      "phone": "212-533-5300",
+      "fax": "212-533-3659",
+      "email": "info@cb3manhattan.org",
+      "website": "http://www.nyc.gov/html/mancb3/html/home/home.shtml",
+      "chair": "Alysha Lewis-Coleman",
+      "district_manager": "Susan Stetzer",
+      "board_meeting": "Fourth Tuesday, 6:30pm",
+      "cabinet_meeting": "Second Tuesday, 2:30pm",
+      "precinct": "5 | 7 | 9",
+      "precinct_phone": "5: 212-334-0711 | 7: 212-477-7311 | 9: 212-477-7811"
+    }
+  },
+  {
+    "community_board": "Community Board 4",
+    "zip_codes": "10018 10001 10036 10019, 10003, 10002",
+    "location": "Manhattan",
+    "neighborhoods": "Clinton, Chelsea",
+    "cb_info": {
+      "address": "Manhattan Community Board 4, 330 West 42nd Street, Suite 2618, New York, NY 10036",
+      "phone": "212-736-4536",
+      "fax": "212-947-9512",
+      "email": "jbodine@cb.nyc.gov",
+      "website": "http://www.nyc.gov/html/mancb4/html/home/home.shtml",
+      "chair": "Delores Rubin",
+      "district_manager": "Jesse Bodine",
+      "board_meeting": "First Wednesday, 6:30pm",
+      "cabinet_meeting": "Third Wednesday, 10:00am",
+      "precinct": "10 | 13 | MSP | MNP",
+      "precinct_phone": "10: 212-741-8211 | 13: 212-477-7411 | MSP: 212-239-9811 | MNP: 212-767-8400"
+    }
+  },
+  {
+    "community_board": "Community Board 5",
+    "zip_codes": "10001, 10011, 10018, 10019, 10020, 10036, 10123",
+    "location": "Manhattan",
+    "neighborhoods": "Midtown",
+    "cb_info": {
+      "address": "Manhattan Community Board 5, 450 7th Avenue, Rm. 2109, New York, NY 10123",
+      "phone": "212-465-0907",
+      "fax": "212-465-1628",
+      "email": "office@cb5.org",
+      "website": "https://www.cb5.org/cb5m/?",
+      "chair": "Vikki Babero",
+      "district_manager": "Wally Rubin",
+      "board_meeting": "Second Thursday, 6:00pm",
+      "cabinet_meeting": "First Thursday at 10:00am",
+      "precinct": "10 | MSP | MNP",
+      "precinct_phone": "10: 212-741-8211 | MSP: 212-239-9811 | MNP: 212-767-8400"
+    }
+  },
+  {
+    "community_board": "Community Board 6",
+    "zip_codes": "10003, 10009, 10017, 10010, 10016, 10022, ",
+    "location": "Manhattan",
+    "neighborhoods": "Stuyvesant Town, Tudor City, Turtle Bay, Peter Cooper Village, Murray Hill, Gramercy Park, Kips Bay, Sutton Place",
+    "cb_info": {
+      "address": "Manhattan Community Board 6, 211 East 43rd Street, Suite 1404, New York, NY 10017",
+      "phone": "212-319-3750",
+      "fax": "",
+      "email": "office@cbsix.org",
+      "website": "http://www.nyc.gov/html/exit-page.html?url=http://cbsix.org",
+      "chair": "Molly Hollister",
+      "district_manager": "Jesús Pérez",
+      "board_meeting": "Second Wednesday, 7:00pm",
+      "cabinet_meeting": "Last Thursday, 10:30am",
+      "precinct": "13 | 17",
+      "precinct_phone": "13: 212-477-7411 | 17: 212-826-3211"
+    }
+  },
+  {
+    "community_board": "Community Board 7",
+    "zip_codes": "10025, 10023",
+    "location": "Manhattan",
+    "neighborhoods": "Manhattan Valley, Upper West Side, and Lincoln Square",
+    "cb_info": {
+      "address": "Manhattan Community Board 7, 250 W. 87th Street, New York, NY 10024",
+      "phone": "212-362-4008",
+      "fax": "212-595-9317",
+      "email": "office@cb7.org",
+      "website": "https://www1.nyc.gov/site/manhattancb7/index.page",
+      "chair": "Elizabeth R. Caputo",
+      "district_manager": "Penny Ryan",
+      "board_meeting": "First Tuesday, 6:30pm",
+      "cabinet_meeting": "Fourth Wednesday, 9:30am",
+      "precinct": "20 | 24 | CPP",
+      "precinct_phone": "20: 212-580-6411 | 24: 212-678-1811 | CPP: 212-570-4820"
+    }
+  },
+  {
+    "community_board": "Community Board 8",
+    "zip_codes": "10021, 10065, 10075, 10044, 10022",
+    "location": "Manhattan",
+    "neighborhoods": "Upper East Side, LenoxHill, Yorkville, and Roosevelt Island",
+    "cb_info": {
+      "address": "Manhattan Community Board 8, 505 Park Avenue, Suite 620, New York, NY 10022",
+      "phone": "212-758-4340",
+      "fax": "212-758-4616",
+      "email": "info@cb8m.com",
+      "website": "http://www.nyc.gov/html/exit-page.html?url=http://www.cb8m.com/",
+      "chair": "James Clynes",
+      "district_manager": "Will Brightbill",
+      "board_meeting": "Third Wednesday, 6:30pm",
+      "cabinet_meeting": "Last Tuesday, 10:00am",
+      "precinct": "19 | CPP",
+      "precinct_phone": "19: 212-452-0600 | CPP: 212-570-4820"
+    }
+  },
+  {
+    "community_board": "Community Board 9",
+    "zip_codes": "10031, 10027, 10035, 10029, 10025",
+    "location": "Manhattan",
+    "neighborhoods": "Hamilton Heights, Manhattanville, Morningside Heights, and West Harlem",
+    "cb_info": {
+      "address": "Manhattan Community Board 9, 16-18 Old Broadway, New York, NY 10027",
+      "phone": "212-864-6200",
+      "fax": "212-662-7396",
+      "email": "nyc-cb9m@juno.com",
+      "website": "http://www.nyc.gov/html/exit-page.html?url=http://www.cb9m.org",
+      "chair": "Padmore John",
+      "district_manager": "Eutha R. Prince",
+      "board_meeting": "Third Thursday, 6:30pm",
+      "cabinet_meeting": "Second Wednesday, 10:00am",
+      "precinct": "26 | 30",
+      "precinct_phone": "26: 212-678-1311 | 30: 212-690-8811"
+    }
+  },
+  {
+    "community_board": "Community Board 10",
+    "zip_codes": "10026, 10027, 10030, 10037, 10039",
+    "location": "Manhattan",
+    "neighborhoods": "Central Harlem",
+    "cb_info": {
+      "address": "Manhattan Community Board 10, 215 West 125th Street, 4th Floor, New York, NY 10027",
+      "phone": "212.749.3105",
+      "fax": "212.662.4215",
+      "email": "mn10@cb.nyc.gov",
+      "website": "http://www.nyc.gov/html/mancb10/html/home/home.shtml",
+      "chair": "Cicely Harris",
+      "district_manager": "Andrew Lassalle",
+      "board_meeting": "First Wednesday, 6:00pm",
+      "cabinet_meeting": "Third Wednesday, 10:00am",
+      "precinct": "28 | 32",
+      "precinct_phone": "28: 212-678-1311 | 32: 212-690-8811"
+    }
+  },
+  {
+    "community_board": "Community Board 11",
+    "zip_codes": "10029, 10035",
+    "location": "Manhattan",
+    "neighborhoods": "East Harlem",
+    "cb_info": {
+      "address": "Manhattan Community Board 11, 1664 Park Avenue, Ground Floor, New York, NY 10035",
+      "phone": "212-831-8929",
+      "fax": "212-369-3571",
+      "email": "mn11@cb.nyc.gov",
+      "website": "http://www.nyc.gov/html/exit-page.html?url=http://www.cb11m.org/",
+      "chair": "Nilsa Orama",
+      "district_manager": "Angel D. Mescain",
+      "board_meeting": "Third Tuesday, 6:30pm",
+      "cabinet_meeting": "2nd Tuesday, 10:30am",
+      "precinct": "23 | 25",
+      "precinct_phone": "23: 212-860-6411 | 25: 212-860-6511"
+    }
+  },
+  {
+    "community_board": "Community Board 12",
+    "zip_codes": "10031, 10032, 10033, 10034, 10040",
+    "location": "Manhattan",
+    "neighborhoods": "Inwood and Washington Heights",
+    "cb_info": {
+      "address": "Manhattan Community Board 12, 530 West 166th Street, 6th Floor, New York, NY 10032",
+      "phone": "212-568-8500",
+      "fax": "212-740-8197",
+      "email": " DBlow@cb.nyc.gov, ebsmith@cb.nyc.gov, and pgarcia01@cb.nyc.gov",
+      "website": "http://www.nyc.gov/html/mancb12/html/home/home.shtml",
+      "chair": "Sha Ally",
+      "district_manager": "Ebenezer Smith",
+      "board_meeting": "Fourth Tuesday, 7:00pm",
+      "cabinet_meeting": "Third Thursday, 9:30am",
+      "precinct": "33 | 34",
+      "precinct_phone": "33: 212-927-3272 | 34: 212-927-9711"
+    }
+  }
+]
