@@ -1,0 +1,230 @@
+[
+  {
+    "community_board": "Community Board 1",
+    "zip_codes": "10451, 10455, 10454, 10456",
+    "location": "Bronx",
+    "neighborhoods": "Mott Haven, Port Morris, Melrose",
+    "cb_info": {
+      "address": "Bronx Community Board 1, 3024 Third Avenue, Bronx, NY 10455",
+      "phone": "718-585-7117",
+      "fax": "718-292-0558",
+      "email": "brxcb1@optonline.net",
+      "website": "https://www1.nyc.gov/site/bronxcb1/index.page",
+      "chair": "George Rodriguez",
+      "district_manager": "Cedric Loftin",
+      "board_meeting": "Last Thursday, 6:00pm",
+      "cabinet_meeting": "Second Tuesday, 10:00am",
+      "precinct": "40",
+      "precinct_phone": "718-402-2270"
+    }
+  },
+  {
+    "community_board": "Community Board 2",
+    "zip_codes": "10474, 10455, 10459, 10456",
+    "location": "Bronx",
+    "neighborhoods": "Hunts Point, Longwood, Morrisania",
+    "cb_info": {
+      "address": "Bronx Community Board 2, 1029 E. 163rd Street, Suite 202, Bronx, NY 10459",
+      "phone": "718-328-9125 / 718-328-9126",
+      "fax": "718-991-4974",
+      "email": "brxcb2@optonline.net",
+      "website": "http://bxcb2.org/",
+      "chair": "Dr. Ian Amritt",
+      "district_manager": "Ralph Acevedo",
+      "board_meeting": "Last Wednesday, 6:00pm",
+      "cabinet_meeting": "Third Wednesday, 1:00pm",
+      "precinct": "41",
+      "precinct_phone": "718-542-4771"
+    }
+  },
+  {
+    "community_board": "Community Board 3",
+    "zip_codes": "10459, 10460, 10456, 10457, 10451, 10452, 10459",
+    "location": "Bronx",
+    "neighborhoods": "Crotona Park, Claremont Village, Concourse Village, Woodstock, and Morrisania",
+    "cb_info": {
+      "address": "Bronx Community Board 3, 1426 Boston Road, Bronx, NY 10456",
+      "phone": "718-378-8054",
+      "fax": "718-378-8188",
+      "email": "Brxcomm3@optonline.net",
+      "website": "http://www.bronxmall.com/commboards/cd3.html",
+      "chair": "Gloria S. Alston",
+      "district_manager": "John Dudley",
+      "board_meeting": "Second Tuesday, 6:00pm",
+      "cabinet_meeting": "First Thursday, 9:30am",
+      "precinct": "42",
+      "precinct_phone": "718-402-3887"
+    }
+  },
+  {
+    "community_board": "Community Board 4",
+    "zip_codes": "10452, 10451, 10452, 10456, 10456, 10457",
+    "location": "Bronx",
+    "neighborhoods": "Highbridge, Concourse, Mount Eden, and Concourse Village",
+    "cb_info": {
+      "address": "Bronx Community Board 4, 1650 Selwyn Avenue, #11A, Bronx, NY 10457",
+      "phone": "718-299-0800",
+      "fax": "718-294-7870",
+      "email": "bx04@cb.nyc.gov",
+      "website": "https://www1.nyc.gov/site/bronxcb4/index.page",
+      "chair": "Kathleen Saunders",
+      "district_manager": "Paul Philps",
+      "board_meeting": "Fourth Tuesday, 6:00pm",
+      "cabinet_meeting": "Third Wednesday 9:30am",
+      "precinct": "44",
+      "precinct_phone": "718-590-5511"
+    }
+  },
+  {
+    "community_board": "Community Board 5",
+    "zip_codes": "10458, 10467, 10468, 10453, 10457",
+    "location": "Bronx",
+    "neighborhoods": "Fordham, University Heights, Morris Heights, Bathgate, and Mount Hope",
+    "cb_info": {
+      "address": "Bronx Community Board 5, BCC Campus, McCracken Hall, Room 12/13, W. 181st Street at Dr. Martin Luther King, Jr. Blvd., Bronx, NY 10453",
+      "phone": "718-364-2030",
+      "fax": "718-220-1767",
+      "email": "brxcb5@optonline.net",
+      "website": "https://www1.nyc.gov/site/bronxcb5/index.page",
+      "chair": "Bola Omotosho",
+      "district_manager": "Ken Brown",
+      "board_meeting": "Fourth Wednesday, 6:00pm",
+      "cabinet_meeting": "Second Wednesday, 9:30am",
+      "precinct": "46",
+      "precinct_phone": "718-220-5211"
+    }
+  },
+  {
+    "community_board": "Community Board 6",
+    "zip_codes": "10458, 10457, 10460, 10457, 10460, 10468",
+    "location": "Bronx",
+    "neighborhoods": "Belmont, Bathgate, West Farms, East Tremont, and Bronx Park South",
+    "cb_info": {
+      "address": "Bronx Community Board 6, 1932 Arthur Avenue, Rm. 709, Bronx, NY 10457",
+      "phone": "718-579-6990",
+      "fax": "718-579-6875",
+      "email": "bronxcb6@bronxcb6.org",
+      "website": "http://bronxcb6.org/",
+      "chair": "Wendy Rodriguez",
+      "district_manager": "John Sanchez",
+      "board_meeting": "Second Wednesday, 6:30pm",
+      "cabinet_meeting": "Last Thursday, 1:00pm",
+      "precinct": "48",
+      "precinct_phone": "718-299-3900"
+    }
+  },
+  {
+    "community_board": "Community Board 7",
+    "zip_codes": "10467, 10453, 10468, 10458, 10457, 10463",
+    "location": "Bronx",
+    "neighborhoods": "Norwood, University Heights, Jerome Park, Bedford Park, Fordham, and Kingsbridge Heights",
+    "cb_info": {
+      "address": "Bronx Community Board 7, 229-A East 204th Street, Bronx, NY 10458",
+      "phone": "718-933-5650",
+      "fax": "718-933-1829",
+      "email": "info@BronxCB7.info",
+      "website": "http://www.bronxcb7.info/",
+      "chair": "Adaline Walker-Santiago",
+      "district_manager": "Andrew Sandler",
+      "board_meeting": "Third Tuesday, 6:30pm",
+      "cabinet_meeting": "Second Thursday, 10:00am",
+      "precinct": "52",
+      "precinct_phone": "718-220-5811"
+    }
+  },
+  {
+    "community_board": "Community Board 8",
+    "zip_codes": "10471, 10463, 10468",
+    "location": "Bronx",
+    "neighborhoods": "Fieldston, Kingsbridge, Kingsbridge Heights, Marble Hill, Riverdale, Spuyten Duyvil, Van Cortlandt Village",
+    "cb_info": {
+      "address": "Bronx Community Board 8, 5676 Riverdale Avenue, Bronx, NY 10471",
+      "phone": "718-884-3959",
+      "fax": "718-796-2763",
+      "email": "bx08@cb.nyc.gov",
+      "website": "http://www.nyc.gov/html/bxcb8/html/home/home.shtml",
+      "chair": "Daniel Padernacht",
+      "district_manager": "Ciara Gannon",
+      "board_meeting": "Second Tuesday, 7:30pm",
+      "cabinet_meeting": "First Tuesday, 9:30 am",
+      "precinct": "50",
+      "precinct_phone": "718-543-5700"
+    }
+  },
+  {
+    "community_board": "Community Board 9",
+    "zip_codes": "10462, 10473, 10472, 10461, 10458, 10467, 10468",
+    "location": "Bronx",
+    "neighborhoods": "Parkchester, Unionport, Soundview, Castle Hill, Bruckner, Harding Park, Bronx River and Clason Point",
+    "cb_info": {
+      "address": "Bronx Community Board 9, 1967 Turnbull Avenue, Rm. 7, Bronx, NY 10473",
+      "phone": "718-823-3034",
+      "fax": "718-823-6461",
+      "email": "bxbrd09@optonline.net",
+      "website": "https://www1.nyc.gov/site/bronxcb9/index.page",
+      "chair": "Nicholas Himidian Jr.",
+      "district_manager": "William Rivera",
+      "board_meeting": "Third Thursday, 7:00pm",
+      "cabinet_meeting": "Third Tuesday, 1:00pm",
+      "precinct": "43",
+      "precinct_phone": "718-542-0888"
+    }
+  },
+  {
+    "community_board": "Community Board 10",
+    "zip_codes": "10475, 10464, 10465, 10462, 10461",
+    "location": "Bronx",
+    "neighborhoods": "Co-op City, City Island, Spencer Estates, Throggs Neck, Country Club, Zerega, Westchester Square, Pelham Bay, Eastchester Bay, Schuylerville, Edgewater, Locust Point, and Silver Beach",
+    "cb_info": {
+      "address": "Bronx Community Board 10, 3165 East Tremont Avenue, Bronx, NY 10461",
+      "phone": "718-892-1161",
+      "fax": "718-863-6860",
+      "email": "bx10@cb.nyc.gov",
+      "website": "https://www1.nyc.gov/site/bronxcb10/index.page",
+      "chair": "Peter J. Sullivan",
+      "district_manager": "Matthew Cruz",
+      "board_meeting": "Third Thursday, 7:30pm",
+      "cabinet_meeting": "Third Tuesday, 10:00am",
+      "precinct": "45",
+      "precinct_phone": "718-822-5411"
+    }
+  },
+  {
+    "community_board": "Community Board 11",
+    "zip_codes": "10467, 10462, 10469, 10461",
+    "location": "Bronx",
+    "neighborhoods": "Allerton, Bronx Park East, Eastchester Gardens, Indian Village, Morris Park, Parkside, Pelham Gardens, Pelham Parkway, and Van Nest",
+    "cb_info": {
+      "address": "Bronx Community Board 11, 1741 Colden Avenue, Bronx, NY 10462",
+      "phone": "718-892-6262",
+      "fax": "",
+      "email": "",
+      "website": "https://www1.nyc.gov/site/bronxcb11/index.page",
+      "chair": "Anthony Vitaliano",
+      "district_manager": "Jeremy Warneke",
+      "board_meeting": "Fourth Thursday, 7:00pm",
+      "cabinet_meeting": "Third Thursday, 10:00am",
+      "precinct": "49",
+      "precinct_phone": "718-918-2000"
+    }
+  },
+  {
+    "community_board": "Community Board 12",
+    "zip_codes": "10466, 10467, 10470, 10469",
+    "location": "Bronx",
+    "neighborhoods": "Edenwald, Wakefield, Williamsbridge, Woodlawn, Fish Bay, Eastchester, Olinville, and Baychester",
+    "cb_info": {
+      "address": "Bronx Community Board 12, 4101 White Plains Road, Bronx, NY 10466",
+      "phone": "718-944-3300",
+      "fax": " 718-944-3310",
+      "email": "gtorres@cb.nyc.gov",
+      "website": "https://www1.nyc.gov/site/bronxcb12/index.page",
+      "chair": "William Hall",
+      "district_manager": "George Torres",
+      "board_meeting": "Fourth Thursday, 7:30pm",
+      "cabinet_meeting": "First Tuesday, 1pm",
+      "precinct": "47",
+      "precinct_phone": "718-920-1211"
+    }
+  }
+]
