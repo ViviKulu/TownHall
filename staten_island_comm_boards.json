@@ -1,0 +1,59 @@
+[
+  {
+    "community_board": "Community Board 1",
+    "zip_codes": "10303, 10314, 10304, 10305, 10310, 10302, 10301, ",
+    "location": "Staten Island",
+    "neighborhoods": "Arlington, Castleton Corners, Clifton, Concord, Elm Park, Fort Wadsworth, Graniteville, Grymes Hill, Livingston, Mariners Harbor, Meiers Corners, New Brighton, Port Ivory, Port Richmond, Randall Manor, Rosebank, St. George, Shore Acres, Silver Lake, Stapleton, Sunnyside, Tompkinsville, West Brighton, Westerleigh",
+    "cb_info": {
+      "address": "Staten Island Community Board 1, 1 Edgewater Plaza, Room 217, Staten Island, NY 10305",
+      "phone": "718-981-6900",
+      "fax": "718-720-1342",
+      "email": "sicb1@si.rr.com",
+      "website": "https://www1.nyc.gov/site/statenislandcb1/index.page",
+      "chair": "Nicholas Siclari",
+      "district_manager": "Joseph Carroll",
+      "board_meeting": "Second Tuesday, 8:00pm",
+      "cabinet_meeting": "Per agenda",
+      "precinct": "120",
+      "precinct_phone": "718-876-8500"
+    }
+  },
+  {
+    "community_board": "Community Board 2",
+    "zip_codes": "10305, 10314, 10305, 10306, 10304",
+    "location": "Staten Island",
+    "neighborhoods": "Arrochar, Bloomfield, Bulls Heads, Chelsea, Dongan Hills, Egbertville, Emerson Hill, Grant City, Grasmere, High Rock, Lighthouse Hill, Midland Beach, New Dorp, New Springville, Oakwood, Ocean Breeze, Old Town, Richmondtown, South Beach, Todt Hill, and Travis",
+    "cb_info": {
+      "address": "Staten Island Community Board 2, Sea View Hospital, Lou Caravone Community Service Building, 460 Brielle Avenue, Staten Island, NY 10314",
+      "phone": "718-317-3235",
+      "fax": "718-317-3251",
+      "email": "dderrico@cb.nyc.gov",
+      "website": "",
+      "chair": "Dana T. Magee",
+      "district_manager": "Debra Derrico",
+      "board_meeting": "Third Tuesday, 7:30pm",
+      "cabinet_meeting": "Per agenda",
+      "precinct": "122",
+      "precinct_phone": "718-667-2211"
+    }
+  },
+  {
+    "community_board": "Community Board 3",
+    "zip_codes": "10312, 10309, 10308, 10306, 10309, 10307",
+    "location": "Staten Island",
+    "neighborhoods": "Annadale, Arden Heights, Bay Terrace, Charleston, Eltingville, Great Kills, Greenridge, Huguenot, Pleasant Plains, Prince's Bay, Richmondtown, Richmond Valley, Rossville, Tottenville, and Woodrow",
+    "cb_info": {
+      "address": "Staten Island Community Board 3, 1243 Woodrow Road, 2nd Floor, Staten Island, N. Y. 10309",
+      "phone": "718 356-7900",
+      "fax": "718-966-9013",
+      "email": "sicb3@cb.nyc.gov",
+      "website": "http://www.nyc.gov/html/sicb3/html/home/home.shtml",
+      "chair": "Frank Morano",
+      "district_manager": "Charlene Wagner",
+      "board_meeting": "Fourth Tuesday, 7:30pm",
+      "cabinet_meeting": "To be determined",
+      "precinct": "123",
+      "precinct_phone": "718-948-9311"
+    }
+  }
+]
