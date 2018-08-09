@@ -1,17 +1,13 @@
-package com.example.vivianbabiryekulumba.townhall.fragments;
-
+package com.example.vivianbabiryekulumba.townhall.retrofit;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
@@ -26,10 +22,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class HomeFrag extends Fragment {
+public class StatRetroFitHelper extends AppCompatActivity {
 
     private static final String TAG = "MainActivity.class";
     private RecyclerView recyclerView;
@@ -37,24 +30,13 @@ public class HomeFrag extends Fragment {
     private List<CommBoard> zipCodeList;
     Context context;
 
-    public HomeFrag() {
-        // Required empty public constructor
-    }
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerView = rootView.findViewById(R.id.recyclerview);
-        getRetrofit();
-//        sendData();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_stat_retro_fit_helper);
 
-        return rootView;
-    }
+        recyclerView = findViewById(R.id.recyclerviewStat);
 
-    private void getRetrofit() {
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -62,14 +44,14 @@ public class HomeFrag extends Fragment {
 
         final NetworkService networkService = retrofit.create(NetworkService.class);
 
-        final Call<List<CommBoard>> commBoardCall = networkService.getBxCommBoardData();
+        final Call<List<CommBoard>> commBoardCall = networkService.getStatCommBoardData();
         commBoardCall.enqueue(new Callback<List<CommBoard>>() {
             @Override
             public void onResponse(@NonNull Call<List<CommBoard>> call, @NonNull Response<List<CommBoard>> response) {
                 if (response.isSuccessful()) {
                     zipCodeList = response.body();
                     recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
                     CommBoardAdapter adapter = new CommBoardAdapter(zipCodeList, context);
                     recyclerView.setAdapter(adapter);
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -84,7 +66,5 @@ public class HomeFrag extends Fragment {
                 Log.d(TAG, "onFailure: not successful");
             }
         });
-
     }
-
 }

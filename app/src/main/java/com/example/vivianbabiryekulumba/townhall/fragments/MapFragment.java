@@ -1,12 +1,20 @@
-package com.example.vivianbabiryekulumba.townhall;
+package com.example.vivianbabiryekulumba.townhall.fragments;
+
 
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
+import com.example.vivianbabiryekulumba.townhall.MainActivity;
+import com.example.vivianbabiryekulumba.townhall.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -16,21 +24,35 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     GoogleMap mGoogleMap;
     private MapView mapView;
     private Double commBoardLag;
     private Double commBoardLong;
     private String address;
+    FrameLayout frameLayout;
+
+    public MapFragment() {
+        // Required empty public constructor
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        mapView = findViewById(R.id.map);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+        mapView = rootView.findViewById(R.id.map);
         getCoordinates();
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         if (mapView != null) {
             mapView.onCreate(null);
             mapView.onResume();
@@ -38,18 +60,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        MapsInitializer.initialize(getApplicationContext());
+        MapsInitializer.initialize(getContext());
         mGoogleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
@@ -67,9 +80,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     .build();
             googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(restaurant));
         } else {
-            if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) !=
+            if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) !=
                     PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission
-                    (getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    (getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
             googleMap.setMyLocationEnabled(true);
@@ -82,10 +95,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(myLocation));
         }
 
-    }
+        }
 
     public void getCoordinates() {
-        Bundle bundle = getIntent().getExtras().getBundle("address");
+        Bundle bundle = getArguments();
         if (bundle != null) {
             commBoardLong = bundle.getDouble("long");
             commBoardLag = bundle.getDouble("lag");
@@ -93,5 +106,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("geoLocate ", address + " " + commBoardLag + ", " + commBoardLong);
         }
     }
-
 }
