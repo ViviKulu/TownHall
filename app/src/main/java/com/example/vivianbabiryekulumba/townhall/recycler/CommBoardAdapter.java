@@ -1,5 +1,6 @@
 package com.example.vivianbabiryekulumba.townhall.recycler;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -54,26 +55,83 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.precinct.setText(String.format("Precinct: %s", commBoard.getCbInfo().getPrecinct()));
         holder.precinct_phone.setText(String.format("Precinct phone: %s", commBoard.getCbInfo().getPrecinctPhone()));
 
+        //Intent of address to google maps.
         holder.address.setOnClickListener(new View.OnClickListener() {
+            Uri uri = Uri.parse(commBoard.getCbInfo().getAddress());
             @Override
             public void onClick(View view) {
-                Uri getAddressUri = Uri.parse(commBoard.getCbInfo().getAddress());
-                Log.d(TAG, "onClick: " + getAddressUri);
-                Intent mapIntent = new Intent();
-                mapIntent.putExtra("address", getAddressUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                context.startActivity(mapIntent);
-                Log.d(TAG, "onClick: " + mapIntent + getAddressUri + context);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.putExtra("address", uri);
+                context.startActivity(intent);
+                Log.d(TAG, "onClick: " + uri + intent);
             }
         });
 
-//        holder.email.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Bundle
-//            }
-//        });
-//        Log.d(TAG, "onBindViewHolder: " + zipCodeList.size());
+        //Intent of email to email services.
+        holder.email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:" + commBoard.getCbInfo().getEmail())); // only email apps should handle this
+                context.startActivity(intent);
+                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getEmail() + context);
+            }
+        });
+
+        //Intent to search for chair.
+        holder.chair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, commBoard.getCbInfo().getChair());
+                context.startActivity(intent);
+            }
+        });
+
+        //Intent to search for district manager.
+        holder.district_manager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, commBoard.getCbInfo().getChair());
+                context.startActivity(intent);
+            }
+        });
+
+
+        //Intent of phone number to call services.
+        holder.phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + commBoard.getCbInfo().getPhone()));
+                context.startActivity(intent);
+                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getPhone() + context);
+            }
+        });
+
+        //Intent of precinct phone to call services.
+        holder.precinct_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + commBoard.getCbInfo().getPrecinctPhone()));
+                context.startActivity(intent);
+                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getPrecinctPhone() + context);
+            }
+        });
+
+        //Intent of Website to external source of actual website.
+        holder.website.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri website = Uri.parse(commBoard.getCbInfo().getWebsite());
+                Intent intent = new Intent(Intent.ACTION_VIEW, website);
+                context.startActivity(intent);
+                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getWebsite() + context);
+            }
+        });
+        Log.d(TAG, "onBindViewHolder: " + zipCodeList.size());
     }
 
     @Override
