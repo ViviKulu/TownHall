@@ -8,6 +8,20 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface NetworkService {
+
     @GET("ViviKulu/TownHall/master/bx_comm_boards.json")
-    Call<List<CommBoard>> getCommBoardData();
+    Call<List<CommBoard>> getBxCommBoardData();
+
+    @GET("ViviKulu/TownHall/master/bk_comm_boards.json")
+    Call<List<CommBoard>> getBkCommBoardData();
+
+    @GET("ViviKulu/TownHall/master/man_comm_boards.json")
+    Call<List<CommBoard>> getMxCommBoardData();
+
+    @GET("ViviKulu/TownHall/master/queens_comm_boards.json")
+    Call<List<CommBoard>> getQuCommBoardData();
+
+    @GET("ViviKulu/TownHall/master/staten_island_comm_boards.json")
+    Call<List<CommBoard>> getStatCommBoardData();
+
 }
