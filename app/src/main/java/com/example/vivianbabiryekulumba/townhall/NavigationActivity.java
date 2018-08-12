@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommEventsFrag;
 import com.example.vivianbabiryekulumba.townhall.fragments.HomeFrag;
 import com.example.vivianbabiryekulumba.townhall.fragments.PetitionFrag;
-import com.example.vivianbabiryekulumba.townhall.viewpager.ViewPagerAdapter;
+import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 
 public class NavigationActivity extends AppCompatActivity {
 
