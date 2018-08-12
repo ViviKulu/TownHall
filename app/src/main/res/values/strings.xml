@@ -75,4 +75,5 @@
     <string name="brooklyn">Brooklyn</string>
     <string name="queens">Queens</string>
     <string name="staten_island">Staten Island</string>
+    <string name="submit">submit</string>
 </resources>

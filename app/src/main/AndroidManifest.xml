@@ -22,7 +22,6 @@
         android:theme="@style/AppTheme"
         android:fullBackupContent="true">
 
-        <activity android:name=".NavigationActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -45,7 +44,8 @@
         <activity android:name=".NewPetitionActivity" />
         <activity android:name=".NewEventActivity" />
         <activity android:name=".MainActivity"/>
-        <activity android:name=".onboarding.OnboardingActivity" >
+        <activity android:name=".NavigationActivity" />
+        <activity android:name=".onboarding.OnBoardingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
