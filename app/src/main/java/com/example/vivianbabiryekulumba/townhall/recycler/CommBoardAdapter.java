@@ -85,6 +85,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
                 intent.putExtra(SearchManager.QUERY, commBoard.getCbInfo().getChair());
                 context.startActivity(intent);
+                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getChair());
             }
         });
 
@@ -95,6 +96,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
                 intent.putExtra(SearchManager.QUERY, commBoard.getCbInfo().getChair());
                 context.startActivity(intent);
+                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getDistrictManager());
             }
         });
 
