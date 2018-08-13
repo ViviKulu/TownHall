@@ -12,10 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import com.example.vivianbabiryekulumba.townhall.NewPetitionActivity;
+
+import com.example.vivianbabiryekulumba.townhall.NewEventActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
-import com.example.vivianbabiryekulumba.townhall.models.Petition;
-import com.example.vivianbabiryekulumba.townhall.views.PetitionViewHolder;
+import com.example.vivianbabiryekulumba.townhall.models.Event;
+import com.example.vivianbabiryekulumba.townhall.views.EventViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.ChildEventListener;
@@ -27,14 +28,14 @@ import com.google.firebase.database.Query;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PetitionFrag extends Fragment {
+public class EventFrag extends Fragment {
 
     private static final String TAG = "EventFrag";
     RecyclerView recyclerView;
-    Button submit_petition;
+    Button submit_event;
     FirebaseRecyclerAdapter adapter;
 
-    public PetitionFrag() {
+    public EventFrag() {
         // Required empty public constructor
     }
 
@@ -42,27 +43,27 @@ public class PetitionFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_petition, container, false);
-        recyclerView = rootView.findViewById(R.id.petition_recycler_view);
-        submit_petition = rootView.findViewById(R.id.submit_pet);
-        submit_petition.setOnClickListener(new View.OnClickListener() {
+        View rootView = inflater.inflate(R.layout.fragment_event, container, false);
+        recyclerView = rootView.findViewById(R.id.event_recycler_view);
+        submit_event = rootView.findViewById(R.id.submit_event);
+        submit_event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), NewPetitionActivity.class);
+                Intent intent = new Intent(getContext(), NewEventActivity.class);
                 startActivity(intent);
             }
         });
 
         final Query query = FirebaseDatabase.getInstance()
                 .getReference()
-                .child("petition")
+                .child("event")
                 .limitToLast(50);
 
         query.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Petition petition = dataSnapshot.getValue(Petition.class);
-                Log.d(TAG, "onChildAdded: " + petition);
+                Event event = dataSnapshot.getValue(Event.class);
+                Log.d(TAG, "onChildAdded: " + event);
             }
 
             @Override
@@ -86,25 +87,25 @@ public class PetitionFrag extends Fragment {
             }
         });
 
-        FirebaseRecyclerOptions<Petition> options =
-                new FirebaseRecyclerOptions.Builder<Petition>()
-                        .setQuery(query, Petition.class)
+        FirebaseRecyclerOptions<Event> options =
+                new FirebaseRecyclerOptions.Builder<Event>()
+                        .setQuery(query, Event.class)
                         .build();
 
-        adapter = new FirebaseRecyclerAdapter<Petition, PetitionViewHolder>(options) {
+        adapter = new FirebaseRecyclerAdapter<Event, EventViewHolder>(options) {
 
             @NonNull
             @Override
-            public PetitionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.petition_item_view, parent, false);
-                return new PetitionViewHolder(view);
+                        .inflate(R.layout.event_item_view, parent, false);
+                return new EventViewHolder(view);
             }
 
             @Override
-            protected void onBindViewHolder(@NonNull PetitionViewHolder holder, int position, @NonNull Petition petition) {
-                holder.setPetition(petition);
-                Log.d(TAG, "onBindViewHolder: " + petition);
+            protected void onBindViewHolder(@NonNull EventViewHolder holder, int position, @NonNull Event event) {
+                holder.setEvent(event);
+                Log.d(TAG, "onBindViewHolder: " + event);
             }
         };
 
@@ -124,4 +125,5 @@ public class PetitionFrag extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+
 }

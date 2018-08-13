@@ -1,5 +1,6 @@
 package com.example.vivianbabiryekulumba.townhall;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ public class NewPetitionActivity extends AppCompatActivity {
     EditText newPetitionTitle;
     EditText newPetitionContent;
     Button submitPetition;
+    Button main_menu;
     private static final String TAG = "NewPetActivity.class";
 
     @Override
@@ -27,6 +29,7 @@ public class NewPetitionActivity extends AppCompatActivity {
         newPetitionTitle = findViewById(R.id.newPetitionTitle);
         newPetitionContent = findViewById(R.id.newPetitionContent);
         submitPetition = findViewById(R.id.submitPetition);
+        main_menu = findViewById(R.id.petition_main_menu);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -35,6 +38,14 @@ public class NewPetitionActivity extends AppCompatActivity {
             public void onClick(View view) {
                 writeNewPetition(newPetitionTitle.getText().toString(), newPetitionContent.getText().toString());
                 Toast.makeText(getApplicationContext(), "Submitted!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        main_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewPetitionActivity.this, NavigationActivity.class);
+                startActivity(intent);
             }
         });
     }

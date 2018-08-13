@@ -10,6 +10,7 @@
         android:layout_marginTop="65dp"
         app:cardBackgroundColor="#fff"
         app:contentPadding="15dp"
+        app:cardUseCompatPadding="true"
         app:cardCornerRadius="1dp"
         app:cardElevation="20dp"
         >
@@ -19,8 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
@@ -29,8 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
@@ -39,28 +40,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/phone_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="175dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:textColor="#000"/>
+            android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/fax_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
@@ -69,48 +70,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:textColor="#000"/>
+            android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/website_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="310dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:textColor="#000"/>
+            android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/chair_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="360dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:textColor="#000"/>
+            android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/district_manager_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="400dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:textColor="#000"/>
+            android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/board_meeting_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="450dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
@@ -119,8 +120,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="500dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
@@ -129,8 +130,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="550dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
@@ -139,11 +140,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="575dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
             android:textSize="16sp"
-            android:textColor="#000"
+            android:textColor="@color/colorPrimary"
             />
 
     </android.support.v7.widget.CardView>
