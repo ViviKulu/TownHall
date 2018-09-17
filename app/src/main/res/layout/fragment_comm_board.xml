@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/main_container"
     android:background="#fff"
-    tools:context=".fragments.HomeFrag">
+    tools:context=".fragments.CommBoardsFrag">
 
 
 </FrameLayout>

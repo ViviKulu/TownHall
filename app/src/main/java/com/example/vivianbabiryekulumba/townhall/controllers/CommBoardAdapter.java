@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.recycler;
+package com.example.vivianbabiryekulumba.townhall.controllers;
 
 import android.app.SearchManager;
 import android.content.Context;

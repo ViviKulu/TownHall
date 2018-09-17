@@ -8,9 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.vivianbabiryekulumba.townhall.fragments.CommEventsFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.HomeFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.PetitionFrag;
+import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -19,9 +17,8 @@ public class NavigationActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     ViewPager viewPager;
     MenuItem prevMenuItem;
-    HomeFrag homeFrag;
-    PetitionFrag petitionFrag;
-    CommEventsFrag commEventsFrag;
+    CommBoardsFrag commBoardsFrag;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +34,14 @@ public class NavigationActivity extends AppCompatActivity {
                         @Override
                         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                             switch (item.getItemId()) {
-                                case R.id.home_frag:
+                                case R.id.comm_boards:
                                     viewPager.setCurrentItem(0);
                                     break;
-                                case R.id.petitions:
+                                case R.id.food_dist_service:
                                     viewPager.setCurrentItem(1);
                                     break;
-                                case R.id.community_events:
-                                    viewPager.setCurrentItem(3);
+                                case R.id.volunteer_service:
+                                    viewPager.setCurrentItem(2);
                                     break;
                             }
                             return false;
@@ -76,30 +73,14 @@ public class NavigationActivity extends AppCompatActivity {
                 }
             });
 
-
-       /*  //Disable ViewPager Swipe
-       viewPager.setOnTouchListener(new View.OnTouchListener()
-        {
-            @Override
-            public boolean onTouch(View v, MotionEvent event)
-            {
-                return true;
-            }
-        });
-        */
-
             setupViewPager(viewPager);
     }
 
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        homeFrag = new HomeFrag();
-        petitionFrag = new PetitionFrag();
-        commEventsFrag = new CommEventsFrag();
-        adapter.addFragment(homeFrag);
-        adapter.addFragment(petitionFrag);
-        adapter.addFragment(commEventsFrag);
+        commBoardsFrag = new CommBoardsFrag();
+        adapter.addFragment(commBoardsFrag);
         viewPager.setAdapter(adapter);
     }
 }

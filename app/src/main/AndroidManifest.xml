@@ -41,8 +41,6 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".NewPetitionActivity" />
-        <activity android:name=".NewEventActivity" />
         <activity android:name=".MainActivity"/>
         <activity android:name=".NavigationActivity" />
         <activity android:name=".onboarding.OnBoardingActivity" >
@@ -54,11 +52,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".retrofit.BxRetroFitHelper" />
-        <activity android:name=".retrofit.BkRetroFitHelper" />
-        <activity android:name=".retrofit.MxRetroFitHelper" />
-        <activity android:name=".retrofit.QuRetroFitHelper" />
-        <activity android:name=".retrofit.StatRetroFitHelper"/>
     </application>
 
 </manifest>
