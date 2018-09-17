@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.vivianbabiryekulumba.townhall.PetitionActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 
@@ -44,6 +45,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.comm_Of_tv.setText(commBoard.getCommunityBoard());
         holder.zip_code_tv.setText(String.format("Zip codes: %s", commBoard.getZipCodes()));
         holder.address.setText(String.format("Address: %s", commBoard.getCbInfo().getAddress()));
+        holder.submit_petition.setText("Submit Petition");
         holder.phone.setText(String.format("Phone number: %s", commBoard.getCbInfo().getPhone()));
         holder.fax.setText(String.format("Fax number : %s", commBoard.getCbInfo().getFax()));
         holder.email.setText(String.format("Email: %s", commBoard.getCbInfo().getEmail()));
@@ -64,6 +66,14 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 intent.putExtra("address", uri);
                 context.startActivity(intent);
                 Log.d(TAG, "onClick: " + uri + intent);
+            }
+        });
+
+        holder.submit_petition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PetitionActivity.class);
+                context.startActivity(intent);
             }
         });
 
@@ -147,6 +157,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView comm_Of_tv;
         TextView zip_code_tv;
         TextView address;
+        TextView submit_petition;
         TextView phone;
         TextView fax;
         TextView email;
@@ -165,6 +176,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             comm_Of_tv = itemView.findViewById(R.id.comm_of_tv);
             zip_code_tv = itemView.findViewById(R.id.zip_code_tv);
             address = itemView.findViewById(R.id.address_tv);
+            submit_petition = itemView.findViewById(R.id.submit_petition);
             phone = itemView.findViewById(R.id.phone_tv);
             fax = itemView.findViewById(R.id.fax_tv);
             email = itemView.findViewById(R.id.email_tv);
