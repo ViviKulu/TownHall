@@ -1,13 +1,14 @@
 package com.example.vivianbabiryekulumba.townhall;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -19,7 +20,7 @@ import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 import java.util.Arrays;
 import java.util.List;
 
-public class NavigationActivity extends AppCompatActivity {
+public class NavigationActivity extends FragmentActivity {
 
     private static final String TAG = "NavActivity.class";
     BottomNavigationView bottomNavigationView;
@@ -46,21 +47,22 @@ public class NavigationActivity extends AppCompatActivity {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
         builder.setTitle("Select your borough");
-        builder.setItems(boroughs, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                        Bundle bundleBx = new Bundle();
-                        bundleBx.putInt("borough", boroughsList.indexOf("Bronx"));
-                        Intent intentToBX = new Intent(NavigationActivity.this, CommBoardsFrag.class);
-                        intentToBX.putExtras(bundleBx);
-                        startActivity(intentToBX);
-                        Log.d(TAG, "onClick: " + intentToBX + bundleBx);
-                        break;
+
+        for (int i = 0; i < boroughsList.size(); i++) {
+            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String currentItem = boroughsList.get(which);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("borough", currentItem);
+                    fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
+                    fragmentTransaction.commit();
                 }
-            }
-        });
+            });
+        }
 
         AlertDialog dialog = builder.create();
         dialog.show();
