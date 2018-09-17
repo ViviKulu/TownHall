@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.retrofit.BkRetroFragment;
 import com.example.vivianbabiryekulumba.townhall.retrofit.BxRetroFragment;
@@ -21,16 +20,16 @@ import com.example.vivianbabiryekulumba.townhall.retrofit.StatRetroFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFrag extends Fragment {
+public class CommBoardsFrag extends Fragment {
 
-    private static final String TAG = "MainActivity.class";
+    private static final String TAG = "CommBrdActivity.class";
     BxRetroFragment bxRetroFragment;
     BkRetroFragment bkRetroFragment;
     MxRetroFragment mxRetroFragment;
     QuRetroFragment quRetroFragment;
     StatRetroFragment statRetroFragment;
 
-    public HomeFrag() {
+    public CommBoardsFrag() {
         // Required empty public constructor
     }
 
@@ -39,7 +38,7 @@ public class HomeFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_comm_board, container, false);
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         Intent intent = getActivity().getIntent();
         String borough = intent.getStringExtra("borough");
@@ -53,6 +52,7 @@ public class HomeFrag extends Fragment {
                     fragmentTransaction.replace(R.id.main_container, bxRetroFragment);
                     fragmentTransaction.addToBackStack("last");
                     fragmentTransaction.commit();
+                    Log.d(TAG, "onCreateView: success");
                     break;
                 case "Brooklyn":
                     bkRetroFragment = new BkRetroFragment();
@@ -60,6 +60,7 @@ public class HomeFrag extends Fragment {
                     fragmentTransaction2.replace(R.id.main_container, bkRetroFragment);
                     fragmentTransaction2.addToBackStack("next");
                     fragmentTransaction2.commit();
+                    Log.d(TAG, "onCreateView: success");
                     break;
                 case "Manhattan":
                     mxRetroFragment = new MxRetroFragment();
@@ -67,6 +68,7 @@ public class HomeFrag extends Fragment {
                     fragmentTransaction3.replace(R.id.main_container, mxRetroFragment);
                     fragmentTransaction3.addToBackStack("next");
                     fragmentTransaction3.commit();
+                    Log.d(TAG, "onCreateView: success");
                     break;
                 case "Queens":
                     quRetroFragment = new QuRetroFragment();
@@ -74,6 +76,7 @@ public class HomeFrag extends Fragment {
                     fragmentTransaction4.replace(R.id.main_container, quRetroFragment);
                     fragmentTransaction4.addToBackStack("next");
                     fragmentTransaction4.commit();
+                    Log.d(TAG, "onCreateView: success");
                     break;
                 case "Staten Island":
                     statRetroFragment = new StatRetroFragment();
@@ -81,6 +84,7 @@ public class HomeFrag extends Fragment {
                     fragmentTransaction5.replace(R.id.main_container, statRetroFragment);
                     fragmentTransaction5.addToBackStack("next");
                     fragmentTransaction5.commit();
+                    Log.d(TAG, "onCreateView: success");
                     break;
             }
         }

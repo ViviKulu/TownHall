@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">TownHall</string>
     <string name="hoodsOfZipCode">consist of neighborhoods:</string>
-    <string name="petitions">Petitions</string>
+    <string name="food_dist_service">Food Dist. Services</string>
     <string name="events">Post event</string>
-    <string name="comm_events">View events</string>
+    <string name="volunteer_service">Volunteer Services</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="google_geolocation_up_soon">Google geolocation up soon!</string>
-    <string name="home">Home</string>
+    <string name="comm_boards">Community Boards</string>
     <string name="map">Map</string>
     <string name="location_for_comm_board">The location for</string>
     <string name="comm_board_is_here">\'s community board is here.</string>

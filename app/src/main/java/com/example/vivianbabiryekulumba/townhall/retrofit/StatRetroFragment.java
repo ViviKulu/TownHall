@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 import com.example.vivianbabiryekulumba.townhall.network_service.NetworkService;
-import com.example.vivianbabiryekulumba.townhall.recycler.CommBoardAdapter;
+import com.example.vivianbabiryekulumba.townhall.controllers.CommBoardAdapter;
 
 import java.util.List;
 

@@ -23,7 +23,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            />
 
         <TextView
             android:id="@+id/zip_code_tv"
@@ -39,17 +40,27 @@
             android:id="@+id/address_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="107dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
             android:textColor="@color/colorPrimary" />
 
         <TextView
+            android:id="@+id/submit_petition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/view_pager_color"/>
+
+        <TextView
             android:id="@+id/phone_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="175dp"
+            android:layout_marginTop="225dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
@@ -59,7 +70,7 @@
             android:id="@+id/fax_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="250dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
@@ -69,7 +80,7 @@
             android:id="@+id/email_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="275dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
@@ -89,7 +100,7 @@
             android:id="@+id/chair_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="360dp"
+            android:layout_marginTop="375dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
