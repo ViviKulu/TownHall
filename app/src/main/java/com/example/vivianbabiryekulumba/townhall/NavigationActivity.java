@@ -58,8 +58,10 @@ public class NavigationActivity extends FragmentActivity {
                     CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
                     Bundle bundle = new Bundle();
                     bundle.putString("borough", currentItem);
+                    commBoardsFrag.setArguments(bundle);
                     fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
                     fragmentTransaction.commit();
+                    Log.d(TAG, "onClick: " + currentItem + bundle);
                 }
             });
         }
