@@ -2,33 +2,26 @@ package com.example.vivianbabiryekulumba.townhall;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.FoodDistServFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerFrag;
 import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class NavigationActivity extends FragmentActivity {
+public class NavigationActivity extends AppCompatActivity{
 
     private static final String TAG = "NavActivity.class";
-    BottomNavigationView bottomNavigationView;
     ViewPager viewPager;
-    MenuItem prevMenuItem;
-    CommBoardsFrag commBoardsFrag;
-    FoodDistServFrag foodDistServFrag;
-    VolunteerFrag volunteerFrag;
+    private ViewPagerAdapter viewPagerAdapter;
+//    PagerTitleStrip pagerTitleStrip;
+
     String[] boroughs = new String[]{
             "Bronx",
             "Brooklyn",
@@ -44,6 +37,12 @@ public class NavigationActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
+//        pagerTitleStrip = findViewById(R.id.pager_header);
+        viewPager = findViewById(R.id.viewpager);
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
         builder.setTitle("Select your borough");
@@ -68,67 +67,14 @@ public class NavigationActivity extends FragmentActivity {
 
         AlertDialog dialog = builder.create();
         dialog.show();
-
-        viewPager = findViewById(R.id.viewpager);
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.comm_boards:
-                                viewPager.setCurrentItem(0);
-                                break;
-                            case R.id.food_dist_service:
-                                viewPager.setCurrentItem(1);
-                                break;
-                            case R.id.volunteer_service:
-                                viewPager.setCurrentItem(2);
-                                break;
-                        }
-                        return false;
-                    }
-                });
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (prevMenuItem != null) {
-                    prevMenuItem.setChecked(false);
-                } else {
-                    bottomNavigationView.getMenu().getItem(0).setChecked(false);
-                }
-                Log.d("page", "onPageSelected: " + position);
-                bottomNavigationView.getMenu().getItem(position).setChecked(true);
-                prevMenuItem = bottomNavigationView.getMenu().getItem(position);
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-        setupViewPager(viewPager);
     }
 
-
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        commBoardsFrag = new CommBoardsFrag();
-        foodDistServFrag = new FoodDistServFrag();
-        volunteerFrag = new VolunteerFrag();
-        adapter.addFragment(commBoardsFrag);
-        adapter.addFragment(foodDistServFrag);
-        adapter.addFragment(volunteerFrag);
-        viewPager.setAdapter(adapter);
+    @Override
+    public void onBackPressed() {
+        if(viewPager.getCurrentItem() == 0){
+            super.onBackPressed();
+        }else{
+            viewPager.setCurrentItem(viewPager.getCurrentItem() -1);
+        }
     }
 }
