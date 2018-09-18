@@ -33,4 +33,5 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         fragmentsList.add(fragment);
         Log.d(TAG, "addFragment: " + fragment);
     }
+
 }

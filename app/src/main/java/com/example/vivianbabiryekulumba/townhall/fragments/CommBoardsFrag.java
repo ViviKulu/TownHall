@@ -51,16 +51,20 @@ public class CommBoardsFrag extends Fragment {
                     case "Bronx":
                         bxRetroFragment = new BxRetroFragment();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+                        Bundle bundleForBronx = new Bundle();
+                        bundleForBronx.putString("borough", myBorough);
+                        commBoardsFrag.setArguments(bundle);
                         fragmentTransaction.replace(R.id.main_container, bxRetroFragment);
-                        fragmentTransaction.addToBackStack("last");
+                        fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
-                        Log.d(TAG, "onCreateView: success");
+                        Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                     case "Brooklyn":
                         bkRetroFragment = new BkRetroFragment();
                         FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
                         fragmentTransaction2.replace(R.id.main_container, bkRetroFragment);
-                        fragmentTransaction2.addToBackStack("next");
+                        fragmentTransaction2.addToBackStack(null);
                         fragmentTransaction2.commit();
                         Log.d(TAG, "onCreateView: success");
                         break;
@@ -68,7 +72,7 @@ public class CommBoardsFrag extends Fragment {
                         mxRetroFragment = new MxRetroFragment();
                         FragmentTransaction fragmentTransaction3 = fragmentManager.beginTransaction();
                         fragmentTransaction3.replace(R.id.main_container, mxRetroFragment);
-                        fragmentTransaction3.addToBackStack("next");
+                        fragmentTransaction3.addToBackStack(null);
                         fragmentTransaction3.commit();
                         Log.d(TAG, "onCreateView: success");
                         break;
@@ -76,7 +80,7 @@ public class CommBoardsFrag extends Fragment {
                         quRetroFragment = new QuRetroFragment();
                         FragmentTransaction fragmentTransaction4 = fragmentManager.beginTransaction();
                         fragmentTransaction4.replace(R.id.main_container, quRetroFragment);
-                        fragmentTransaction4.addToBackStack("next");
+                        fragmentTransaction4.addToBackStack(null);
                         fragmentTransaction4.commit();
                         Log.d(TAG, "onCreateView: success");
                         break;
@@ -84,15 +88,14 @@ public class CommBoardsFrag extends Fragment {
                         statRetroFragment = new StatRetroFragment();
                         FragmentTransaction fragmentTransaction5 = fragmentManager.beginTransaction();
                         fragmentTransaction5.replace(R.id.main_container, statRetroFragment);
-                        fragmentTransaction5.addToBackStack("next");
+                        fragmentTransaction5.addToBackStack(null);
                         fragmentTransaction5.commit();
                         Log.d(TAG, "onCreateView: success");
                         break;
                 }
             }
-
         }
         return rootView;
-
     }
+
 }
