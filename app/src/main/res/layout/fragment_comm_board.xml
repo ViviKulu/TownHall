@@ -8,6 +8,7 @@
     tools:context=".fragments.CommBoardsFrag">
 
     <TextView
+        android:id="@+id/comTvLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/comm_boards"

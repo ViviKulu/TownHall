@@ -3,15 +3,15 @@ package com.example.vivianbabiryekulumba.townhall.views;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.fragments.FoodDistServFrag;
+import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerFrag;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private static final String TAG = "ViewPagerAdapter";
-    public final List<Fragment> fragmentsList = new ArrayList<>();
+    private static int NUM_ITEMS = 3;
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -19,19 +19,27 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        Log.d(TAG, "getItem: " + position);
-        return fragmentsList.get(position);
+        switch (position){
+            case 0:
+                return CommBoardsFrag.newInstance("Community Boards");
+            case 1:
+                return FoodDistServFrag.newInstance("Food Distribution Service");
+            case 2:
+                return VolunteerFrag.newInstance("Volunteer Service");
+                default:
+                    return CommBoardsFrag.newInstance("Community Boards");
+        }
     }
 
     @Override
-    public int getCount() {
-        Log.d(TAG, "getCount: " + fragmentsList.size());
-        return fragmentsList.size();
+    public CharSequence getPageTitle(int position) {
+        return "Page " + position;
     }
 
-    public void addFragment(Fragment fragment) {
-        fragmentsList.add(fragment);
-        Log.d(TAG, "addFragment: " + fragment);
+
+    @Override
+    public int getCount() {
+        return NUM_ITEMS;
     }
 
 }

@@ -2,7 +2,6 @@ package com.example.vivianbabiryekulumba.townhall;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -11,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.FoodDistServFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerFrag;
 import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 
 import java.util.Arrays;
@@ -22,12 +19,8 @@ public class NavigationActivity extends AppCompatActivity{
 
     private static final String TAG = "NavActivity.class";
     ViewPager viewPager;
-    CommBoardsFrag commBoardsFrag;
-    FoodDistServFrag foodDistServFrag;
-    VolunteerFrag volunteerFrag;
-
-    private static final int NUM_PAGES = 3;
     private ViewPagerAdapter viewPagerAdapter;
+//    PagerTitleStrip pagerTitleStrip;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -45,19 +38,11 @@ public class NavigationActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
+//        pagerTitleStrip = findViewById(R.id.pager_header);
         viewPager = findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        viewPagerAdapter.addFragment(new CommBoardsFrag());
-        viewPagerAdapter.addFragment(new FoodDistServFrag());
-        viewPagerAdapter.addFragment(new VolunteerFrag());
-
         viewPager.setAdapter(viewPagerAdapter);
-
-        TabLayout tabLayout = findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
         builder.setTitle("Select your borough");

@@ -2,6 +2,7 @@ package com.example.vivianbabiryekulumba.townhall.fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.retrofit.BkRetroFragment;
@@ -29,16 +31,31 @@ public class CommBoardsFrag extends Fragment {
     QuRetroFragment quRetroFragment;
     StatRetroFragment statRetroFragment;
 
-    public CommBoardsFrag() {
+    private String title;
+
+    public static CommBoardsFrag newInstance(String pageTitle) {
         // Required empty public constructor
+        CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+        Bundle args = new Bundle();
+        args.putString("pageTitle", pageTitle);
+        commBoardsFrag.setArguments(args);
+        return commBoardsFrag;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        title = getArguments().getString("pageTitle");
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_comm_board, container, false);
+        View view = inflater.inflate(R.layout.fragment_comm_board, container, false);
+        TextView tvLabel = view.findViewById(R.id.comTvLabel);
+        tvLabel.setText(title);
+
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         Bundle bundle = this.getArguments();
@@ -51,10 +68,6 @@ public class CommBoardsFrag extends Fragment {
                     case "Bronx":
                         bxRetroFragment = new BxRetroFragment();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
-                        Bundle bundleForBronx = new Bundle();
-                        bundleForBronx.putString("borough", myBorough);
-                        commBoardsFrag.setArguments(bundle);
                         fragmentTransaction.replace(R.id.main_container, bxRetroFragment);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
@@ -66,7 +79,7 @@ public class CommBoardsFrag extends Fragment {
                         fragmentTransaction2.replace(R.id.main_container, bkRetroFragment);
                         fragmentTransaction2.addToBackStack(null);
                         fragmentTransaction2.commit();
-                        Log.d(TAG, "onCreateView: success");
+                        Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                     case "Manhattan":
                         mxRetroFragment = new MxRetroFragment();
@@ -74,7 +87,7 @@ public class CommBoardsFrag extends Fragment {
                         fragmentTransaction3.replace(R.id.main_container, mxRetroFragment);
                         fragmentTransaction3.addToBackStack(null);
                         fragmentTransaction3.commit();
-                        Log.d(TAG, "onCreateView: success");
+                        Log.d(TAG, "onCreateView: success"+ myBorough);
                         break;
                     case "Queens":
                         quRetroFragment = new QuRetroFragment();
@@ -82,7 +95,7 @@ public class CommBoardsFrag extends Fragment {
                         fragmentTransaction4.replace(R.id.main_container, quRetroFragment);
                         fragmentTransaction4.addToBackStack(null);
                         fragmentTransaction4.commit();
-                        Log.d(TAG, "onCreateView: success");
+                        Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                     case "Staten Island":
                         statRetroFragment = new StatRetroFragment();
@@ -90,12 +103,12 @@ public class CommBoardsFrag extends Fragment {
                         fragmentTransaction5.replace(R.id.main_container, statRetroFragment);
                         fragmentTransaction5.addToBackStack(null);
                         fragmentTransaction5.commit();
-                        Log.d(TAG, "onCreateView: success");
+                        Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                 }
             }
         }
-        return rootView;
+        return view;
     }
 
 }
