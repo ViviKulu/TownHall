@@ -23,7 +23,7 @@ import com.example.vivianbabiryekulumba.townhall.retrofit.StatRetroFragment;
  */
 public class CommBoardsFrag extends Fragment {
 
-    private static final String TAG = "CommBrdActivity.class";
+    private static final String TAG = "CommBrdFrag";
 
     BxRetroFragment bxRetroFragment;
     BkRetroFragment bkRetroFragment;
@@ -102,5 +102,4 @@ public class CommBoardsFrag extends Fragment {
         }
         return view;
     }
-
 }

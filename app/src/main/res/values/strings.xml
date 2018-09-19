@@ -70,7 +70,7 @@
         functionality.</string>
     <string name="settings">Settings</string>
     <string name="search_locations">Search locations</string>
-    <string name="enter_your_borough">Enter your borough</string>
+    <string name="enter_your_borough">Enter your borough_name</string>
     <string name="bronx">Bronx</string>
     <string name="brooklyn">Brooklyn</string>
     <string name="queens">Queens</string>
