@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.controllers.VolunteerAdapter;
@@ -42,16 +41,16 @@ public class VolunteerFrag extends Fragment {
     public static VolunteerFrag newInstance(String pageTitle) {
         // Required empty public constructor
         VolunteerFrag volunteerFrag = new VolunteerFrag();
-        Bundle args = new Bundle();
-        args.putString("pageTitle", pageTitle);
-        volunteerFrag.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putString("pageTitle", pageTitle);
+//        volunteerFrag.setArguments(args);
         return volunteerFrag;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        title = getArguments().getString("pageTitle");
+//        title = getArguments().getString("pageTitle");
     }
 
     @Override
@@ -59,8 +58,8 @@ public class VolunteerFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_volunteer, container, false);
-        TextView tvLabel = view.findViewById(R.id.volTvLabel);
-        tvLabel.setText(title);
+//        TextView tvLabel = view.findViewById(R.id.volTvLabel);
+//        tvLabel.setText(title);
         recyclerView = view.findViewById(R.id.vol_recyclerview);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://data.cityofnewyork.us/")

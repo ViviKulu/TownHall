@@ -31,9 +31,19 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         }
     }
 
+
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Page " + position;
+        switch (position) {
+            case 0:
+                return "Community Boards";
+            case 1:
+                return "Food Distribution Service";
+            case 2:
+                return "Volunteer Service";
+            default:
+                return "Community Boards";
+        }
     }
 
 

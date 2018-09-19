@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +21,7 @@ public class NavigationActivity extends AppCompatActivity{
     private static final String TAG = "NavActivity.class";
     ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
-//    PagerTitleStrip pagerTitleStrip;
+    PagerTabStrip pagerTabStrip;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -38,12 +39,16 @@ public class NavigationActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
-//        pagerTitleStrip = findViewById(R.id.pager_header);
+        pagerTabStrip = findViewById(R.id.pager_header);
         viewPager = findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
+        buildAlertDialog();
+    }
 
+
+    public void buildAlertDialog(){
         final AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
         builder.setTitle("Select your borough");
 
@@ -59,6 +64,7 @@ public class NavigationActivity extends AppCompatActivity{
                     bundle.putString("borough", currentItem);
                     commBoardsFrag.setArguments(bundle);
                     fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
+                    fragmentTransaction.addToBackStack(currentItem);
                     fragmentTransaction.commit();
                     Log.d(TAG, "onClick: " + currentItem + bundle);
                 }
@@ -67,14 +73,5 @@ public class NavigationActivity extends AppCompatActivity{
 
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if(viewPager.getCurrentItem() == 0){
-            super.onBackPressed();
-        }else{
-            viewPager.setCurrentItem(viewPager.getCurrentItem() -1);
-        }
     }
 }

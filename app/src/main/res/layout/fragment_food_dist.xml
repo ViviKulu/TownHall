@@ -6,16 +6,16 @@
     android:background="#fff"
     tools:context=".fragments.FoodDistServFrag">
 
-    <TextView
-        android:id="@+id/FdTvLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/food_dist_service"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginLeft="90dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/FdTvLabel"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/food_dist_service"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="#000"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginStart="90dp"-->
+        <!--android:layout_marginLeft="90dp" />-->
 
 </FrameLayout>
