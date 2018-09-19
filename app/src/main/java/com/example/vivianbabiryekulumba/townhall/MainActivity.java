@@ -11,6 +11,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationProviderClient;
     private static double currentLongitude;
     private static double currentLatitude;
+
 
     public static double getCurrentLongitude() {
         return currentLongitude;

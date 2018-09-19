@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/comm_boards"
-        android:checked="true"
-        android:icon="@drawable/home"
-        android:title="@string/comm_boards"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/food_dist_service"
-        android:checked="true"
-        android:icon="@drawable/board_review"
-        android:title="@string/food_dist_service"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/volunteer_service"
-        android:checked="false"
-        android:icon="@drawable/comm_events"
-        android:title="@string/volunteer_service"
-        app:showAsAction="ifRoom" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:visible="true">
+        <item
+            android:id="@+id/nav_camera"
+            android:title="View petitions" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:title="Favorite Volunteer Opportunities" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:title="Sign into profile" />
+    </group>
 </menu>
