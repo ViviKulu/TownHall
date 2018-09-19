@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.retrofit.BkRetroFragment;
@@ -36,16 +35,16 @@ public class CommBoardsFrag extends Fragment {
     public static CommBoardsFrag newInstance(String pageTitle) {
         // Required empty public constructor
         CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
-        Bundle args = new Bundle();
-        args.putString("pageTitle", pageTitle);
-        commBoardsFrag.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putString("pageTitle", pageTitle);
+//        commBoardsFrag.setArguments(args);
         return commBoardsFrag;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        title = getArguments().getString("pageTitle");
+//        title = getArguments().getString("pageTitle");
     }
 
     @Override
@@ -53,8 +52,8 @@ public class CommBoardsFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_comm_board, container, false);
-        TextView tvLabel = view.findViewById(R.id.comTvLabel);
-        tvLabel.setText(title);
+//        TextView tvLabel = view.findViewById(R.id.comTvLabel);
+//        tvLabel.setText(title);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
@@ -110,5 +109,7 @@ public class CommBoardsFrag extends Fragment {
         }
         return view;
     }
+
+
 
 }
