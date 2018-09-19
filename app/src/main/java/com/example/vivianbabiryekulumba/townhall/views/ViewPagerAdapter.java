@@ -21,13 +21,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return CommBoardsFrag.newInstance("Community Boards");
+                return CommBoardsFrag.newInstance();
             case 1:
-                return FoodDistServFrag.newInstance("Food Distribution Service");
+                return FoodDistServFrag.newInstance();
             case 2:
-                return VolunteerFrag.newInstance("Volunteer Service");
+                return VolunteerFrag.newInstance();
                 default:
-                    return CommBoardsFrag.newInstance("Community Boards");
+                    return CommBoardsFrag.newInstance();
         }
     }
 
