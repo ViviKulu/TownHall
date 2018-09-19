@@ -2,13 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <group android:visible="true">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_home"
+            android:title="Home" />
+        <!-- Home is the community boards frag-->
+        <item
+            android:id="@+id/nav_petitions"
             android:title="View petitions" />
+        <!--Petitions is the petition frag-->
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_opportunities"
             android:title="Favorite Volunteer Opportunities" />
+        <!--Favorite is the fav_vol_opp frag-->
         <item
-            android:id="@+id/nav_slideshow"
-            android:title="Sign into profile" />
+            android:id="@+id/nav_profile"
+            android:title="Login to profile" />
+
+        <!--Profile is the user profile frag-->
     </group>
 </menu>

@@ -1,7 +1,10 @@
 package com.example.vivianbabiryekulumba.townhall;
 
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -18,17 +21,20 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.fragments.PetitionListFrag;
+import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerListFrag;
 import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class NavigationActivity extends AppCompatActivity{
+public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "NavActivity.class";
     ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     PagerTabStrip pagerTabStrip;
+    NavigationView navigationView;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -55,6 +61,7 @@ public class NavigationActivity extends AppCompatActivity{
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setDisplayShowTitleEnabled(false);
         actionbar.setHomeAsUpIndicator(R.drawable.list_white);
+        setNavigationViewListner();
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
@@ -80,22 +87,7 @@ public class NavigationActivity extends AppCompatActivity{
                 }
         );
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        // set item as selected to persist highlight
-                        menuItem.setChecked(true);
-                        // close drawer when item is tapped
-                        mDrawerLayout.closeDrawers();
-
-                        // Add code here to update the UI based on the item selected
-                        // For example, swap UI fragments here
-
-                        return true;
-                    }
-                });
+        navigationView = findViewById(R.id.nav_view);
 
         pagerTabStrip = findViewById(R.id.pager_header);
         viewPager = findViewById(R.id.viewpager);
@@ -142,5 +134,55 @@ public class NavigationActivity extends AppCompatActivity{
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void setNavigationViewListner() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        assert navigationView != null;
+        navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        // set item as selected to persist highlight
+        menuItem.setChecked(true);
+        // close drawer when item is tapped
+        mDrawerLayout.closeDrawers();
+
+        // Add code here to update the UI based on the item selected
+        // For example, swap UI fragments here
+
+        Log.d(TAG, "onNavigationItemSelected: made it to onNavItemSelected");
+
+        int id = menuItem.getItemId();
+
+        if(id == R.id.nav_home){
+            CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.main_container,commBoardsFrag,"CommBrdFrag");
+            transaction.addToBackStack(null);
+            transaction.commit();
+            buildAlertDialog();
+        }else if(id == R.id.nav_petitions) {
+            PetitionListFrag petitionListFrag = new PetitionListFrag();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.main_container, petitionListFrag, "PetitionListFrag");
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }else if(id == R.id.nav_opportunities) {
+            VolunteerListFrag volunteerListFrag = new VolunteerListFrag();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.main_container, volunteerListFrag, "VolunteerListFrag");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }else if(id == R.id.nav_profile){
+            //Build alert dialog to log in to profile
+        }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
