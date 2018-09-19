@@ -6,6 +6,8 @@
     "neighborhoods": "Mott Haven, Port Morris, Melrose",
     "cb_info": {
       "address": "Bronx Community Board 1, 3024 Third Avenue, Bronx, NY 10455",
+      "latitude":"40.819476",
+      "longitude":"-73.913206",
       "phone": "718-585-7117",
       "fax": "718-292-0558",
       "email": "brxcb1@optonline.net",
@@ -25,6 +27,8 @@
     "neighborhoods": "Hunts Point, Longwood, Morrisania",
     "cb_info": {
       "address": "Bronx Community Board 2, 1029 E. 163rd Street, Suite 202, Bronx, NY 10459",
+      "latitude":"40.821129",
+      "longitude":"-73.892097",
       "phone": "718-328-9125 / 718-328-9126",
       "fax": "718-991-4974",
       "email": "brxcb2@optonline.net",
@@ -44,6 +48,8 @@
     "neighborhoods": "Crotona Park, Claremont Village, Concourse Village, Woodstock, and Morrisania",
     "cb_info": {
       "address": "Bronx Community Board 3, 1426 Boston Road, Bronx, NY 10456",
+      "latitude":"40.833169",
+      "longitude":"-73.896798",
       "phone": "718-378-8054",
       "fax": "718-378-8188",
       "email": "Brxcomm3@optonline.net",
@@ -63,6 +69,8 @@
     "neighborhoods": "Highbridge, Concourse, Mount Eden, and Concourse Village",
     "cb_info": {
       "address": "Bronx Community Board 4, 1650 Selwyn Avenue, #11A, Bronx, NY 10457",
+      "latitude":"40.843392",
+      "longitude":"-73.910068",
       "phone": "718-299-0800",
       "fax": "718-294-7870",
       "email": "bx04@cb.nyc.gov",
@@ -82,6 +90,8 @@
     "neighborhoods": "Fordham, University Heights, Morris Heights, Bathgate, and Mount Hope",
     "cb_info": {
       "address": "Bronx Community Board 5, BCC Campus, McCracken Hall, Room 12/13, W. 181st Street at Dr. Martin Luther King, Jr. Blvd., Bronx, NY 10453",
+      "latitude":"40.857488",
+      "longitude":"-73.909653",
       "phone": "718-364-2030",
       "fax": "718-220-1767",
       "email": "brxcb5@optonline.net",
@@ -101,6 +111,8 @@
     "neighborhoods": "Belmont, Bathgate, West Farms, East Tremont, and Bronx Park South",
     "cb_info": {
       "address": "Bronx Community Board 6, 1932 Arthur Avenue, Rm. 709, Bronx, NY 10457",
+      "latitude":"40.845803",
+      "longitude":"-73.892854",
       "phone": "718-579-6990",
       "fax": "718-579-6875",
       "email": "bronxcb6@bronxcb6.org",
@@ -120,6 +132,8 @@
     "neighborhoods": "Norwood, University Heights, Jerome Park, Bedford Park, Fordham, and Kingsbridge Heights",
     "cb_info": {
       "address": "Bronx Community Board 7, 229-A East 204th Street, Bronx, NY 10458",
+      "latitude":"40.874530",
+      "longitude":"-73.885044",
       "phone": "718-933-5650",
       "fax": "718-933-1829",
       "email": "info@BronxCB7.info",
@@ -139,6 +153,8 @@
     "neighborhoods": "Fieldston, Kingsbridge, Kingsbridge Heights, Marble Hill, Riverdale, Spuyten Duyvil, Van Cortlandt Village",
     "cb_info": {
       "address": "Bronx Community Board 8, 5676 Riverdale Avenue, Bronx, NY 10471",
+      "latitude":"40.906221",
+      "longitude":"-73.903969",
       "phone": "718-884-3959",
       "fax": "718-796-2763",
       "email": "bx08@cb.nyc.gov",
@@ -158,6 +174,8 @@
     "neighborhoods": "Parkchester, Unionport, Soundview, Castle Hill, Bruckner, Harding Park, Bronx River and Clason Point",
     "cb_info": {
       "address": "Bronx Community Board 9, 1967 Turnbull Avenue, Rm. 7, Bronx, NY 10473",
+      "latitude":"40.823532",
+      "longitude":"-73.856702",
       "phone": "718-823-3034",
       "fax": "718-823-6461",
       "email": "bxbrd09@optonline.net",
@@ -177,6 +195,8 @@
     "neighborhoods": "Co-op City, City Island, Spencer Estates, Throggs Neck, Country Club, Zerega, Westchester Square, Pelham Bay, Eastchester Bay, Schuylerville, Edgewater, Locust Point, and Silver Beach",
     "cb_info": {
       "address": "Bronx Community Board 10, 3165 East Tremont Avenue, Bronx, NY 10461",
+      "latitude":"40.837485",
+      "longitude":"-73.834072",
       "phone": "718-892-1161",
       "fax": "718-863-6860",
       "email": "bx10@cb.nyc.gov",
@@ -196,6 +216,8 @@
     "neighborhoods": "Allerton, Bronx Park East, Eastchester Gardens, Indian Village, Morris Park, Parkside, Pelham Gardens, Pelham Parkway, and Van Nest",
     "cb_info": {
       "address": "Bronx Community Board 11, 1741 Colden Avenue, Bronx, NY 10462",
+      "latitude":"40.847745",
+      "longitude":"-73.856216",
       "phone": "718-892-6262",
       "fax": "",
       "email": "",
@@ -215,6 +237,8 @@
     "neighborhoods": "Edenwald, Wakefield, Williamsbridge, Woodlawn, Fish Bay, Eastchester, Olinville, and Baychester",
     "cb_info": {
       "address": "Bronx Community Board 12, 4101 White Plains Road, Bronx, NY 10466",
+      "latitude":"40.890959",
+      "longitude":"-73.859136",
       "phone": "718-944-3300",
       "fax": " 718-944-3310",
       "email": "gtorres@cb.nyc.gov",
