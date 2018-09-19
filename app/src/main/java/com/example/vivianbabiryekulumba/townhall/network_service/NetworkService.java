@@ -1,6 +1,7 @@
 package com.example.vivianbabiryekulumba.townhall.network_service;
 
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
+import com.example.vivianbabiryekulumba.townhall.models.VolunteerDetails;
 
 import java.util.List;
 
@@ -23,5 +24,8 @@ public interface NetworkService {
 
     @GET("ViviKulu/TownHall/master/staten_island_comm_boards.json")
     Call<List<CommBoard>> getStatCommBoardData();
+
+    @GET("id/n4ac-3636.json")
+    Call<List<VolunteerDetails>> getVolunteerDetailsData();
 
 }
