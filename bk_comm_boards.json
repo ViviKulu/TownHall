@@ -6,6 +6,8 @@
     "neighborhoods": "Flushing Avenue, Williamsburg, Greenpoint, Northside, and Southside",
     "cb_info": {
       "address": "Brooklyn Community Board 1, 435 Graham Avenue, Brooklyn, NY 11211",
+      "latitude": "40.718181",
+      "longitude": "-73.945190",
       "phone": "718-389-0009",
       "fax": "718-389-0098",
       "email": "bk01@cb.nyc.gov",
@@ -25,6 +27,8 @@
     "neighborhoods": "Brooklyn Heights, Fulton Mall, Boerum Hill, Fort Greene, Brooklyn Navy Yard, Fulton Ferry, and Clinton Hill",
     "cb_info": {
       "address": "Brooklyn Community Board 2, 350 Jay Street, 8th Floor, Brooklyn, NY 11201",
+      "latitude": "40.693584",
+      "longitude": "-73.987865",
       "phone": "718-596-5410",
       "fax": "718-852-1461",
       "email": "cb2k@nyc.rr.com",
@@ -44,6 +48,8 @@
     "neighborhoods": "Bedford-Stuyvesant, Stuyvesant Heights, and Ocean Hill",
     "cb_info": {
       "address": "Brooklyn Community Board 3, 1360 Fulton Street, Brooklyn, NY 11216",
+      "latitude":"40.680007",
+      "longitude":"-73.946596",
       "phone": "718-622-6601",
       "fax": "718-857-5774",
       "email": "bk03@cb.nyc.gov",
@@ -63,6 +69,8 @@
     "neighborhoods": "Bushwick",
     "cb_info": {
       "address": "Brooklyn Community Board 4, 1420 Bushwick Avenue, Suite 370, Brooklyn, NY 11207-1422",
+      "latitude":"40.684179",
+      "longitude":"-73.909227",
       "phone": "718-628-8400",
       "fax": "718-628-8619",
       "email": "bk04@cb.nyc.gov",
@@ -82,6 +90,8 @@
     "neighborhoods": "East New York, Cypress Hills, Highland Park, New Lots, City Line, Starrett City, and Ridgewood",
     "cb_info": {
       "address": "Brooklyn Community Board 5, 404 Pine Street, 3rd Floor, Brooklyn, New York 11208",
+      "latitude":"40.675718",
+      "longitude":"-73.871541",
       "phone": "929-221-8261",
       "fax": "718-827-7374",
       "email": "BK05@cb.nyc.gov",
@@ -101,6 +111,8 @@
     "neighborhoods": "Red Hook, Carroll Gardens, Park Slope, Gowanus, and Cobble Hill",
     "cb_info": {
       "address": "Brooklyn Community Board 6, 250 Baltic Street, Brooklyn, NY 11201",
+      "latitude":"40.686079",
+      "longitude":"-73.994802",
       "phone": "718-643-3027",
       "fax": "718-624-8410",
       "email": "info@brooklyncb6.org",
@@ -120,6 +132,8 @@
     "neighborhoods": "Sunset Park and Windsor Terrace",
     "cb_info": {
       "address": "Brooklyn Community Board 7, 4201 4th Avenue, Brooklyn, NY 11232",
+      "latitude":"40.650526",
+      "longitude":"-74.007932",
       "phone": "718-854-0003",
       "fax": "718-436-1142",
       "email": "bk07@cb.nyc.gov",
@@ -139,6 +153,8 @@
     "neighborhoods": "Crown Heights, Prospect Heights, and Weeksville",
     "cb_info": {
       "address": "Brooklyn Community Board 8, 1291 St. Marks Avenue, Brooklyn, NY 11213",
+      "latitude":"40.674045",
+      "longitude":"-73.926068",
       "phone": "718-467-5574",
       "fax": "718-778-2979",
       "email": "info@brooklyncb8.org",
@@ -158,6 +174,8 @@
     "neighborhoods": "Crown Heights, Prospect Lefferts Gardens, and Wingate",
     "cb_info": {
       "address": "Brooklyn Community Board 9, 890 Nostrand Avenue, Brooklyn, NY 11225",
+      "latitude":"40.667633",
+      "longitude":"-73.950963",
       "phone": "718-778-9279",
       "fax": "718-467-0994",
       "email": "bk09@cb.nyc.gov",
@@ -177,6 +195,8 @@
     "neighborhoods": "Bay Ridge, Dyker Heights, and Fort Hamilton",
     "cb_info": {
       "address": "Brooklyn Community Board 10, 8119 5th Avenue, Brooklyn, New York 11209",
+      "latitude":"40.624493",
+      "longitude":"-74.024376",
       "phone": "718-745-6827",
       "fax": "718-836-2447",
       "email": "communitybd10@nyc.rr.com",
@@ -196,6 +216,8 @@
     "neighborhoods": "Bath Beach, Gravesend, Mapleton, and Bensonhurst",
     "cb_info": {
       "address": "Brooklyn Community Board 11, 2214 Bath Avenue, Brooklyn, NY 11214",
+      "latitude":"40.598129",
+      "longitude":"-73.997006",
       "phone": "718-266-8800",
       "fax": "718-266-8821",
       "email": "info@brooklyncb11.org",
@@ -215,6 +237,8 @@
     "neighborhoods": "Boro Park, Kensington, Ocean Parkway, and Midwood",
     "cb_info": {
       "address": "Brooklyn Community Board 12, 5910 13th Avenue, Brooklyn, NY 11219",
+      "latitude":"40.629272",
+      "longitude":"-73.998373",
       "phone": "718-851-0800",
       "fax": "718-851-4140",
       "email": "BKCB12@gmail.com",
@@ -234,6 +258,8 @@
     "neighborhoods": "Coney Island, Brighton Beach, Bensonhurst, Gravesend, and Seagate",
     "cb_info": {
       "address": "Brooklyn Community Board 13, 1201 Surf Avenue, 3rd Floor, Brooklyn, NY 11224",
+      "latitude":"40.575759",
+      "longitude":"-73.979812",
       "phone": "718-266-3001",
       "fax": "718-266-3920",
       "email": "",
@@ -253,6 +279,8 @@
     "neighborhoods": "Flatbush, Midwood, Kensington, and Ocean Parkway",
     "cb_info": {
       "address": "Brooklyn Community Board 14, 810 East 16th Street, Brooklyn, NY 11230-3010",
+      "latitude":"40.629737",
+      "longitude":"-73.961508",
       "phone": "718-859-6357",
       "fax": "718-421-6077",
       "email": "info@cb14brooklyn.com",
@@ -272,6 +300,8 @@
     "neighborhoods": "Sheepshead Bay, Manhattan Beach, Kings Bay, Gerritsen Beach, Kings Highway, East Gravesend, Madison, Homecrest, and Plum Beach",
     "cb_info": {
       "address": "Brooklyn Community Board 15, Kingsboro Community College, 2001 Oriental Boulevard, C Cluster, Room C124, Brooklyn, NY 11235",
+      "latitude":"40.580602",
+      "longitude":"-73.933687",
       "phone": "718-332-3008",
       "fax": "718-648-7232",
       "email": "bklcb15@verizon.net",
@@ -291,6 +321,8 @@
     "neighborhoods": "Brownsville and Ocean Hill",
     "cb_info": {
       "address": "Brooklyn Community Board 16, 444 Thomas Boyland Street, Rm. 103, Brooklyn, NY 11212",
+      "latitude":"40.669888",
+      "longitude":"-73.914075",
       "phone": "718-385-0323",
       "fax": "718-342-6714",
       "email": "bk16@cb.nyc.gov",
@@ -310,6 +342,8 @@
     "neighborhoods": "East Flatbush, Remsen Village, Farragut, Rugby, Erasmus and Ditmas Village",
     "cb_info": {
       "address": "Brooklyn Community Board 17, 4112 Farragut Road, Brooklyn, New York 11210",
+      "latitude":"40.636838",
+      "longitude":"-73.937328",
       "phone": "718-434-3461",
       "fax": "718-467-4113",
       "email": "bk17@cb.nyc.gov",
@@ -329,6 +363,8 @@
     "neighborhoods": "Canarsie, Bergen Beach, Mill Basin, Flatlands, Marine Park, Georgetown, and Mill Island",
     "cb_info": {
       "address": "Brooklyn Community Board 18, 1097 Bergen Avenue, Brooklyn, NY 11234-4841",
+      "latitude":"40.628679",
+      "longitude":"-73.915882",
       "phone": "718-241-0422",
       "fax": "718-531-3199",
       "email": "bkbrd18@optonline.net",
