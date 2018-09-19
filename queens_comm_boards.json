@@ -6,6 +6,8 @@
     "neighborhoods": "Astoria, Old Astoria, Long Island City, Queensbridge, Ditmars, Ravenswood, Steinway, Garden Bay, and Woodside",
     "cb_info": {
       "address": "Queens Community Board 1, 45-02 Ditmars Boulevard, LL Suite 125, Astoria, NY 11105",
+      "latitude":"40.770160",
+      "longitude":"-73.903309",
       "phone": "718-626-1021",
       "fax": "718-626-1072",
       "email": "qn01@cb.nyc.gov",
@@ -25,6 +27,8 @@
     "neighborhoods": "Long Island City, Woodside, and Sunnyside",
     "cb_info": {
       "address": "Queens Community Board 2, 43-22 50th Street, Woodside, NY 11377",
+      "latitude":"40.743837",
+      "longitude":"-73.915131",
       "phone": "718-533-8773",
       "fax": "718-533-8777",
       "email": "qn02@cb.nyc.gov",
@@ -44,6 +48,8 @@
     "neighborhoods": "Jackson Heights, East Elmhurst, North Corona, and La Guardia Airport",
     "cb_info": {
       "address": "Queens Community Board 3, 82-11 37th Avenue, Suite 606, Jackson Heights, NY 11372",
+      "latitude":"40.750020,
+      "longitude":"-73.883880",
       "phone": "718-458-2707",
       "fax": "718-458-3316",
       "email": "communityboard3@nyc.rr.com",
@@ -63,6 +69,8 @@
     "neighborhoods": "Corona, Corona Heights, Elmhurst, and Newtown",
     "cb_info": {
       "address": "Queens Community Board 4, 46-11 104th Street, Corona, NY 11368",
+      "latitude":"40.746111",
+      "longitude":"-73.859483",
       "phone": "718-760-3141",
       "fax": "718-760-5971",
       "email": "QN04@cb.nyc.gov",
@@ -82,6 +90,8 @@
     "neighborhoods": "Ridgewood, Glendale, Middle Village, Maspeth, and Liberty Park",
     "cb_info": {
       "address": "Queens Community Board 5, 61-23 Myrtle Avenue, Glendale, NY 11385",
+      "latitude":"40.701097",
+      "longitude":"-73.893336",
       "phone": "718.366.1834",
       "fax": "718.417.5799",
       "email": "qnscb5@nyc.rr.com",
@@ -101,6 +111,8 @@
     "neighborhoods": "Forest Hills and Rego Park",
     "cb_info": {
       "address": "Queens Community Board 6, 104-01 Metropolitan Avenue, Forest Hills, NY 11375",
+      "latitude":"40.710298",
+      "longitude":"-73.848788",
       "phone": "718-263-9250",
       "fax": "718-263-2211",
       "email": "cb6q@nyc.rr.com",
@@ -120,6 +132,8 @@
     "neighborhoods": "Flushing, Bay Terrace, College Point, Whitestone, Malba, Beechhurst, Queensboro Hill, and Willets Point",
     "cb_info": {
       "address": "Queens Community Board 7, 133-32 41st Road - Suite 3B, Flushing, NY 11355",
+      "latitude":"40.756848",
+      "longitude":"-73.830073",
       "phone": "718-359-2800",
       "fax": "718-463-3891",
       "email": "qn07@cb.nyc.gov",
@@ -139,6 +153,8 @@
     "neighborhoods": "Fresh Meadows, Cunningham Heights, Hilltop Village, Pomonak Houses, Fresh Meadows, Jamaica Estates, Holliswood, Flushing South, Utopia, Kew Gardens Hills, and Briarwood",
     "cb_info": {
       "address": "Queens Community Board 8, 197-15 Hillside Avenue, Hollis, NY 11423",
+      "latitude":"40.718746",
+      "longitude":"-73.765125",
       "phone": "718-264-7895",
       "fax": "718-264-7910",
       "email": "qn08@cb.nyc.gov",
@@ -158,6 +174,8 @@
     "neighborhoods": "Richmond Hill, Woodhaven, Ozone Park, and Kew Gardens",
     "cb_info": {
       "address": "Queens Community Board 9, Queens Borough Hall, 120-55 Queens Boulevard, Rm. 310A, Kew Gardens, NY 11424",
+      "latitude":"40.713716",
+      "longitude":"-73.828156",
       "phone": "718-286-2686",
       "fax": "718-286-2685",
       "email": "communitybd9@nyc.rr.com",
@@ -177,6 +195,8 @@
     "neighborhoods": "Howard Beach, Ozone Park, South Ozone Park, Richmond Hill, Tudor Village, and Lindenwood",
     "cb_info": {
       "address": "Queens Community Board 10, 115-01 Lefferts Boulevard, South Ozone Park, NY 11420",
+      "latitude":"40.676897",
+      "longitude":"-73.819345",
       "phone": "718-843-4488",
       "fax": "718-738-1184",
       "email": "cb10qns@nyc.rr.com",
@@ -196,6 +216,8 @@
     "neighborhoods": "Bayside, Douglaston, Little Neck, Auburndale, East Flushing, Oakland Gardens, and Hollis Hills",
     "cb_info": {
       "address": "Queens Community Board 11, 46-21 Little Neck Parkway, Little Neck, NY 11362",
+      "latitude":"40.770467",
+      "longitude":"-73.733604",
       "phone": "718-225-1054",
       "fax": "718-225-4514",
       "email": "cb11q@nyc.rr.com",
@@ -215,6 +237,8 @@
     "neighborhoods": "Jamaica, Hollis, St. Albans, Springfield Gardens, Baisley Park, Rochdale Village, and South Jamaica",
     "cb_info": {
       "address": "Queens Community Board 12, 90-28 161st Street, Jamaica, NY 11432",
+      "latitude":"40.704546",
+      "longitude":"-73.799107",
       "phone": "718-658-3308",
       "fax": "718-739-6997",
       "email": "qn12@cb.nyc.gov",
@@ -234,6 +258,8 @@
     "neighborhoods": "Queens Village, Glen Oaks, New Hyde Park, Bellerose, Cambria Heights, Laurelton, Rosedale, Floral Park, and Brookville",
     "cb_info": {
       "address": "Queens Community Board 13, Queens Reform Church, 219-41 Jamaica Avenue, Queens Village, NY 11428",
+      "latitude":"40.718973",
+      "longitude":"-73.735030",
       "phone": "718-464-9700",
       "fax": "718-264-2739",
       "email": "mmcmillan@qcb13.org",
@@ -253,6 +279,8 @@
     "neighborhoods": "Breezy Point, Belle Harbor, Broad Channel, Neponsit, Arverne, Bayswater, Edgemere, Rockaway Park, Rockaway and Far Rockaway",
     "cb_info": {
       "address": "Queens Community Board 14, 1931 Mott Avenue, Far Rockaway, NY 11691",
+      "latitude":"40.603940",
+      "longitude":"-73.752704",
       "phone": "718-471-7300",
       "fax": "718-868-2657",
       "email": "cbrock14@nyc.rr.com",
