@@ -33,24 +33,19 @@ import static android.support.constraint.Constraints.TAG;
  */
 public class VolunteerFrag extends Fragment {
 
-    private String title;
     RecyclerView recyclerView;
     List<VolunteerDetails> volunteerDetailsList;
     Context context;
 
-    public static VolunteerFrag newInstance(String pageTitle) {
+    public static VolunteerFrag newInstance() {
         // Required empty public constructor
         VolunteerFrag volunteerFrag = new VolunteerFrag();
-//        Bundle args = new Bundle();
-//        args.putString("pageTitle", pageTitle);
-//        volunteerFrag.setArguments(args);
         return volunteerFrag;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        title = getArguments().getString("pageTitle");
     }
 
     @Override
@@ -58,8 +53,6 @@ public class VolunteerFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_volunteer, container, false);
-//        TextView tvLabel = view.findViewById(R.id.volTvLabel);
-//        tvLabel.setText(title);
         recyclerView = view.findViewById(R.id.vol_recyclerview);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://data.cityofnewyork.us/")
