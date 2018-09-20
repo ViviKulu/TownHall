@@ -20,4 +20,12 @@ public class Borough {
     public void setBorough_name(String borough_name) {
         this.borough_name = borough_name;
     }
+
+    public int getBorough_id() {
+        return borough_id;
+    }
+
+    public void setBorough_id(int borough_id) {
+        this.borough_id = borough_id;
+    }
 }

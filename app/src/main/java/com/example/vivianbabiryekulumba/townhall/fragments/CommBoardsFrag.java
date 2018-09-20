@@ -63,6 +63,8 @@ public class CommBoardsFrag extends Fragment {
                         fragmentTransaction.replace(R.id.main_container, bxRetroFragment);
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
+                        Bundle bxBundle = new Bundle();
+                        bxBundle.putString("bxFrag", bxRetroFragment.toString());
                         Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                     case "Brooklyn":

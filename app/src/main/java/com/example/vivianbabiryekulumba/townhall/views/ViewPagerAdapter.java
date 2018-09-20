@@ -11,7 +11,7 @@ import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerFrag;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private static final String TAG = "ViewPagerAdapter";
-    private static int NUM_ITEMS = 3;
+    private static int NUM_ITEMS = 4;
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -19,15 +19,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position){
+
+        switch (position) {
             case 0:
                 return CommBoardsFrag.newInstance();
             case 1:
                 return FoodDistServFrag.newInstance();
             case 2:
                 return VolunteerFrag.newInstance();
-                default:
-                    return CommBoardsFrag.newInstance();
+            default:
+                return CommBoardsFrag.newInstance();
         }
     }
 

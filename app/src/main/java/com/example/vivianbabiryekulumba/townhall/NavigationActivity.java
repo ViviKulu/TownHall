@@ -28,13 +28,15 @@ import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 import java.util.Arrays;
 import java.util.List;
 
-public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "NavActivity.class";
     ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     PagerTabStrip pagerTabStrip;
     NavigationView navigationView;
+    Object object;
+    FragmentManager.OnBackStackChangedListener onBackStackChangedListener;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -92,6 +94,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         pagerTabStrip = findViewById(R.id.pager_header);
         viewPager = findViewById(R.id.viewpager);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        viewPager.setOffscreenPageLimit(3);
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         buildAlertDialog();
@@ -108,8 +111,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     }
 
 
-
-    public void buildAlertDialog(){
+    public void buildAlertDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
         builder.setTitle("Select your borough");
 
@@ -157,30 +159,31 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
         int id = menuItem.getItemId();
 
-        if(id == R.id.nav_home){
+        if (id == R.id.nav_home) {
             CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.main_container,commBoardsFrag,"CommBrdFrag");
+            transaction.replace(R.id.main_container, commBoardsFrag, "CommBrdFrag");
             transaction.addToBackStack(null);
             transaction.commit();
             buildAlertDialog();
-        }else if(id == R.id.nav_petitions) {
+        } else if (id == R.id.nav_petitions) {
             PetitionListFrag petitionListFrag = new PetitionListFrag();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.main_container, petitionListFrag, "PetitionListFrag");
             transaction.addToBackStack(null);
             transaction.commit();
-        }else if(id == R.id.nav_opportunities) {
+        } else if (id == R.id.nav_opportunities) {
             VolunteerListFrag volunteerListFrag = new VolunteerListFrag();
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.main_container, volunteerListFrag, "VolunteerListFrag");
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-        }else if(id == R.id.nav_profile){
+        } else if (id == R.id.nav_profile) {
             //Build alert dialog to log in to profile
+
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
