@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.views;
+package com.example.vivianbabiryekulumba.townhall.controllers;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,7 +11,7 @@ import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerFrag;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private static final String TAG = "ViewPagerAdapter";
-    private static int NUM_ITEMS = 4;
+    private static int NUM_ITEMS = 3;
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
