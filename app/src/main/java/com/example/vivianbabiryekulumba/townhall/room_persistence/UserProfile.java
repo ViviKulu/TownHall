@@ -16,6 +16,14 @@ public class UserProfile {
     @ColumnInfo(name = "user_profile_password")
     private String user_profile_password;
 
+    public int getUser_profile_id() {
+        return user_profile_id;
+    }
+
+    public void setUser_profile_id(int user_profile_id) {
+        this.user_profile_id = user_profile_id;
+    }
+
     public String getUser_profile_name() {
         return user_profile_name;
     }
