@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.views;
+package com.example.vivianbabiryekulumba.townhall.controllers;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

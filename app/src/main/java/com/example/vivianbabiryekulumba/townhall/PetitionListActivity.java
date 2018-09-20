@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -29,6 +30,7 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
     private static final String TAG = "PetitionListActivity";
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
+    RecyclerView recyclerView;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -80,7 +82,6 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
                 }
         );
 
-        navigationView = findViewById(R.id.nav_view);
     }
 
     private void setNavigationViewListener() {
@@ -115,19 +116,16 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_home) {
-            CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.main_container, commBoardsFrag, "CommBrdFrag");
-            transaction.addToBackStack(null);
-            transaction.commit();
+            Intent intent = new Intent(PetitionListActivity.this, NavigationActivity.class);
+            startActivity(intent);
             buildAlertDialog();
+            Log.d(TAG, "onNavigationItemSelected: made it to home from list");
         } else if (id == R.id.nav_petitions) {
             Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
             startActivity(intent);
             //Start database
         } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppActivity.class);
+            Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppListActivity.class);
             startActivity(intent2);
             //Start database
         } else if (id == R.id.nav_profile) {

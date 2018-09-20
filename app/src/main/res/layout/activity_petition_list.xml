@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PetitionListActivity">
 
     <!-- Use DrawerLayout as root container for activity -->
@@ -38,5 +39,10 @@
             app:menu="@menu/navigation_menu"/>
 
     </android.support.v4.widget.DrawerLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/petitionListRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

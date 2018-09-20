@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall;
+package com.example.vivianbabiryekulumba.townhall.util;
 
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;

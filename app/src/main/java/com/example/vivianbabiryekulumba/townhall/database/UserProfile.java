@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.room_persistence;
+package com.example.vivianbabiryekulumba.townhall.database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
