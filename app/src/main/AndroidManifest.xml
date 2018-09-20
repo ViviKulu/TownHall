@@ -49,7 +49,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".PetitionActivity" />
-        <activity android:name=".VolunteerOppActivity"></activity>
+        <activity android:name=".FavVolunteerOppActivity" />
+        <activity android:name=".PetitionListActivity"></activity>
     </application>
 
 </manifest>

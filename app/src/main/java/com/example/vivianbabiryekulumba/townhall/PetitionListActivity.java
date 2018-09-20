@@ -4,36 +4,31 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.PagerTabStrip;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.views.ViewPagerAdapter;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class PetitionListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "NavActivity.class";
-    ViewPager viewPager;
-    private ViewPagerAdapter viewPagerAdapter;
-    PagerTabStrip pagerTabStrip;
+    private static final String TAG = "PetitionListActivity";
     NavigationView navigationView;
+    private DrawerLayout mDrawerLayout;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -44,23 +39,22 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     };
 
     final List<String> boroughsList = Arrays.asList(boroughs);
-    private DrawerLayout mDrawerLayout;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation);
+        setContentView(R.layout.activity_petition_list);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        navigationView = findViewById(R.id.nav_view);
 
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setDisplayShowTitleEnabled(false);
         actionbar.setHomeAsUpIndicator(R.drawable.list_white);
-        setNavigationViewListner();
+        setNavigationViewListener();
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
@@ -87,14 +81,13 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         );
 
         navigationView = findViewById(R.id.nav_view);
+    }
 
-        pagerTabStrip = findViewById(R.id.pager_header);
-        viewPager = findViewById(R.id.viewpager);
-        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        viewPager.setOffscreenPageLimit(3);
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(viewPagerAdapter);
-        buildAlertDialog();
+    private void setNavigationViewListener() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        assert navigationView != null;
+        navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -105,41 +98,6 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-    public void buildAlertDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(NavigationActivity.this);
-        builder.setTitle("Select your borough");
-
-        for (int i = 0; i < boroughsList.size(); i++) {
-            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    String currentItem = boroughsList.get(which);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("borough", currentItem);
-                    commBoardsFrag.setArguments(bundle);
-                    fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
-                    fragmentTransaction.addToBackStack(currentItem);
-                    fragmentTransaction.commit();
-                    Log.d(TAG, "onClick: " + currentItem + bundle);
-                }
-            });
-        }
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private void setNavigationViewListner() {
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        assert navigationView != null;
-        navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -165,11 +123,11 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             transaction.commit();
             buildAlertDialog();
         } else if (id == R.id.nav_petitions) {
-            Intent intent = new Intent(NavigationActivity.this, PetitionListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
             startActivity(intent);
             //Start database
         } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(NavigationActivity.this, FavVolunteerOppActivity.class);
+            Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppActivity.class);
             startActivity(intent2);
             //Start database
         } else if (id == R.id.nav_profile) {
@@ -178,5 +136,32 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void buildAlertDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionListActivity.this);
+        builder.setTitle("Select your borough");
+
+        for (int i = 0; i < boroughsList.size(); i++) {
+            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String currentItem = boroughsList.get(which);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("borough", currentItem);
+                    commBoardsFrag.setArguments(bundle);
+                    fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
+                    fragmentTransaction.addToBackStack(currentItem);
+                    fragmentTransaction.commit();
+                    Log.d(TAG, "onClick: " + currentItem + bundle);
+                }
+            });
+        }
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
