@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
+
         <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
         <FrameLayout
             android:id="@+id/content_frame"
@@ -26,6 +27,12 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="#000"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/petition_list_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="57dp"/>
 
         </FrameLayout>
 
@@ -40,9 +47,5 @@
 
     </android.support.v4.widget.DrawerLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/petition_list_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>

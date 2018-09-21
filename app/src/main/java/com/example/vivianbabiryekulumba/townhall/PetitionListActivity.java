@@ -41,7 +41,6 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
     PetitionDatabase petitionDatabase;
     List<Petitions> petitionsList;
     PetitionListAdapter petitionListAdapter;
-    private int position;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -62,6 +61,8 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         Toolbar toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.nav_view);
         recyclerView = findViewById(R.id.petition_list_recyclerview);
+
+        initializeViews();
 
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -95,7 +96,6 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         );
 
         displayList();
-        initializeViews();
 
     }
 
