@@ -12,7 +12,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 @Dao
 public interface FavoriteVolOppDao {
     @Query("SELECT * FROM favorite_vol_opps")
-    List<Favorite_Vol_Opps> getAll();
+    List<Favorite_Vol_Opps> getAllFavVolOpps();
 
     @Query("SELECT * FROM favorite_vol_opps WHERE favorite_vol_opp_id IN (:favVolOppsIds)")
     List<Favorite_Vol_Opps> loadAllByIds(int[] favVolOppsIds);

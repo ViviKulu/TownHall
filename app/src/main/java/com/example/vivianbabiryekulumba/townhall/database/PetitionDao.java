@@ -12,7 +12,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 @Dao
 public interface PetitionDao {
     @Query("SELECT * FROM petitions")
-    List<Petitions> getAll();
+    List<Petitions> getAllPetitions();
 
     @Query("SELECT * FROM petitions WHERE petition_id IN (:petitionIds)")
     List<Petitions> loadAllByIds(int[] petitionIds);
@@ -25,4 +25,7 @@ public interface PetitionDao {
 
     @Delete
     void delete(Petitions petition);
+
+    @Delete
+    void delete(Petitions... petitions);
 }
