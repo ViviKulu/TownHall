@@ -13,7 +13,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 public interface BoroughDao {
 
     @Query("SELECT * FROM borough")
-    List<Borough> getAll();
+    List<Borough> getAllBoroughs();
 
     @Query("SELECT * FROM borough WHERE borough_id IN (:boroughIds)")
     List<Borough> loadAllByIds(int[] boroughIds);

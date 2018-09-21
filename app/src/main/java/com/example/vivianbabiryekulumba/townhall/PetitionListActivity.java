@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -13,15 +15,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.vivianbabiryekulumba.townhall.controllers.PetitionListAdapter;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
+import com.example.vivianbabiryekulumba.townhall.database.Petitions;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,6 +38,10 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     RecyclerView recyclerView;
+    PetitionDatabase petitionDatabase;
+    List<Petitions> petitionsList;
+    PetitionListAdapter petitionListAdapter;
+    private int position;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -50,6 +61,7 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         mDrawerLayout = findViewById(R.id.drawer_layout);
         Toolbar toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.nav_view);
+        recyclerView = findViewById(R.id.petition_list_recyclerview);
 
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -82,6 +94,23 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
                 }
         );
 
+        displayList();
+        initializeViews();
+
+    }
+
+    private void initializeViews() {
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(petitionListAdapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    private void displayList() {
+        // initialize database instance
+        petitionDatabase = PetitionDatabase.getInstance(PetitionListActivity.this);
+        // fetch list of notes in background thread
+        new RetrievePetitionTask(this).execute();
     }
 
     private void setNavigationViewListener() {
@@ -161,5 +190,34 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private static class RetrievePetitionTask extends AsyncTask<Void, Void, List<Petitions>>{
+
+        private WeakReference<PetitionListActivity> activityReference;
+
+        // only retain a weak reference to the activity
+        RetrievePetitionTask(PetitionListActivity context) {
+            activityReference = new WeakReference<>(context);
+        }
+
+        @Override
+        protected List<Petitions> doInBackground(Void... voids) {
+            if (activityReference.get()!=null)
+                return activityReference.get().petitionDatabase.getPetitionDao().getAllPetitions();
+            else
+                return null;
+        }
+
+        @Override
+        protected void onPostExecute(List<Petitions> petitions) {
+            if (petitions!=null && petitions.size()>0 ){
+                activityReference.get().petitionsList = petitions;
+
+                // create and set the adapter on RecyclerView instance to display list
+                activityReference.get().petitionListAdapter = new PetitionListAdapter(petitions,activityReference.get());
+                activityReference.get().recyclerView.setAdapter(activityReference.get().petitionListAdapter);
+            }
+        }
     }
 }

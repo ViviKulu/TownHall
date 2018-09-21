@@ -1,11 +1,16 @@
 package com.example.vivianbabiryekulumba.townhall;
 
+import android.arch.persistence.room.Room;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -13,23 +18,35 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
+import com.example.vivianbabiryekulumba.townhall.database.Petitions;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.List;
 
 public class PetitionActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "PetitionActivity.class";
+    private static final String DATABASE_NAME = "petition_db";
     //Room persistence database to store petitions and retrieve petitions.
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
+    private PetitionDatabase petitionDatabase;
+    private LinearLayout text_input_linear_layout;
+    private TextInputLayout text_input_layout_title, text_input_layout_content;
+    private TextInputEditText et_title,et_content;
+    private Petitions petition;
+    Button submit_button;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -50,6 +67,13 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        submit_button = findViewById(R.id.submit_button);
+
+        text_input_layout_title = findViewById(R.id.txtInput1);
+        text_input_linear_layout = findViewById(R.id.txtInput);
+        text_input_layout_content = findViewById(R.id.txtInput2);
+        et_title = findViewById(R.id.et_title);
+        et_content = findViewById(R.id.et_content);
 
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -57,6 +81,20 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
         actionbar.setDisplayShowTitleEnabled(false);
         actionbar.setHomeAsUpIndicator(R.drawable.list_white);
         setNavigationViewListener();
+
+        petitionDatabase = PetitionDatabase.getInstance(PetitionActivity.this);
+
+        submit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                petition = new Petitions();
+                petition.setPetition_title(et_title.getText().toString());
+                petition.setPetition_content(et_content.getText().toString());
+
+                new InsertPetitionTask(PetitionActivity.this, petition).execute();
+                Toast.makeText(getApplicationContext(), "Petition submitted!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
@@ -81,6 +119,15 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
                     }
                 }
         );
+
+        petitionDatabase = Room.databaseBuilder(getApplicationContext(), PetitionDatabase.class, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .build();
+    }
+
+    private void setResult(Petitions petition, int flag){
+        setResult(flag, new Intent().putExtra("petition", petition.toString()));
+        finish();
     }
 
     private void setNavigationViewListener() {
@@ -159,6 +206,34 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private static class InsertPetitionTask extends AsyncTask<Void, Void, Boolean> {
+
+        private WeakReference<PetitionActivity> activityReference;
+        private Petitions petition;
+
+        // only retain a weak reference to the activity
+        InsertPetitionTask(PetitionActivity context, Petitions petition) {
+            activityReference = new WeakReference<>(context);
+            this.petition = petition;
+        }
+
+        // doInBackground methods runs on a worker thread
+        @Override
+        protected Boolean doInBackground(Void... objs) {
+            activityReference.get().petitionDatabase.getPetitionDao().insertPetition(petition);
+            return true;
+        }
+
+        // onPostExecute runs on main thread
+        @Override
+        protected void onPostExecute(Boolean bool) {
+            if (bool) {
+                activityReference.get().setResult(petition, 1);
+            }
+
+        }
     }
 
 

@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+
 import java.util.List;
 
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
@@ -12,7 +13,7 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 public interface UserProfileDao {
 
     @Query("SELECT * FROM userprofile")
-    List<UserProfile> getAll();
+    List<UserProfile> getAllUserProfiles();
 
     @Query("SELECT * FROM userprofile WHERE user_profile_id IN (:userIds)")
     List<UserProfile> loadAllByIds(int[] userIds);
