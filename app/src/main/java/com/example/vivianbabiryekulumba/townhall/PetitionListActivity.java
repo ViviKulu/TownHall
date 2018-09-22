@@ -1,7 +1,6 @@
 package com.example.vivianbabiryekulumba.townhall;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -15,7 +14,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -41,10 +39,7 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
     public static final int NEW_PETITION_ACTIVITY_REQUEST_CODE = 1;
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
-    RecyclerView recyclerView;
-    List<Petitions> petitionsList;
     private PetitionViewModel petitionViewModel;
-    Context context;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -62,26 +57,28 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         setContentView(R.layout.activity_petition_list);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        Toolbar toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.nav_view);
 
-        RecyclerView recyclerView = findViewById(R.id.petition_list_recyclerview);
-
-        recyclerView.setHasFixedSize(true);
-        final PetitionListAdapter petitionListAdapter = new PetitionListAdapter(petitionsList, context);
-        recyclerView.setAdapter(petitionListAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        petitionViewModel = ViewModelProviders.of(this).get(PetitionViewModel.class);
-        petitionViewModel.getAllPetitions().observe(this, petitionListAdapter::setPetitions);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setDisplayShowTitleEnabled(false);
         actionbar.setHomeAsUpIndicator(R.drawable.list_white);
         setNavigationViewListener();
+
+        RecyclerView recyclerView = findViewById(R.id.petition_list_recyclerview);
+
+        final PetitionListAdapter adapter = new PetitionListAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        petitionViewModel = ViewModelProviders.of(this).get(PetitionViewModel.class);
+
+        petitionViewModel.getAllPetitions().observe(this, petitions -> {
+            adapter.setPetitions(petitions);
+            Log.d(TAG, "onChanged: " + petitions);
+        });
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
@@ -115,6 +112,7 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         if (requestCode == NEW_PETITION_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Petitions petition = new Petitions(data.getStringExtra(EXTRA_REPLY1), data.getStringExtra(EXTRA_REPLY2));
             petitionViewModel.insert(petition);
+            Log.d(TAG, "onActivityResult: " + petition);
         } else {
             Toast.makeText(
                     getApplicationContext(),
@@ -128,6 +126,16 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         assert navigationView != null;
         navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
