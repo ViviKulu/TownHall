@@ -1,39 +1,34 @@
 package com.example.vivianbabiryekulumba.townhall.database;
 
+import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
-@Entity
+@Entity(tableName = "petition_table")
 public class Petitions{
 
-    @PrimaryKey(autoGenerate = true)
-    private int petition_id;
-
+    @PrimaryKey()
+    @NonNull
+    @ColumnInfo(name = "petition_title")
+    private
     String petition_title;
+
+    @ColumnInfo(name = "petition_content")
+    private
     String petition_content;
 
-    public Petitions() {
-
-    }
-
-    public Petitions(String petition_title, String petition_content){
+    public Petitions(@NonNull String petition_title, String petition_content) {
         this.petition_title = petition_title;
         this.petition_content = petition_content;
     }
 
-    public int getPetition_id() {
-        return petition_id;
-    }
-
-    public void setPetition_id(int petition_id) {
-        this.petition_id = petition_id;
-    }
-
+    @NonNull
     public String getPetition_title() {
         return petition_title;
     }
 
-    public void setPetition_title(String petition_title) {
+    public void setPetition_title(@NonNull String petition_title) {
         this.petition_title = petition_title;
     }
 

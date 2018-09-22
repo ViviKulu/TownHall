@@ -79,4 +79,8 @@
     <string name="type_new_petition">Type new petition</string>
     <string name="submit_petition">submit petition</string>
     <string name="delete">delete</string>
+
+    <string name="hint_word">Word...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Petition not saved because it is empty.</string>
 </resources>

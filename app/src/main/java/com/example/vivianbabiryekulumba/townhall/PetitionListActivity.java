@@ -1,5 +1,6 @@
 package com.example.vivianbabiryekulumba.townhall;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -21,22 +22,28 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.vivianbabiryekulumba.townhall.controllers.PetitionListAdapter;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionViewModel;
 import com.example.vivianbabiryekulumba.townhall.database.Petitions;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.vivianbabiryekulumba.townhall.PetitionActivity.EXTRA_REPLY1;
+import static com.example.vivianbabiryekulumba.townhall.PetitionActivity.EXTRA_REPLY2;
+
 public class PetitionListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "PetitionListActivity";
+    public static final int NEW_PETITION_ACTIVITY_REQUEST_CODE = 1;
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     RecyclerView recyclerView;
     List<Petitions> petitionsList;
-    PetitionListAdapter petitionListAdapter;
+    private PetitionViewModel petitionViewModel;
     Context context;
 
     String[] boroughs = new String[]{
@@ -57,15 +64,17 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         mDrawerLayout = findViewById(R.id.drawer_layout);
         Toolbar toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.nav_view);
-        recyclerView = findViewById(R.id.petition_list_recyclerview);
 
         RecyclerView recyclerView = findViewById(R.id.petition_list_recyclerview);
 
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        petitionListAdapter = new PetitionListAdapter(petitionsList, context);
+        final PetitionListAdapter petitionListAdapter = new PetitionListAdapter(petitionsList, context);
         recyclerView.setAdapter(petitionListAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        petitionViewModel = ViewModelProviders.of(this).get(PetitionViewModel.class);
+        petitionViewModel.getAllPetitions().observe(this, petitionListAdapter::setPetitions);
 
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -98,6 +107,20 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
                 }
         );
 
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == NEW_PETITION_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Petitions petition = new Petitions(data.getStringExtra(EXTRA_REPLY1), data.getStringExtra(EXTRA_REPLY2));
+            petitionViewModel.insert(petition);
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     private void setNavigationViewListener() {
