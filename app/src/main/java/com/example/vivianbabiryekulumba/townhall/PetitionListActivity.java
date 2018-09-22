@@ -1,10 +1,9 @@
 package com.example.vivianbabiryekulumba.townhall;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -24,11 +23,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.vivianbabiryekulumba.townhall.controllers.PetitionListAdapter;
-import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.Petitions;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
-import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,9 +35,9 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     RecyclerView recyclerView;
-    PetitionDatabase petitionDatabase;
     List<Petitions> petitionsList;
     PetitionListAdapter petitionListAdapter;
+    Context context;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -62,7 +59,13 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         navigationView = findViewById(R.id.nav_view);
         recyclerView = findViewById(R.id.petition_list_recyclerview);
 
-        initializeViews();
+        RecyclerView recyclerView = findViewById(R.id.petition_list_recyclerview);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        petitionListAdapter = new PetitionListAdapter(petitionsList, context);
+        recyclerView.setAdapter(petitionListAdapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -74,17 +77,17 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
                     @Override
-                    public void onDrawerSlide(View drawerView, float slideOffset) {
+                    public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
                         // Respond when the drawer's position changes
                     }
 
                     @Override
-                    public void onDrawerOpened(View drawerView) {
+                    public void onDrawerOpened(@NonNull View drawerView) {
                         // Respond when the drawer is opened
                     }
 
                     @Override
-                    public void onDrawerClosed(View drawerView) {
+                    public void onDrawerClosed(@NonNull View drawerView) {
                         // Respond when the drawer is closed
                     }
 
@@ -95,22 +98,6 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
                 }
         );
 
-        displayList();
-
-    }
-
-    private void initializeViews() {
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(petitionListAdapter);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-    }
-
-    private void displayList() {
-        // initialize database instance
-        petitionDatabase = PetitionDatabase.getInstance(PetitionListActivity.this);
-        // fetch list of notes in background thread
-        new RetrievePetitionTask(this).execute();
     }
 
     private void setNavigationViewListener() {
@@ -120,15 +107,6 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -170,54 +148,22 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         builder.setTitle("Select your borough");
 
         for (int i = 0; i < boroughsList.size(); i++) {
-            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    String currentItem = boroughsList.get(which);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("borough", currentItem);
-                    commBoardsFrag.setArguments(bundle);
-                    fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
-                    fragmentTransaction.addToBackStack(currentItem);
-                    fragmentTransaction.commit();
-                    Log.d(TAG, "onClick: " + currentItem + bundle);
-                }
+            builder.setItems(boroughs, (dialog, which) -> {
+                String currentItem = boroughsList.get(which);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+                Bundle bundle = new Bundle();
+                bundle.putString("borough", currentItem);
+                commBoardsFrag.setArguments(bundle);
+                fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
+                fragmentTransaction.addToBackStack(currentItem);
+                fragmentTransaction.commit();
+                Log.d(TAG, "onClick: " + currentItem + bundle);
             });
         }
 
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
-
-    private static class RetrievePetitionTask extends AsyncTask<Void, Void, List<Petitions>>{
-
-        private WeakReference<PetitionListActivity> activityReference;
-
-        // only retain a weak reference to the activity
-        RetrievePetitionTask(PetitionListActivity context) {
-            activityReference = new WeakReference<>(context);
-        }
-
-        @Override
-        protected List<Petitions> doInBackground(Void... voids) {
-            if (activityReference.get()!=null)
-                return activityReference.get().petitionDatabase.getPetitionDao().getAllPetitions();
-            else
-                return null;
-        }
-
-        @Override
-        protected void onPostExecute(List<Petitions> petitions) {
-            if (petitions!=null && petitions.size()>0 ){
-                activityReference.get().petitionsList = petitions;
-
-                // create and set the adapter on RecyclerView instance to display list
-                activityReference.get().petitionListAdapter = new PetitionListAdapter(petitions,activityReference.get());
-                activityReference.get().recyclerView.setAdapter(activityReference.get().petitionListAdapter);
-            }
-        }
     }
 }

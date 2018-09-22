@@ -1,11 +1,9 @@
 package com.example.vivianbabiryekulumba.townhall;
 
 import android.arch.persistence.room.Room;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -30,22 +28,22 @@ import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.Petitions;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
-import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.List;
 
-public class PetitionActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class PetitionActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "PetitionActivity.class";
     private static final String DATABASE_NAME = "petition_db";
-    //Room persistence database to store petitions and retrieve petitions.
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
-    private PetitionDatabase petitionDatabase;
-    private LinearLayout text_input_linear_layout;
-    private TextInputLayout text_input_layout_title, text_input_layout_content;
-    private TextInputEditText et_title,et_content;
+    PetitionDatabase petitionDatabase;
+    LinearLayout text_input_linear_layout;
+    TextInputLayout text_input_layout_title, text_input_layout_content;
+    private TextInputEditText et_title, et_content;
     private Petitions petition;
+    String title;
+    String content;
     Button submit_button;
 
     String[] boroughs = new String[]{
@@ -58,11 +56,16 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
 
     final List<String> boroughsList = Arrays.asList(boroughs);
 
+    //Replace the activity with a fragment to display the add petition service.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petition);
+
+        petitionDatabase = Room.databaseBuilder(getApplicationContext(), PetitionDatabase.class, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .build();
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -82,16 +85,15 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
         actionbar.setHomeAsUpIndicator(R.drawable.list_white);
         setNavigationViewListener();
 
-        petitionDatabase = PetitionDatabase.getInstance(PetitionActivity.this);
+        submit_button.setOnClickListener(v -> {
+            petition = new Petitions(et_title.getText().toString(), et_content.getText().toString());
+            petition.setPetition_title(et_title.getText().toString());
+            petition.setPetition_content(et_content.getText().toString());
+            title = et_title.getText().toString();
+            content = et_content.getText().toString();
+            Log.d(TAG, "onCreate: " + petition);
 
-        submit_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                petition = new Petitions();
-                petition.setPetition_title(et_title.getText().toString());
-                petition.setPetition_content(et_content.getText().toString());
-
-                new InsertPetitionTask(PetitionActivity.this, petition).execute();
+            if(petition != null){
                 Toast.makeText(getApplicationContext(), "Petition submitted!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -99,17 +101,17 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
                     @Override
-                    public void onDrawerSlide(View drawerView, float slideOffset) {
+                    public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
                         // Respond when the drawer's position changes
                     }
 
                     @Override
-                    public void onDrawerOpened(View drawerView) {
+                    public void onDrawerOpened(@NonNull View drawerView) {
                         // Respond when the drawer is opened
                     }
 
                     @Override
-                    public void onDrawerClosed(View drawerView) {
+                    public void onDrawerClosed(@NonNull View drawerView) {
                         // Respond when the drawer is closed
                     }
 
@@ -119,15 +121,6 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
                     }
                 }
         );
-
-        petitionDatabase = Room.databaseBuilder(getApplicationContext(), PetitionDatabase.class, DATABASE_NAME)
-                .fallbackToDestructiveMigration()
-                .build();
-    }
-
-    private void setResult(Petitions petition, int flag){
-        setResult(flag, new Intent().putExtra("petition", petition.toString()));
-        finish();
     }
 
     private void setNavigationViewListener() {
@@ -137,13 +130,14 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    mDrawerLayout.openDrawer(GravityCompat.START);
+                    return true;
+            }
         return super.onOptionsItemSelected(item);
     }
 
@@ -186,55 +180,23 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
         builder.setTitle("Select your borough");
 
         for (int i = 0; i < boroughsList.size(); i++) {
-            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    String currentItem = boroughsList.get(which);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("borough", currentItem);
-                    commBoardsFrag.setArguments(bundle);
-                    fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
-                    fragmentTransaction.addToBackStack(currentItem);
-                    fragmentTransaction.commit();
-                    Log.d(TAG, "onClick: " + currentItem + bundle);
-                }
+            builder.setItems(boroughs, (dialog, which) -> {
+                String currentItem = boroughsList.get(which);
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+                Bundle bundle = new Bundle();
+                bundle.putString("borough", currentItem);
+                commBoardsFrag.setArguments(bundle);
+                fragmentTransaction.add(commBoardsFrag, "CommBrdActivity.class");
+                fragmentTransaction.addToBackStack(currentItem);
+                fragmentTransaction.commit();
+                Log.d(TAG, "onClick: " + currentItem + bundle);
             });
         }
 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-    private static class InsertPetitionTask extends AsyncTask<Void, Void, Boolean> {
-
-        private WeakReference<PetitionActivity> activityReference;
-        private Petitions petition;
-
-        // only retain a weak reference to the activity
-        InsertPetitionTask(PetitionActivity context, Petitions petition) {
-            activityReference = new WeakReference<>(context);
-            this.petition = petition;
-        }
-
-        // doInBackground methods runs on a worker thread
-        @Override
-        protected Boolean doInBackground(Void... objs) {
-            activityReference.get().petitionDatabase.getPetitionDao().insertPetition(petition);
-            return true;
-        }
-
-        // onPostExecute runs on main thread
-        @Override
-        protected void onPostExecute(Boolean bool) {
-            if (bool) {
-                activityReference.get().setResult(petition, 1);
-            }
-
-        }
-    }
-
 
 }

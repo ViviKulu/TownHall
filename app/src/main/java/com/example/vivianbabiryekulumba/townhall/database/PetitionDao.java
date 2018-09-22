@@ -1,31 +1,34 @@
 package com.example.vivianbabiryekulumba.townhall.database;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
-import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
-
 @Dao
 public interface PetitionDao {
-    @Query("SELECT * FROM petitions")
-    List<Petitions> getAllPetitions();
 
-    @Query("SELECT * FROM petitions WHERE petition_id IN (:petitionIds)")
-    List<Petitions> loadAllByIds(int[] petitionIds);
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void saveAllPetitions(List<Petitions> petitions_post);
 
     @Insert
-    void insertAll(Petitions... petitions);
+    Long insertPetition(Petitions petition);
 
-    @Insert(onConflict = REPLACE)
-    void insertPetition(Petitions petition);
+    @Query("SELECT * FROM Petitions")
+    LiveData<List<Petitions>> findAllPetitions();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void savePetition(Petitions petitions_post);
+
+    @Update
+    void updatePetition(Petitions petitions_post);
 
     @Delete
-    void delete(Petitions petition);
+    void deletePetition(Petitions petitions_post);
 
-    @Delete
-    void delete(Petitions... petitions);
 }
