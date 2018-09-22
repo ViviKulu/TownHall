@@ -78,4 +78,5 @@
     <string name="submit">submit</string>
     <string name="type_new_petition">Type new petition</string>
     <string name="submit_petition">submit petition</string>
+    <string name="delete">delete</string>
 </resources>

@@ -39,11 +39,21 @@ public class PetitionListAdapter extends RecyclerView.Adapter<PetitionListAdapte
         Log.d(TAG, "onBindViewHolder: " + petitionsList.get(position));
     }
 
+    public void setData(List<Petitions> petitionsList) {
+        if (this.petitionsList != null) {
+            this.petitionsList.addAll(petitionsList);
+        } else {
+            // first initialization
+            this.petitionsList = petitionsList;
+        }
+    }
+
     @Override
     public int getItemCount() {
         Log.d(TAG, "getItemCount: " + petitionsList.size());
         return petitionsList.size();
     }
+
 
     public class PetitionListViewHolder extends RecyclerView.ViewHolder {
 
@@ -58,9 +68,10 @@ public class PetitionListAdapter extends RecyclerView.Adapter<PetitionListAdapte
         }
 
 
-        public void onBind(Petitions petitions) {
+        public void onBind(final Petitions petitions) {
             petition_title.setText(petitions.getPetition_title());
             petition_content.setText(petitions.getPetition_content());
+            Log.d(TAG, "onBind: " + petition_title + petition_content);
         }
     }
 }
