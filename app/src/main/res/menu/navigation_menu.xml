@@ -7,8 +7,8 @@
         <!-- Home is the community boards frag-->
         <item
             android:id="@+id/nav_petitions"
-            android:title="View petitions" />
-        <!--Petitions is the petition frag-->
+            android:title="View petitionEntity" />
+        <!--Petition is the petition frag-->
         <item
             android:id="@+id/nav_opportunities"
             android:title="Favorite Volunteer Opportunities" />

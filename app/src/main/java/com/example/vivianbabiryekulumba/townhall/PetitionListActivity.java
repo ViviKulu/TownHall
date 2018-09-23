@@ -1,6 +1,5 @@
 package com.example.vivianbabiryekulumba.townhall;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -14,32 +13,26 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.vivianbabiryekulumba.townhall.controllers.PetitionListAdapter;
-import com.example.vivianbabiryekulumba.townhall.database.PetitionViewModel;
-import com.example.vivianbabiryekulumba.townhall.database.Petitions;
+import com.example.vivianbabiryekulumba.townhall.database.Petition;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionListViewModel;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.example.vivianbabiryekulumba.townhall.PetitionActivity.EXTRA_REPLY1;
-import static com.example.vivianbabiryekulumba.townhall.PetitionActivity.EXTRA_REPLY2;
-
-public class PetitionListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class PetitionListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "PetitionListActivity";
     public static final int NEW_PETITION_ACTIVITY_REQUEST_CODE = 1;
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
-    private PetitionViewModel petitionViewModel;
+    private PetitionListViewModel petitionViewModel;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -66,19 +59,6 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         actionbar.setDisplayShowTitleEnabled(false);
         actionbar.setHomeAsUpIndicator(R.drawable.list_white);
         setNavigationViewListener();
-
-        RecyclerView recyclerView = findViewById(R.id.petition_list_recyclerview);
-
-        final PetitionListAdapter adapter = new PetitionListAdapter(this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        petitionViewModel = ViewModelProviders.of(this).get(PetitionViewModel.class);
-
-        petitionViewModel.getAllPetitions().observe(this, petitions -> {
-            adapter.setPetitions(petitions);
-            Log.d(TAG, "onChanged: " + petitions);
-        });
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
@@ -110,7 +90,7 @@ public class PetitionListActivity extends AppCompatActivity implements Navigatio
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_PETITION_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Petitions petition = new Petitions(data.getStringExtra(EXTRA_REPLY1), data.getStringExtra(EXTRA_REPLY2));
+            Petition petition = new Petition(data.getStringExtra(PetitionActivity.EXTRA_REPLY1), data.getStringExtra(PetitionActivity.EXTRA_REPLY2));
             petitionViewModel.insert(petition);
             Log.d(TAG, "onActivityResult: " + petition);
         } else {

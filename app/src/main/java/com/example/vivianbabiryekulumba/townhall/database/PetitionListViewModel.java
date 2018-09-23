@@ -7,23 +7,19 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
-public class PetitionViewModel extends AndroidViewModel {
+public class PetitionListViewModel extends AndroidViewModel {
 
     private PetitionRepository petitionRepository;
-    private LiveData<List<Petitions>> petitionsList;
+    private LiveData<List<Petition>> petitionsList;
 
-    public PetitionViewModel(@NonNull Application application) {
+    public PetitionListViewModel(@NonNull Application application) {
         super(application);
+
         petitionRepository = new PetitionRepository(application);
         petitionsList = petitionRepository.getAllPetitions();
     }
 
-    public LiveData<List<Petitions>> getAllPetitions(){
-        return petitionsList;
-    }
+    public LiveData<List<Petition>> getAllPetitions() { return petitionsList; }
 
-    public void insert(Petitions petitions){
-        petitionRepository.insert(petitions);
-    }
-
+    public void insert(Petition petition) { petitionRepository.insert(petition); }
 }

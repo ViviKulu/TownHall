@@ -1,45 +1,21 @@
 package com.example.vivianbabiryekulumba.townhall.database;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
-import android.os.AsyncTask;
+import android.arch.persistence.room.Room;
 
-import java.util.List;
+public class PetitionRepository extends Application{
 
-public class PetitionRepository {
+    private PetitionDatabase petitionDatabase;
 
-    private PetitionDao petitionDao;
-    private LiveData<List<Petitions>> petitionsList;
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
-    PetitionRepository(Application application) {
-        PetitionDatabase db = PetitionDatabase.getDatabase(application);
-        petitionDao = db.petitionDao();
-        petitionsList = petitionDao.getAllPetitions();
+        petitionDatabase = Room.databaseBuilder(this, PetitionDatabase.class, "petition_db")
+                .build();
     }
 
-    LiveData<List<Petitions>> getAllPetitions() {
-        return petitionsList;
+    public PetitionDatabase getPetitionDatabase() {
+        return petitionDatabase;
     }
-
-    public void insert(Petitions petitions) {
-        new insertAsyncTask(petitionDao).execute(petitions);
-    }
-
-    private static class insertAsyncTask extends AsyncTask<Petitions, Void, Void> {
-
-        private PetitionDao petitionAsyncTaskDao;
-
-        insertAsyncTask(PetitionDao petitionDao) {
-            petitionAsyncTaskDao = petitionDao;
-        }
-
-
-        @Override
-        protected Void doInBackground(final Petitions... petitions) {
-            petitionAsyncTaskDao.insert(petitions[0]);
-            return null;
-        }
-    }
-
-
 }

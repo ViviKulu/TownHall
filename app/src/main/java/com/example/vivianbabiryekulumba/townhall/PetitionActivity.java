@@ -15,13 +15,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
 import java.util.Arrays;
@@ -33,11 +33,10 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
     public static final String EXTRA_REPLY2 = "com.example.android.wordlistsql.REPLY2";
 
     private static final String TAG = "PetitionActivity.class";
+    PetitionListPresenter petitionListPresenter;
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     private TextInputEditText et_title, et_content;
-    String title;
-    String content;
     Button submit_button;
 
     String[] boroughs = new String[]{
@@ -71,17 +70,7 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
         setNavigationViewListener();
 
         submit_button.setOnClickListener(v -> {
-            Intent replyIntent = new Intent();
-            if (TextUtils.isEmpty(et_title.getText())) {
-                setResult(RESULT_CANCELED, replyIntent);
-            } else {
-                String petition_title = et_title.getText().toString();
-                String petition_content = et_content.getText().toString();
-                replyIntent.putExtra(EXTRA_REPLY1, petition_title);
-                replyIntent.putExtra(EXTRA_REPLY2, petition_content);
-                setResult(RESULT_OK, replyIntent);
-            }
-            finish();
+            addPetition(et_title.getText().toString(), et_content.getText().toString());
             Toast.makeText(getApplicationContext(), "Petition submitted!", Toast.LENGTH_SHORT).show();
         });
 
@@ -108,6 +97,10 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
                     }
                 }
         );
+    }
+
+    private void addPetition(String title, String content) {
+        petitionListPresenter.addPetition(title, content);
     }
 
 

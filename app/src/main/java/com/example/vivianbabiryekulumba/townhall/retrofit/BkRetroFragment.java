@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.retrofit_helper;
+package com.example.vivianbabiryekulumba.townhall.retrofit;
 
 
 import android.content.Context;
@@ -29,14 +29,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BxRetroFragment extends Fragment {
+public class BkRetroFragment extends Fragment {
 
     private static final String TAG = "MainActivity.class";
     private RecyclerView recyclerView;
     private List<CommBoard> zipCodeList;
     Context context;
 
-    public BxRetroFragment() {
+    public BkRetroFragment() {
         // Required empty public constructor
     }
 
@@ -44,8 +44,9 @@ public class BxRetroFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_bx_retro, container, false);
-        recyclerView = view.findViewById(R.id.recyclerviewBx);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_bk_retro, container, false);
+        recyclerView = view.findViewById(R.id.recyclerviewBk);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -53,7 +54,7 @@ public class BxRetroFragment extends Fragment {
 
         final NetworkService networkService = retrofit.create(NetworkService.class);
 
-        final Call<List<CommBoard>> commBoardCall = networkService.getBxCommBoardData();
+        final Call<List<CommBoard>> commBoardCall = networkService.getBkCommBoardData();
         commBoardCall.enqueue(new Callback<List<CommBoard>>() {
             @Override
             public void onResponse(@NonNull Call<List<CommBoard>> call, @NonNull Response<List<CommBoard>> response) {
@@ -78,4 +79,5 @@ public class BxRetroFragment extends Fragment {
 
         return view;
     }
+
 }
