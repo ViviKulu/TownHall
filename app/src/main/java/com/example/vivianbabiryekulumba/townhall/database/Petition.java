@@ -6,24 +6,30 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 @Entity(tableName = "petition_table")
-public class Petitions{
+public class Petition {
 
-    @PrimaryKey()
-    @NonNull
+    @PrimaryKey(autoGenerate = true)
+    private int petition_id;
+
     @ColumnInfo(name = "petition_title")
-    private
-    String petition_title;
+    public String petition_title;
 
     @ColumnInfo(name = "petition_content")
-    private
-    String petition_content;
+    public String petition_content;
 
-    public Petitions(@NonNull String petition_title, String petition_content) {
+    public Petition(@NonNull String petition_title, String petition_content) {
         this.petition_title = petition_title;
         this.petition_content = petition_content;
     }
 
-    @NonNull
+    public int getPetition_id() {
+        return petition_id;
+    }
+
+    public void setPetition_id(int petition_id) {
+        this.petition_id = petition_id;
+    }
+
     public String getPetition_title() {
         return petition_title;
     }

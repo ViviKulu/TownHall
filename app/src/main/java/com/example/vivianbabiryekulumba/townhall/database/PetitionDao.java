@@ -11,12 +11,12 @@ import java.util.List;
 public interface PetitionDao {
 
     @Insert()
-    void insert(Petitions petition);
+    Long addPetition(Petition petitionEntity);
 
     @Query("DELETE FROM petition_table")
     void deleteAll();
 
     @Query("SELECT * from petition_table ORDER BY petition_title ASC")
-    LiveData<List<Petitions>> getAllPetitions();
+    LiveData<List<Petition>> getAllPetitions();
 
 }

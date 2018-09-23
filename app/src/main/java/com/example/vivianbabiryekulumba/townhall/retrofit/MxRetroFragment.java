@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.retrofit_helper;
+package com.example.vivianbabiryekulumba.townhall.retrofit;
 
 
 import android.content.Context;
@@ -29,14 +29,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BkRetroFragment extends Fragment {
+public class MxRetroFragment extends Fragment {
 
     private static final String TAG = "MainActivity.class";
     private RecyclerView recyclerView;
     private List<CommBoard> zipCodeList;
     Context context;
 
-    public BkRetroFragment() {
+    public MxRetroFragment() {
         // Required empty public constructor
     }
 
@@ -45,8 +45,8 @@ public class BkRetroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bk_retro, container, false);
-        recyclerView = view.findViewById(R.id.recyclerviewBk);
+        View view = inflater.inflate(R.layout.fragment_mx_retro, container, false);
+        recyclerView = view.findViewById(R.id.recyclerviewMx);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -54,7 +54,7 @@ public class BkRetroFragment extends Fragment {
 
         final NetworkService networkService = retrofit.create(NetworkService.class);
 
-        final Call<List<CommBoard>> commBoardCall = networkService.getBkCommBoardData();
+        final Call<List<CommBoard>> commBoardCall = networkService.getMxCommBoardData();
         commBoardCall.enqueue(new Callback<List<CommBoard>>() {
             @Override
             public void onResponse(@NonNull Call<List<CommBoard>> call, @NonNull Response<List<CommBoard>> response) {

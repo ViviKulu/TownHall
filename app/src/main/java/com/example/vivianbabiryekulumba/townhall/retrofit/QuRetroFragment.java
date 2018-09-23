@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.retrofit_helper;
+package com.example.vivianbabiryekulumba.townhall.retrofit;
 
 
 import android.content.Context;
