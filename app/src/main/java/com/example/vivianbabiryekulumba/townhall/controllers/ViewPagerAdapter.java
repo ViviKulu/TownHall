@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.FoodDistServFrag;
+import com.example.vivianbabiryekulumba.townhall.fragments.ServiceFacilitiesFrag;
 import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerFrag;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -24,7 +24,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return CommBoardsFrag.newInstance();
             case 1:
-                return FoodDistServFrag.newInstance();
+                return ServiceFacilitiesFrag.newInstance();
             case 2:
                 return VolunteerFrag.newInstance();
             default:
@@ -39,7 +39,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return "Community Boards";
             case 1:
-                return "Food Distribution Service";
+                return "Service Facilities";
             case 2:
                 return "Volunteer Service";
             default:

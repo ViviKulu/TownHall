@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.PetitionAddActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
-import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 
 import java.util.List;
@@ -23,8 +22,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
 
     private List<CommBoard> zipCodeList;
     private static final String TAG = "CommBoardAdapter";
-    PetitionListPresenter petitionListPresenter;
-    LayoutInflater inflater;
+
     Context context;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
@@ -62,13 +60,17 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
 
         //Intent of address to google maps.
         holder.address.setOnClickListener(new View.OnClickListener() {
-            Uri uri = Uri.parse(commBoard.getCbInfo().getAddress());
+
+            Uri uri1 = Uri.parse(commBoard.getCbInfo().getLatitude());
+            Uri uri2 = Uri.parse(commBoard.getCbInfo().getLongitude());
+
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.putExtra("address", uri);
+                intent.putExtra("latitude", uri1);
+                intent.putExtra("longitude", uri2);
                 context.startActivity(intent);
-                Log.d(TAG, "onClick: " + uri + intent);
+                Log.d(TAG, "onClick: " + uri1 + uri2 + intent);
             }
         });
 
