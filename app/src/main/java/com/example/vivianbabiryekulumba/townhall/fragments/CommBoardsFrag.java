@@ -72,6 +72,8 @@ public class CommBoardsFrag extends Fragment{
                         fragmentTransaction2.replace(R.id.main_container, bkRetroFragment);
                         fragmentTransaction2.addToBackStack(null);
                         fragmentTransaction2.commit();
+                        Bundle bkBundle = new Bundle();
+                        bkBundle.putString("bkFrag", bkRetroFragment.toString());
                         Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                     case "Manhattan":
@@ -80,6 +82,8 @@ public class CommBoardsFrag extends Fragment{
                         fragmentTransaction3.replace(R.id.main_container, mxRetroFragment);
                         fragmentTransaction3.addToBackStack(null);
                         fragmentTransaction3.commit();
+                        Bundle mxBundle = new Bundle();
+                        mxBundle.putString("mxFrag", mxRetroFragment.toString());
                         Log.d(TAG, "onCreateView: success"+ myBorough);
                         break;
                     case "Queens":
@@ -88,6 +92,8 @@ public class CommBoardsFrag extends Fragment{
                         fragmentTransaction4.replace(R.id.main_container, quRetroFragment);
                         fragmentTransaction4.addToBackStack(null);
                         fragmentTransaction4.commit();
+                        Bundle quBundle = new Bundle();
+                        quBundle.putString("quFrag", quRetroFragment.toString());
                         Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                     case "Staten Island":
@@ -96,6 +102,8 @@ public class CommBoardsFrag extends Fragment{
                         fragmentTransaction5.replace(R.id.main_container, statRetroFragment);
                         fragmentTransaction5.addToBackStack(null);
                         fragmentTransaction5.commit();
+                        Bundle statBundle = new Bundle();
+                        statBundle.putString("statFrag", statRetroFragment.toString());
                         Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                 }
