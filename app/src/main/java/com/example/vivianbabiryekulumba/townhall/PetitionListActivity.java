@@ -26,7 +26,7 @@ import com.example.vivianbabiryekulumba.townhall.database.PetitionDao;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionObserver;
-import com.example.vivianbabiryekulumba.townhall.database.PetitionRepository;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionApplication;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
 
 import java.util.Arrays;
@@ -35,7 +35,7 @@ import java.util.List;
 public class PetitionListActivity extends AppCompatActivity
         implements PetitionListPresenter.PetitionListPresentation, NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "PetitionListActivity.class";
+    private static final String TAG = "PetitionList.class";
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     public PetitionListPresenter petitionListPresenter;
@@ -58,6 +58,18 @@ public class PetitionListActivity extends AppCompatActivity
         //Navigation Drawer
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        petitionRecyclerView = findViewById(R.id.petition_list_recyclerview);
+
+        PetitionDatabase db = ((PetitionApplication) getApplication()).getPetitionDatabase();
+        PetitionDao petitionDao = db.petitionDao();
+
+        petitionListPresenter = new PetitionListPresenter(petitionDao);
+
+        petitionRecyclerView.setAdapter(new PetitionListAdapter(petitionListPresenter));
+
+        LiveData<Petition[]> petition = petitionDao.getAllPetitions();
+        petition.observe(this, new PetitionObserver(petitionListPresenter));
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -89,17 +101,6 @@ public class PetitionListActivity extends AppCompatActivity
                     }
                 }
         );
-
-        PetitionDatabase db = ((PetitionRepository) getApplication()).getPetitionDatabase();
-        PetitionDao petitionDao = db.petitionDao();
-
-        petitionListPresenter = new PetitionListPresenter(petitionDao);
-
-        petitionRecyclerView = findViewById(R.id.petition_list_recyclerview);
-        petitionRecyclerView.setAdapter(new PetitionListAdapter(petitionListPresenter));
-
-        LiveData<Petition[]> petitions = petitionDao.getAllPetitions();
-        petitions.observe(this, new PetitionObserver(petitionListPresenter));
 
     }
 
@@ -178,19 +179,16 @@ public class PetitionListActivity extends AppCompatActivity
 
     @Override protected void onStart() {
         super.onStart();
-
         petitionListPresenter.attach(this);
     }
 
     @Override protected void onStop() {
         super.onStop();
-
         petitionListPresenter.detach();
     }
 
-
     @Override public void notifyDataSetChanged() {
-        Log.d("MainActivity", "notifyDatasetChanged()");
+        Log.d("MainActivity", "notifyDataSetChanged()");
         petitionRecyclerView.getAdapter().notifyDataSetChanged();
     }
 }

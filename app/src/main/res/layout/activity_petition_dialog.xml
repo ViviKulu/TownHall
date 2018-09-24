@@ -36,8 +36,11 @@
         android:id="@+id/submit_petition_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="100dp"
         android:background="#000"
         android:textColor="#fff"
-        android:text="submit petition"/>
+        android:text="submit petition"
+        android:layout_marginLeft="100dp" />
 
 </LinearLayout>

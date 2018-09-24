@@ -20,9 +20,13 @@ public class PetitionListPresenter {
     }
 
 
-    public void addPetition(String title, String content) {
-        Log.d("Presenter", "Adding Task: " + title + content);
-        new Thread(() -> petitionDao.addPetition(new Petition(title, content))).start();
+    public void addPetition(final String petitionTitle, String petitionContent) {
+        Log.d("Presenter", "Adding petition: " + petitionTitle + petitionContent);
+        new Thread(new Runnable() {
+            @Override public void run() {
+                petitionDao.addPetition(new Petition(petitionTitle, petitionContent));
+            }
+        }).start();
     }
 
     public void bindView(PetitionListItem listItem, int position) {

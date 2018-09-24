@@ -36,15 +36,6 @@
                 android:layout_marginTop="57dp"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/add_petition_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_margin="16dp"
-                android:src="@drawable/add"
-                />
-
         </FrameLayout>
 
         <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
