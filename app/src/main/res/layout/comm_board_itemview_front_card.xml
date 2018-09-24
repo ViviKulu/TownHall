@@ -240,6 +240,7 @@
                 <!-- Petition Button: ends layout code -->
 
                 <ImageView
+                    android:id="@+id/red_bar_iv"
                     android:layout_width="1dp"
                     android:layout_height="wrap_content"
                     android:background="#000000" />
