@@ -1,12 +1,13 @@
 package com.example.vivianbabiryekulumba.townhall;
 
+import android.arch.lifecycle.LiveData;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -14,30 +15,33 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
+import com.example.vivianbabiryekulumba.townhall.controllers.PetitionListAdapter;
+import com.example.vivianbabiryekulumba.townhall.database.Petition;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionDao;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionObserver;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionRepository;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.fragments.PetitionAddDialogFragment;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PetitionActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    public static final String EXTRA_REPLY1 = "com.example.android.wordlistsql.REPLY1";
-    public static final String EXTRA_REPLY2 = "com.example.android.wordlistsql.REPLY2";
+public class PetitionActivity extends AppCompatActivity
+        implements PetitionListPresenter.PetitionListPresentation, NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "PetitionActivity.class";
-    PetitionListPresenter petitionListPresenter;
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
-    private TextInputEditText et_title, et_content;
-    Button submit_button;
+    public PetitionListPresenter petitionListPresenter;
+    private RecyclerView petitionRecyclerView;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -53,26 +57,16 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petition);
-
+        //Navigation Drawer
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        submit_button = findViewById(R.id.submit_button);
-
-        et_title = findViewById(R.id.et_title);
-        et_content = findViewById(R.id.et_content);
-
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setDisplayShowTitleEnabled(false);
         actionbar.setHomeAsUpIndicator(R.drawable.list_white);
         setNavigationViewListener();
-
-        submit_button.setOnClickListener(v -> {
-            addPetition(et_title.getText().toString(), et_content.getText().toString());
-            Toast.makeText(getApplicationContext(), "Petition submitted!", Toast.LENGTH_SHORT).show();
-        });
 
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
@@ -97,10 +91,21 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
                     }
                 }
         );
-    }
 
-    private void addPetition(String title, String content) {
-        petitionListPresenter.addPetition(title, content);
+        PetitionDatabase db = ((PetitionRepository) getApplication()).getPetitionDatabase();
+        PetitionDao petitionDao = db.petitionDao();
+
+        petitionListPresenter = new PetitionListPresenter(petitionDao);
+
+        petitionRecyclerView = findViewById(R.id.petition_list_recyclerview);
+        petitionRecyclerView.setAdapter(new PetitionListAdapter(petitionListPresenter));
+
+        LiveData<Petition[]> petitions = petitionDao.getAllPetitions();
+        petitions.observe(this, new PetitionObserver(petitionListPresenter));
+
+        FloatingActionButton addTaskFab = findViewById(R.id.add_petition_fab);
+
+        addTaskFab.setOnClickListener(v -> petitionListPresenter.onAddPetitionButtonClicked());
     }
 
 
@@ -139,7 +144,7 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
             startActivity(intent);
             buildAlertDialog();
         } else if (id == R.id.nav_petitions) {
-            Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PetitionActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_opportunities) {
             Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppListActivity.class);
@@ -176,4 +181,25 @@ public class PetitionActivity extends AppCompatActivity implements NavigationVie
     }
 
 
+    @Override protected void onStart() {
+        super.onStart();
+
+        petitionListPresenter.attach(this);
+    }
+
+    @Override protected void onStop() {
+        super.onStop();
+
+        petitionListPresenter.detach();
+    }
+
+    @Override public void showAddPetitionDialog() {
+        PetitionAddDialogFragment fragmentTitle = new PetitionAddDialogFragment();
+        fragmentTitle.show(getSupportFragmentManager(), "Add Petition");
+    }
+
+    @Override public void notifyDataSetChanged() {
+        Log.d("MainActivity", "notifyDatasetChanged()");
+        petitionRecyclerView.getAdapter().notifyDataSetChanged();
+    }
 }

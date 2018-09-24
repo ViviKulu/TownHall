@@ -50,7 +50,7 @@
         </activity>
         <activity android:name=".PetitionActivity" />
         <activity android:name=".FavVolunteerOppListActivity" />
-        <activity android:name=".PetitionListActivity" />
+        <activity android:name=".PetitionDialogActivity"></activity>
     </application>
 
 </manifest>

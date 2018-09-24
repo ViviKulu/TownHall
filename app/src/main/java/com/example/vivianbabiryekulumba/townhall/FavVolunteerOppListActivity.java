@@ -120,7 +120,7 @@ public class FavVolunteerOppListActivity extends AppCompatActivity implements Na
             buildAlertDialog();
             Log.d(TAG, "onNavigationItemSelected: made it to home from list");
         } else if (id == R.id.nav_petitions) {
-            Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PetitionActivity.class);
             startActivity(intent);
             //Start database
         } else if (id == R.id.nav_opportunities) {

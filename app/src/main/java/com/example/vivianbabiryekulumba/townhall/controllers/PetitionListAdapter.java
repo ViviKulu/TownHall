@@ -21,7 +21,7 @@ public class PetitionListAdapter extends RecyclerView.Adapter<PetitionListAdapte
 
     @Override public PetitionListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.petition_list_item_view, parent, false);
+        View view = inflater.inflate(R.layout.petition_activity_item_view, parent, false);
         return new PetitionListViewHolder(view);
     }
 
@@ -40,8 +40,8 @@ public class PetitionListAdapter extends RecyclerView.Adapter<PetitionListAdapte
 
         public PetitionListViewHolder(View itemView) {
             super(itemView);
-            petition_title = itemView.findViewById(R.id.petition_list_title);
-            petition_content = itemView.findViewById(R.id.petition_list_content);
+            petition_title = itemView.findViewById(R.id.petition_title_tv);
+            petition_content = itemView.findViewById(R.id.petition_content_tv);
         }
 
         @Override public void setPetitionTitle(String petitionTitle) {

@@ -27,57 +27,23 @@
                 android:background="#000"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar" >
 
-                <Button
-                    android:id="@+id/submit_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="submit petition"
-                    android:textColor="#fff"
-                    android:background="#000"
-                    android:layout_marginStart="200dp"
-                    android:layout_marginLeft="200dp" />
-
             </android.support.v7.widget.Toolbar>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/txtInput1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="57dp">
-
-                <android.support.design.widget.TextInputEditText
-                    android:inputType="text"
-                    android:id="@+id/et_title"
-                    android:hint="Title"
-                    android:singleLine="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <LinearLayout
-                android:layout_below="@+id/txtInput"
-                android:orientation="vertical"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/petition_list_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="107dp">
+                android:layout_marginTop="57dp"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/txtInput2"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp">
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/et_content"
-                        android:hint="Content"
-                        android:gravity="top"
-                        android:singleLine="false"
-                        android:inputType="textMultiLine|textNoSuggestions"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </android.support.design.widget.TextInputLayout>
-
-            </LinearLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/add_petition_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="16dp"
+                android:src="@drawable/add"
+                />
 
         </FrameLayout>
 
