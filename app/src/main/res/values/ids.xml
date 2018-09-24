@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- COMMUNITY BOARD IDS: FOR IMAGE VIEWS: -->
+
+
+    <!-- Queen's Image View id's: -->
+    <item name="iv_q_website" type="id"> Queen\'s website image view </item>
+    <item name="iv_q_phone" type="id"> Queen\'s phone image view </item>
+    <item name="iv_q_fax" type="id"> Queen\'s fax image view </item>
+    <item name="iv_q_email" type="id"> Queen\'s email image view </item>
+    <item name="iv_q_map" type="id"> Queen\'s map image view </item>
+
+
+
+</resources>

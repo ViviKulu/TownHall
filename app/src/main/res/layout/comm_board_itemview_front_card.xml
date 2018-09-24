@@ -12,7 +12,7 @@
         app:cardBackgroundColor="#fff"
         app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
-        app:contentPadding="1dp">
+        app:contentPadding="2dp">
 
         <!-- LL: for the all the views  -->
         <LinearLayout
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Community Board: 2"
+            android:text="@string/txt_community_board"
             android:textColor="#000"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -34,11 +34,12 @@
 
         <!-- Zip Code Sub Title: -->
         <TextView
+            android:maxLines="1"
             android:id="@+id/zip_code_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Zip Code: 11432"
+            android:text="@string/txt_zip_code"
             android:textColor="#000"
             android:textSize="16sp" />
         <!-- !END! Zip Code Sub Title: -->
@@ -49,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Board Meetings: First Thursday, 6:30 p.m."
+            android:text="@string/txt_board_meeting"
             android:textColor="#000"
             android:textSize="16sp" />
         <!-- !END! Meeting Details: -->
@@ -70,11 +71,12 @@
                 android:layout_weight="2.75"
                 android:maxLines="1"
                 android:layout_gravity="center_vertical"
-                android:text="w: "
+                android:text="@string/txt_website"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
             <ImageView
+                android:id="@id/iv_q_website"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -98,11 +100,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2.75"
                 android:layout_gravity="center_vertical"
-                android:text="p: "
+                android:text="@string/txt_phone"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
             <ImageView
+                android:id="@id/iv_q_phone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -125,12 +128,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.75"
-                android:text="f: "
+                android:text="@string/txt_fax"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
             <ImageView
+                android:id="@id/iv_q_fax"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -154,11 +158,12 @@
                 android:layout_weight="2.75"
                 android:layout_gravity="center_vertical"
                 android:maxLines="1"
-                android:text="e: "
+                android:text="@string/txt_email"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
             <ImageView
+                android:id="@id/iv_q_email"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -183,11 +188,12 @@
                 android:maxLines="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="a: "
+                android:text="@string/txt_address"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp" />
 
             <ImageView
+                android:id="@id/iv_q_map"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -213,7 +219,7 @@
                     android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:background="@color/view_pager_color"
-                    android:text="Petition"
+                    android:text="@string/txt_petition"
                     android:textColor="#ffff"
                     android:textSize="15sp">
 
@@ -245,7 +251,7 @@
                     android:layout_marginBottom="1dp"
                     android:layout_weight="1"
                     android:background="@color/view_pager_color"
-                    android:text="More Details"
+                    android:text="@string/txt_more_details"
                     android:textColor="#ffff"
                     android:textSize="15sp">
 

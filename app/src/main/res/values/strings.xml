@@ -79,5 +79,75 @@
     <string name="type_new_petition">Type new petition</string>
     <string name="submit_petition">submit petition</string>
 
+    <!-- Community Board Strings:-->
+    <string name="txt_community_board">Community Board: 2</string>
+    <string name="txt_zip_code">Zip Code: 11432</string>
+    <string name="txt_board_meeting">Board Meetings: First Thursday, 6:30 p.m.</string>
+    <string name="txt_website">web:</string>
+    <string name="txt_phone">phone:</string>
+    <string name="txt_fax">fax:</string>
+    <string name="txt_email">email:</string>
+    <string name="txt_address">address:</string>
+    <string name="txt_petition">Petition</string>
+    <string name="txt_more_details">More Details</string>
+
+    <!-- CARDVIEW STRING DIMENS:-->
+    <string name="cv_layout_width">match_parent</string>
+    <string name="cv_layout_height">wrap_content</string>
+    <string name="cv_cardBackgroundColor">color/white</string>
+
+    <!-- OUTER_LINEAR_LAYOUT_STRING DIMENS:-->
+    <string name="ll_o_layout_width">match_parent</string>
+    <string name="ll_o_layout_height">wrap_content</string>
+    <string name="ll_o_orientation">vertical</string>
+
+    <!-- TEXTVIEW_COMMUNITY_BOARD_TITLE STRING DIMENS:-->
+    <string name="tv_cbt_layout_width">wrap_content</string>
+    <string name="tv_cbt_layout_height">wrap_content</string>
+    <string name="tv_cbt_layout_gravity">center</string>
+    <string name="tv_cbt_textColor">color/black</string>
+    <string name="tv_cbt_textStyle">bold</string>
+
+    <!-- TEXTVIEW_ZIPCODE_SUBTITLE_STRING_DIMENS:-->
+    <string name="tv_zcs_layout_width">wrap_content</string>
+    <string name="tv_zcs_layout_height">wrap_content</string>
+    <string name="tv_zcs_layout_gravity">center_horizontal</string>
+    <string name="tv_zcs_textColor">color/black</string>
+
+    <!-- TextView board meeting details: -->
+    <string name="tv_bmd_layout_width">wrap_content</string>
+    <string name="tv_bmd_layout_height">wrap_content</string>
+    <string name="tv_bmd_layout_gravity">center_horizontal</string>
+    <string name="tv_bmd_textColor">color/black</string>
+
+    <!-- INNEAR_LINEAR_LAYOUT_HORIZONTAL STRING DIMENS:-->
+    <string name="inner_ll_layout_gravity">center_horizontal</string>
+    <string name="inner_ll_orientation">horizontal</string>
+
+    <!-- TEXTVIEW_INNER_DETAIL STRING DIMENS:-->
+    <string name="tv_inner_detail_layout_height">wrap_content</string>
+    <string name="tv_inner_detail_layoutGravity">center_vertical</string>
+    <string name="tv_inner_detail_textColor">color/colorPrimary</string>
+
+    <!-- IMAGEVIEW_INNER_DETAIL STRING DIMENS:-->
+    <string name="iv_inner_detail_layout_height">match_parent</string>
+
+    <!-- Inner_linear_Layout_PetitionAndMoreDetails BUTTONS STRING DIMENS: -->
+    <string name="inner_ll_btn_layout_width">match_parent</string>
+    <string name="inner_ll_btn_orientation">horizontal</string>
+
+    <!-- Inner_Button DIMENS: -->
+    <string name="ill_button_layout_width">match_parent</string>
+    <string name="ill_button_layout_height">wrap_content</string>
+    <string name="ill_button_background">color/button_background</string>
+    <string name="ill_button_textColor">color/button_text</string>
+
+    <!-- Image view ID's: -->
+    <string name="iv_inner_detail_bgd_website">drawable/img_v2_website</string>
+    <string name="iv_inner_detail_bgd_phone">drawable/img_v2_phone</string>
+    <string name="iv_inner_detail_bgd_fax">drawable/img_v2_fax</string>
+    <string name="iv_inner_detail_bgd_email">drawable/img_v2_email</string>
+    <string name="iv_inner_detail_bgd_globe">drawable/img_v2_globe</string>
+
 
 </resources>
