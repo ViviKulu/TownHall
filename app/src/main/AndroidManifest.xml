@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
+        android:name=".database.PetitionApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -48,9 +49,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PetitionActivity" />
+        <activity android:name=".PetitionListActivity" />
         <activity android:name=".FavVolunteerOppListActivity" />
-        <activity android:name=".PetitionDialogActivity"></activity>
+        <activity android:name=".PetitionAddActivity"/>
     </application>
 
 </manifest>

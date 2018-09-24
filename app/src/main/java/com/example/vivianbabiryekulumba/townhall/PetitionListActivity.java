@@ -6,7 +6,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -27,17 +26,16 @@ import com.example.vivianbabiryekulumba.townhall.database.PetitionDao;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionObserver;
-import com.example.vivianbabiryekulumba.townhall.database.PetitionRepository;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionApplication;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.PetitionAddDialogFragment;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PetitionActivity extends AppCompatActivity
+public class PetitionListActivity extends AppCompatActivity
         implements PetitionListPresenter.PetitionListPresentation, NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "PetitionActivity.class";
+    private static final String TAG = "PetitionList.class";
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     public PetitionListPresenter petitionListPresenter;
@@ -60,6 +58,18 @@ public class PetitionActivity extends AppCompatActivity
         //Navigation Drawer
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        petitionRecyclerView = findViewById(R.id.petition_list_recyclerview);
+
+        PetitionDatabase db = ((PetitionApplication) getApplication()).getPetitionDatabase();
+        PetitionDao petitionDao = db.petitionDao();
+
+        petitionListPresenter = new PetitionListPresenter(petitionDao);
+
+        petitionRecyclerView.setAdapter(new PetitionListAdapter(petitionListPresenter));
+
+        LiveData<Petition[]> petition = petitionDao.getAllPetitions();
+        petition.observe(this, new PetitionObserver(petitionListPresenter));
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -92,20 +102,6 @@ public class PetitionActivity extends AppCompatActivity
                 }
         );
 
-        PetitionDatabase db = ((PetitionRepository) getApplication()).getPetitionDatabase();
-        PetitionDao petitionDao = db.petitionDao();
-
-        petitionListPresenter = new PetitionListPresenter(petitionDao);
-
-        petitionRecyclerView = findViewById(R.id.petition_list_recyclerview);
-        petitionRecyclerView.setAdapter(new PetitionListAdapter(petitionListPresenter));
-
-        LiveData<Petition[]> petitions = petitionDao.getAllPetitions();
-        petitions.observe(this, new PetitionObserver(petitionListPresenter));
-
-        FloatingActionButton addTaskFab = findViewById(R.id.add_petition_fab);
-
-        addTaskFab.setOnClickListener(v -> petitionListPresenter.onAddPetitionButtonClicked());
     }
 
 
@@ -140,11 +136,11 @@ public class PetitionActivity extends AppCompatActivity
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(PetitionActivity.this, NavigationActivity.class);
+            Intent intent = new Intent(PetitionListActivity.this, NavigationActivity.class);
             startActivity(intent);
             buildAlertDialog();
         } else if (id == R.id.nav_petitions) {
-            Intent intent = new Intent(getApplicationContext(), PetitionActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_opportunities) {
             Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppListActivity.class);
@@ -157,7 +153,7 @@ public class PetitionActivity extends AppCompatActivity
     }
 
     public void buildAlertDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionListActivity.this);
         builder.setTitle("Select your borough");
 
         for (int i = 0; i < boroughsList.size(); i++) {
@@ -183,23 +179,16 @@ public class PetitionActivity extends AppCompatActivity
 
     @Override protected void onStart() {
         super.onStart();
-
         petitionListPresenter.attach(this);
     }
 
     @Override protected void onStop() {
         super.onStop();
-
         petitionListPresenter.detach();
     }
 
-    @Override public void showAddPetitionDialog() {
-        PetitionAddDialogFragment fragmentTitle = new PetitionAddDialogFragment();
-        fragmentTitle.show(getSupportFragmentManager(), "Add Petition");
-    }
-
     @Override public void notifyDataSetChanged() {
-        Log.d("MainActivity", "notifyDatasetChanged()");
+        Log.d("MainActivity", "notifyDataSetChanged()");
         petitionRecyclerView.getAdapter().notifyDataSetChanged();
     }
 }

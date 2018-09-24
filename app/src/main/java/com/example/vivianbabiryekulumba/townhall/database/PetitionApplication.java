@@ -3,7 +3,7 @@ package com.example.vivianbabiryekulumba.townhall.database;
 import android.app.Application;
 import android.arch.persistence.room.Room;
 
-public class PetitionRepository extends Application{
+public class PetitionApplication extends Application{
 
     private PetitionDatabase petitionDatabase;
 

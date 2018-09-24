@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PetitionActivity">
+    tools:context=".PetitionListActivity">
 
     <!-- Use DrawerLayout as root container for activity -->
     <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,15 +35,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="57dp"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/add_petition_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_margin="16dp"
-                android:src="@drawable/add"
-                />
 
         </FrameLayout>
 

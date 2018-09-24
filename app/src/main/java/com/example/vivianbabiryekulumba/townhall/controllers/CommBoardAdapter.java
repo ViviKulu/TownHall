@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.vivianbabiryekulumba.townhall.PetitionDialogActivity;
+import com.example.vivianbabiryekulumba.townhall.PetitionAddActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
@@ -75,7 +75,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.submit_petition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, PetitionDialogActivity.class);
+                Log.d(TAG, "onClick: made it to the comm board adapter submit button");
+                Intent intent = new Intent(context, PetitionAddActivity.class);
                 context.startActivity(intent);
             }
         });
