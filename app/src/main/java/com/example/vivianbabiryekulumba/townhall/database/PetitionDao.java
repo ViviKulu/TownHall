@@ -5,8 +5,6 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import java.util.List;
-
 @Dao
 public interface PetitionDao {
 
@@ -17,6 +15,6 @@ public interface PetitionDao {
     void deleteAll();
 
     @Query("SELECT * from petition_table ORDER BY petition_title ASC")
-    LiveData<List<Petition>> getAllPetitions();
+    LiveData<Petition[]> getAllPetitions();
 
 }

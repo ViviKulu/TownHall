@@ -12,8 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.vivianbabiryekulumba.townhall.PetitionActivity;
+import com.example.vivianbabiryekulumba.townhall.PetitionDialogActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 
 import java.util.List;
@@ -22,6 +23,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
 
     private List<CommBoard> zipCodeList;
     private static final String TAG = "CommBoardAdapter";
+    PetitionListPresenter petitionListPresenter;
+    LayoutInflater inflater;
     Context context;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
@@ -72,7 +75,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.submit_petition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, PetitionActivity.class);
+                Intent intent = new Intent(context, PetitionDialogActivity.class);
                 context.startActivity(intent);
             }
         });

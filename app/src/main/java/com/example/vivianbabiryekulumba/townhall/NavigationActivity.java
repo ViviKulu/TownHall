@@ -162,7 +162,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             startActivity(intent);
             buildAlertDialog();
         } else if (id == R.id.nav_petitions) {
-            Intent intent1 = new Intent(NavigationActivity.this, PetitionListActivity.class);
+            Intent intent1 = new Intent(NavigationActivity.this, PetitionActivity.class);
             startActivity(intent1);
             //Start database
         } else if (id == R.id.nav_opportunities) {

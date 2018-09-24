@@ -19,6 +19,12 @@ public class PetitionListPresenter {
         petitionListPresentation = null;
     }
 
+    public void onAddPetitionButtonClicked() {
+        if (petitionListPresentation != null) {
+            petitionListPresentation.showAddPetitionDialog();
+        }
+    }
+
     public void addPetition(final String title, String content) {
         Log.d("Presenter", "Adding Task: " + title + content);
         new Thread(new Runnable() {
@@ -46,6 +52,7 @@ public class PetitionListPresenter {
     }
 
     public interface PetitionListPresentation{
+        void showAddPetitionDialog();
         void notifyDataSetChanged();
     }
 

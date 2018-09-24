@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vivianbabiryekulumba.townhall.R;
+import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 import com.example.vivianbabiryekulumba.townhall.network_service.NetworkService;
 import com.example.vivianbabiryekulumba.townhall.controllers.CommBoardAdapter;
@@ -34,6 +35,7 @@ public class BxRetroFragment extends Fragment {
     private static final String TAG = "MainActivity.class";
     private RecyclerView recyclerView;
     private List<CommBoard> zipCodeList;
+    protected PetitionListPresenter petitionListPresenter;
     Context context;
 
     public BxRetroFragment() {
@@ -78,4 +80,5 @@ public class BxRetroFragment extends Fragment {
 
         return view;
     }
+
 }
