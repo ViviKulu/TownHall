@@ -19,19 +19,10 @@ public class PetitionListPresenter {
         petitionListPresentation = null;
     }
 
-    public void onAddPetitionButtonClicked() {
-        if (petitionListPresentation != null) {
-            petitionListPresentation.showAddPetitionDialog();
-        }
-    }
 
-    public void addPetition(final String title, String content) {
+    public void addPetition(String title, String content) {
         Log.d("Presenter", "Adding Task: " + title + content);
-        new Thread(new Runnable() {
-            @Override public void run() {
-                petitionDao.addPetition(new Petition(title, content));
-            }
-        }).start();
+        new Thread(() -> petitionDao.addPetition(new Petition(title, content))).start();
     }
 
     public void bindView(PetitionListItem listItem, int position) {
@@ -52,7 +43,6 @@ public class PetitionListPresenter {
     }
 
     public interface PetitionListPresentation{
-        void showAddPetitionDialog();
         void notifyDataSetChanged();
     }
 
@@ -60,7 +50,5 @@ public class PetitionListPresenter {
         void setPetitionTitle(String title);
         void setPetitionContent(String content);
     }
-
-
 
 }

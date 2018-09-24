@@ -9,7 +9,7 @@ import android.arch.persistence.room.Query;
 public interface PetitionDao {
 
     @Insert()
-    Long addPetition(Petition petitionEntity);
+    Long addPetition(Petition petition);
 
     @Query("DELETE FROM petition_table")
     void deleteAll();

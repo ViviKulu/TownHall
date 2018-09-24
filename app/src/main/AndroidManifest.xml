@@ -48,9 +48,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PetitionActivity" />
+        <activity android:name=".PetitionListActivity" />
         <activity android:name=".FavVolunteerOppListActivity" />
-        <activity android:name=".PetitionDialogActivity"></activity>
+        <activity android:name=".PetitionAddActivity"/>
     </application>
 
 </manifest>

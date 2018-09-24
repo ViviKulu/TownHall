@@ -6,7 +6,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -29,15 +28,14 @@ import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionObserver;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionRepository;
 import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.PetitionAddDialogFragment;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PetitionActivity extends AppCompatActivity
+public class PetitionListActivity extends AppCompatActivity
         implements PetitionListPresenter.PetitionListPresentation, NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "PetitionActivity.class";
+    private static final String TAG = "PetitionListActivity.class";
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     public PetitionListPresenter petitionListPresenter;
@@ -103,9 +101,6 @@ public class PetitionActivity extends AppCompatActivity
         LiveData<Petition[]> petitions = petitionDao.getAllPetitions();
         petitions.observe(this, new PetitionObserver(petitionListPresenter));
 
-        FloatingActionButton addTaskFab = findViewById(R.id.add_petition_fab);
-
-        addTaskFab.setOnClickListener(v -> petitionListPresenter.onAddPetitionButtonClicked());
     }
 
 
@@ -140,11 +135,11 @@ public class PetitionActivity extends AppCompatActivity
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(PetitionActivity.this, NavigationActivity.class);
+            Intent intent = new Intent(PetitionListActivity.this, NavigationActivity.class);
             startActivity(intent);
             buildAlertDialog();
         } else if (id == R.id.nav_petitions) {
-            Intent intent = new Intent(getApplicationContext(), PetitionActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_opportunities) {
             Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppListActivity.class);
@@ -157,7 +152,7 @@ public class PetitionActivity extends AppCompatActivity
     }
 
     public void buildAlertDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionListActivity.this);
         builder.setTitle("Select your borough");
 
         for (int i = 0; i < boroughsList.size(); i++) {
@@ -193,10 +188,6 @@ public class PetitionActivity extends AppCompatActivity
         petitionListPresenter.detach();
     }
 
-    @Override public void showAddPetitionDialog() {
-        PetitionAddDialogFragment fragmentTitle = new PetitionAddDialogFragment();
-        fragmentTitle.show(getSupportFragmentManager(), "Add Petition");
-    }
 
     @Override public void notifyDataSetChanged() {
         Log.d("MainActivity", "notifyDatasetChanged()");
