@@ -1,8 +1,7 @@
-package com.example.vivianbabiryekulumba.townhall.fragments;
+package com.example.vivianbabiryekulumba.townhall.main_fragments;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -34,11 +33,6 @@ public class CommBoardsFrag extends Fragment{
         // Required empty public constructor
         CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
         return commBoardsFrag;
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override

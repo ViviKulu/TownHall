@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.fragments;
+package com.example.vivianbabiryekulumba.townhall.main_fragments;
 
 
 import android.Manifest;
@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.example.vivianbabiryekulumba.townhall.MainActivity;
+import com.example.vivianbabiryekulumba.townhall.MapsActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -87,7 +87,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
             googleMap.setMyLocationEnabled(true);
             CameraPosition myLocation = CameraPosition.builder()
-                    .target(new LatLng(MainActivity.getCurrentLatitude(), MainActivity.getCurrentLongitude()))
+                    .target(new LatLng(MapsActivity.getCurrentLatitude(), MapsActivity.getCurrentLongitude()))
                     .zoom(16)
                     .bearing(0)
                     .tilt(45)

@@ -32,7 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class BxRetroFragment extends Fragment {
 
-    private static final String TAG = "MainActivity.class";
+    private static final String TAG = "MapsActivity.class";
     private RecyclerView recyclerView;
     private List<CommBoard> zipCodeList;
     protected PetitionListPresenter petitionListPresenter;

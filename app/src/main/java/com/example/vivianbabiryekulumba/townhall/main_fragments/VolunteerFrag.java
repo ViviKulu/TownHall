@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.fragments;
+package com.example.vivianbabiryekulumba.townhall.main_fragments;
 
 
 import android.content.Context;

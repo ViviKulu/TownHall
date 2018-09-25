@@ -4,11 +4,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.ServiceFacilitiesFrag;
-import com.example.vivianbabiryekulumba.townhall.fragments.VolunteerFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.ServiceFacilitiesFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.VolunteerFrag;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class ViewPagerAdapter extends FragmentPagerAdapter{
 
     private static final String TAG = "ViewPagerAdapter";
     private static int NUM_ITEMS = 3;
@@ -46,6 +46,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return "Community Boards";
         }
     }
+
+
 
 
     @Override

@@ -27,7 +27,7 @@ import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionObserver;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionApplication;
-import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 
 import java.util.Arrays;
 import java.util.List;
@@ -136,7 +136,7 @@ public class PetitionListActivity extends AppCompatActivity
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(PetitionListActivity.this, NavigationActivity.class);
+            Intent intent = new Intent(PetitionListActivity.this, MainActivity.class);
             startActivity(intent);
             buildAlertDialog();
         } else if (id == R.id.nav_petitions) {
@@ -188,7 +188,7 @@ public class PetitionListActivity extends AppCompatActivity
     }
 
     @Override public void notifyDataSetChanged() {
-        Log.d("MainActivity", "notifyDataSetChanged()");
+        Log.d("MapsActivity", "notifyDataSetChanged()");
         petitionRecyclerView.getAdapter().notifyDataSetChanged();
     }
 }

@@ -28,7 +28,7 @@ import com.example.vivianbabiryekulumba.townhall.database.PetitionDao;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionObserver;
-import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 
 import java.util.Arrays;
 import java.util.List;
@@ -179,7 +179,7 @@ public class PetitionAddActivity extends AppCompatActivity implements Navigation
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(PetitionAddActivity.this, NavigationActivity.class);
+            Intent intent = new Intent(PetitionAddActivity.this, MainActivity.class);
             startActivity(intent);
             buildAlertDialog();
         } else if (id == R.id.nav_petitions) {

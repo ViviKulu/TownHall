@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main_fragments.MapFragment">
+    tools:context=".retrofit.ChildServWelfareEduFrag">
 
-    <com.google.android.gms.maps.MapView
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/mapFrag">
-
-    </com.google.android.gms.maps.MapView>
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

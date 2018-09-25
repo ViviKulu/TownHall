@@ -19,7 +19,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.vivianbabiryekulumba.townhall.fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 
 import java.util.Arrays;
 import java.util.List;
@@ -115,7 +115,7 @@ public class FavVolunteerOppListActivity extends AppCompatActivity implements Na
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(FavVolunteerOppListActivity.this, NavigationActivity.class);
+            Intent intent = new Intent(FavVolunteerOppListActivity.this, MainActivity.class);
             startActivity(intent);
             buildAlertDialog();
             Log.d(TAG, "onNavigationItemSelected: made it to home from list");
