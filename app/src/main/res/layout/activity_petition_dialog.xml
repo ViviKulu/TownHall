@@ -3,44 +3,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".PetitionAddActivity">
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_margin="16dp"
+    <!-- Use DrawerLayout as root container for activity -->
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/petition_title_edit_text"
+        <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
+        <FrameLayout
+            android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Petition Title"/>
+            android:layout_height="wrap_content" >
 
-    </android.support.design.widget.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="57dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/petition_content_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Petition Content"/>
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/petition_title_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
+                    android:layout_gravity="center"
+                    android:hint="Enter Petition Title"/>
 
-    </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/submit_petition_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="100dp"
-        android:background="#000"
-        android:textColor="#fff"
-        android:text="submit petition"
-        android:layout_marginLeft="100dp" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/petition_content_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="Enter Petition Content"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#000"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+                <Button
+                    android:id="@+id/submit_petition_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="180dp"
+                    android:background="#000"
+                    android:textColor="#fff"
+                    android:text="submit petition"
+                    android:layout_marginLeft="180dp" />
+
+            </android.support.v7.widget.Toolbar>
+
+            <!--<android.support.v4.view.ViewPager-->
+                <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+                <!--android:id="@+id/viewpager"-->
+                <!--android:layout_marginTop="57dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" >-->
+
+                <!--<android.support.v4.view.PagerTabStrip-->
+                    <!--android:id="@+id/pager_header"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingBottom="4dp"-->
+                    <!--android:paddingTop="15dp" >-->
+
+                <!--</android.support.v4.view.PagerTabStrip>-->
+
+            <!--</android.support.v4.view.ViewPager>-->
+            <!---->
+        </FrameLayout>
+
+        <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/navigation_menu"/>
+
+    </android.support.v4.widget.DrawerLayout>
+
 
 </LinearLayout>

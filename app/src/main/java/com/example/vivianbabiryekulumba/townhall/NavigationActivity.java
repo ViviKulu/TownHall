@@ -164,11 +164,9 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.nav_petitions) {
             Intent intent1 = new Intent(NavigationActivity.this, PetitionListActivity.class);
             startActivity(intent1);
-            //Start database
         } else if (id == R.id.nav_opportunities) {
             Intent intent2 = new Intent(NavigationActivity.this, FavVolunteerOppListActivity.class);
             startActivity(intent2);
-            //Start database
         } else if (id == R.id.nav_profile) {
             //Build alert dialog to log in to profile
             //Start database

@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.PetitionAddActivity;
@@ -22,7 +22,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
 
     private List<CommBoard> zipCodeList;
     private static final String TAG = "CommBoardAdapter";
-
     Context context;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
@@ -46,19 +45,11 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.comm_Of_tv.setText(commBoard.getCommunityBoard());
         holder.zip_code_tv.setText(String.format("Zip codes: %s", commBoard.getZipCodes()));
         holder.address.setText(String.format("Address: %s", commBoard.getCbInfo().getAddress()));
-        holder.submit_petition.setText("Submit Petition");
         holder.phone.setText(String.format("p: %s", commBoard.getCbInfo().getPhone()));
         holder.fax.setText(String.format("f: %s", commBoard.getCbInfo().getFax()));
         holder.email.setText(String.format("e: %s", commBoard.getCbInfo().getEmail()));
         holder.website.setText(String.format("w: %s", commBoard.getCbInfo().getWebsite()));
-        //holder.chair.setText(String.format("Chair: %s", commBoard.getCbInfo().getChair()));
-        //holder.district_manager.setText(String.format("District Manager: %s", commBoard.getCbInfo().getDistrictManager()));
-        //holder.board_meeting.setText(String.format("Board meeting: %s", commBoard.getCbInfo().getBoardMeeting()));
-        //holder.cabinet_meeting.setText(String.format("Cabinet meeting: %s", commBoard.getCbInfo().getCabinetMeeting()));
-        //holder.precinct.setText(String.format("Precinct: %s", commBoard.getCbInfo().getPrecinct()));
-        //holder.precinct_phone.setText(String.format("Precinct phone: %s", commBoard.getCbInfo().getPrecinctPhone()));
 
-        //Intent of address to google maps.
         holder.address.setOnClickListener(new View.OnClickListener() {
 
             Uri uri1 = Uri.parse(commBoard.getCbInfo().getLatitude());
@@ -74,15 +65,14 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             }
         });
 
-        /** This will lead to the Petition Activity Class: */
         holder.submit_petition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: made it to the comm board adapter submit button");
                 Intent intent = new Intent(context, PetitionAddActivity.class);
                 context.startActivity(intent);
             }
         });
+
 
         //Intent of email to email services.
         holder.email.setOnClickListener(new View.OnClickListener() {
@@ -94,28 +84,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getEmail() + context);
             }
         });
-
-        //Intent to search for chair.
-//        holder.chair.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-//                intent.putExtra(SearchManager.QUERY, commBoard.getCbInfo().getChair());
-//                context.startActivity(intent);
-//                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getChair());
-//            }
-//        });
-
-        //Intent to search for district manager.
-//        holder.district_manager.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-//                intent.putExtra(SearchManager.QUERY, commBoard.getCbInfo().getChair());
-//                context.startActivity(intent);
-//                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getDistrictManager());
-//            }
-//        });
 
 
         //Intent of phone number to call services.
@@ -129,16 +97,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             }
         });
 
-        //Intent of precinct phone to call services.
-//        holder.precinct_phone.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_DIAL);
-//                intent.setData(Uri.parse("tel:" + commBoard.getCbInfo().getPrecinctPhone()));
-//                context.startActivity(intent);
-//                Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getPrecinctPhone() + context);
-//            }
-//        });
 
         //Intent of Website to external source of actual website.
         holder.website.setOnClickListener(new View.OnClickListener() {
@@ -161,31 +119,19 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
 
     public class CommBoardViewHolder extends RecyclerView.ViewHolder {
 
-        /**
-         needed for the updated UI view:
-         - zip
-         - board meeting:
-         - phone:
-         - email:
-         - fax:
-         - address:
-         - find on map:
-         - a more details button: **/
-
         TextView comm_Of_tv;
         TextView zip_code_tv;
         TextView address;
-        Button submit_petition; // made a button because it lead to an activity // used to be a TV
+        ImageView submit_petition;
         TextView phone;
         TextView fax;
         TextView email;
         TextView website;
-        //TextView chair;
-        //TextView district_manager;
-        //TextView board_meeting;
-        //TextView cabinet_meeting;
-        //TextView precinct;
-        //TextView precinct_phone;
+        ImageView website_iv;
+        ImageView telephone_iv;
+        ImageView fax_iv;
+        ImageView email_iv;
+        ImageView address_iv;
         Context context;
 
         public CommBoardViewHolder(View itemView) {
@@ -199,13 +145,13 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             fax = itemView.findViewById(R.id.fax_tv);
             email = itemView.findViewById(R.id.email_tv);
             website = itemView.findViewById(R.id.website_tv);
-            //chair = itemView.findViewById(R.id.chair_tv);
+            website_iv = itemView.findViewById(R.id.website_iv);
+            telephone_iv = itemView.findViewById(R.id.telephone_iv);
+            fax_iv = itemView.findViewById(R.id.fax_iv);
+            email_iv = itemView.findViewById(R.id.email_iv);
+            address_iv = itemView.findViewById(R.id.address_iv);
             context = itemView.getContext();
-            //district_manager = itemView.findViewById(R.id.district_manager_tv);
-            //board_meeting = itemView.findViewById(R.id.board_meeting_tv);
-            //cabinet_meeting = itemView.findViewById(R.id.cabinet_meeting_tv);
-            //precinct = itemView.findViewById(R.id.precinct_tv);
-            //precinct_phone = itemView.findViewById(R.id.precinct_phone_tv);
         }
+
     }
 }

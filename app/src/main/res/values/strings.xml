@@ -77,7 +77,7 @@
     <string name="staten_island">Staten Island</string>
     <string name="submit">submit</string>
     <string name="type_new_petition">Type new petition</string>
-    <string name="submit_petition">submit petition</string>
+    <string name="submit_petition">Submit a petition!</string>
     <string name="delete">delete</string>
 
     <string name="hint_word">Word...</string>
@@ -153,6 +153,8 @@
     <string name="iv_inner_detail_bgd_fax">drawable/img_v2_fax</string>
     <string name="iv_inner_detail_bgd_email">drawable/img_v2_email</string>
     <string name="iv_inner_detail_bgd_globe">drawable/img_v2_globe</string>
+    <string name="more_details">More Details</string>
+    <string name="petition">petition</string>
 
 
 </resources>

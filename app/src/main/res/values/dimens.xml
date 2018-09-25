@@ -38,7 +38,7 @@
 
 
     <!-- Inner_linear_Layout_PetitionAndMoreDetails BUTTONS: -->
-    <dimen name="inner_ll_btn_layout_width">match_parent</dimen>
+    <dimen name="inner_ll_btn_layout_width">40dp</dimen>
     <dimen name="inner_ll_btn_layout_height">40dp</dimen>
     <dimen name="inner_ll_btn_layout_marginBottom">1dp</dimen>
     <dimen name="inner_ll_btn_weightSum">2</dimen>

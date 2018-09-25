@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#fff"
+        app:cardUseCompatPadding="true"
         app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
         app:contentPadding="2dp">
@@ -32,6 +33,11 @@
             android:textStyle="bold" />
         <!-- !END! Community Board Title:  -->
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
         <!-- Zip Code Sub Title: -->
         <TextView
             android:maxLines="1"
@@ -39,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
             android:text="@string/txt_zip_code"
             android:textColor="#000"
             android:textSize="16sp" />
@@ -58,7 +65,7 @@
         <!-- Website Horizontal Linear Layout View: -->
 
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
@@ -76,7 +83,7 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@id/iv_q_website"
+                android:id="@+id/website_iv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -88,7 +95,7 @@
 
         <!-- Phone Horizontal Linear Layout View: -->
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
@@ -105,7 +112,7 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@id/iv_q_phone"
+                android:id="@+id/telephone_iv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -117,7 +124,7 @@
 
         <!-- Fax Horizontal Linear Layout View: -->
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
@@ -134,7 +141,7 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@id/iv_q_fax"
+                android:id="@+id/fax_iv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -145,7 +152,7 @@
 
         <!-- Email Horizontal Linear Layout View: -->
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
@@ -163,7 +170,7 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@id/iv_q_email"
+                android:id="@+id/email_iv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -175,7 +182,7 @@
 
         <!-- Address Horizontal Linear Layout View: -->
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
@@ -193,7 +200,7 @@
                 android:textSize="12sp" />
 
             <ImageView
-                android:id="@id/iv_q_map"
+                android:id="@+id/address_iv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -207,57 +214,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginBottom="1dp"
+                android:layout_gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="3">
 
-                <!-- Petition Button: leads to the Petition Activity-->
-                <Button
-                    android:id="@+id/submit_petition"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/submit_petition_txt"
+                    android:layout_weight="2.75"
+                    android:layout_width="0dp"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/view_pager_color"
-                    android:text="@string/txt_petition"
-                    android:textColor="#ffff"
-                    android:textSize="15sp">
-
-                    <!-- old submit petition TextView id -->
-                    <!--
-                    <TextView
-                        android:id="@+id/submit_petition"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="190dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="16sp"
-                        android:textColor="#ffff"/>
-
-                    -->
-                </Button>
-                <!-- Petition Button: ends layout code -->
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/submit_petition"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp" />
 
                 <ImageView
-                    android:id="@+id/red_bar_iv"
-                    android:layout_width="1dp"
-                    android:layout_height="wrap_content"
-                    android:background="#000000" />
-                <!-- Details Button: leads to the More Details Activity-->
-                <Button
-                    android:id="@+id/more_details_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/view_pager_color"
-                    android:text="@string/txt_more_details"
-                    android:textColor="#ffff"
-                    android:textSize="15sp">
+                    android:id="@+id/submit_petition"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:src="@drawable/voice_action" />
 
-                </Button>
-                <!-- Details Button: ends detail button code  -->
+                <!-- Petition Button: ends layout code -->
 
             </LinearLayout>
             <!-- end horizontal layout for petition + more details activity -->
@@ -268,11 +247,9 @@
     </android.support.v7.widget.CardView>
 
 
-</android.support.constraint.ConstraintLayout>
-
     <!-- MISCELLANEOUS DETAILS ADDED TO "MORE DETAILS PAGE" -->
 
-    <!--
+
     <TextView
         android:id="@+id/chair_tv"
         android:layout_width="wrap_content"
@@ -326,5 +303,4 @@
         android:textColor="@color/colorPrimary"
         android:textSize="16sp" />
 
-
-    -->
+</android.support.constraint.ConstraintLayout>

@@ -41,7 +41,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return "Service Facilities";
             case 2:
-                return "Volunteer Service";
+                return "Volunteer!";
             default:
                 return "Community Boards";
         }

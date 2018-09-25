@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:visible="true">
         <item
             android:id="@+id/nav_home"
@@ -7,15 +8,22 @@
         <!-- Home is the community boards frag-->
         <item
             android:id="@+id/nav_petitions"
-            android:title="View petitionEntity" />
+            android:title="View petitions" />
         <!--Petition is the petition frag-->
         <item
             android:id="@+id/nav_opportunities"
-            android:title="Favorite Volunteer Opportunities" />
+            android:title="Saved volunteer opportunities" />
         <!--Favorite is the fav_vol_opp frag-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+
         <item
             android:id="@+id/nav_profile"
-            android:title="Login to profile" />
+            android:title="Login to profile"
+            />
 
         <!--Profile is the user profile frag-->
     </group>
