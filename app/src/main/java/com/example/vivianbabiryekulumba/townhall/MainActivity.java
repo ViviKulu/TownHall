@@ -32,7 +32,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAG = "NavActivity.class";
+    private static final String TAG = "MainActivity.class";
     ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     PagerTabStrip pagerTabStrip;
@@ -224,17 +224,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             builder.setItems(service_fac, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    String currentItem = serviceFacList.get(which);
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     ServiceFacilitiesFrag serviceFacilitiesFrag = new ServiceFacilitiesFrag();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("serv_fac", currentItem);
-                    serviceFacilitiesFrag.setArguments(bundle);
                     fragmentTransaction.add(serviceFacilitiesFrag, "ServiceFrag");
-                    fragmentTransaction.addToBackStack(currentItem);
+                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
-                    Log.d(TAG, "onClick: " + currentItem + bundle);
                 }
             });
         }
@@ -243,24 +238,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-//        @Override
-//        public void onPageScrolled ( int position, float positionOffset, int positionOffsetPixels){
-//
-//        }
-//
-//        @Override
-//        public void onPageSelected ( int position){
-//            switch (position) {
-//                case 0:
-//                    buildCommBoardAlertDialog();
-//                case 1:
-//                    buildServFacAlertDialog();
-//            }
-//        }
-//
-//        @Override
-//        public void onPageScrollStateChanged ( int state){
-//
-//        }
 
     }

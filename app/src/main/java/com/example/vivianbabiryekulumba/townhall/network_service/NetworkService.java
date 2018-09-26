@@ -30,6 +30,7 @@ public interface NetworkService {
     Call<List<VolunteerDetails>> getVolunteerDetailsData();
 
     @GET("resource/67g2-p84d.json")
-    Call<List<ServiceFacilities>> getServiceFacilities();
+    Call<List<ServiceFacilities>> getServiceFragDomain();
+
 
 }
