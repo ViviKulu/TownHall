@@ -156,5 +156,12 @@
     <string name="more_details">More Details</string>
     <string name="petition">petition</string>
 
+    <!-- VOLUNTEER SERVICES STRINGS: -->
+    <string name="txt_vs_title">Mentor Homeless Youth</string>
+    <string name="txt_vs_summary">Mentor homeless children between the ages of 2 to 12 at our weekend enrichment program</string>
+    <string name="txt_vs_locality_address">Hillside Avenue</string>
+    <string name="txt_vs_locality_city">Queens</string>
+    <string name="txt_vs_display_url">/opportunities/5141</string>
+
 
 </resources>

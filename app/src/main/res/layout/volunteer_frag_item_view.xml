@@ -7,63 +7,94 @@
     <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#fff"
+        app:cardBackgroundColor="@color/white"
         app:contentPadding="5dp"
         app:cardUseCompatPadding="true"
-        app:cardCornerRadius="1dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
         >
 
-        <TextView
-            android:id="@+id/title_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
+        <!-- Linear Layout: vertical for the details  -->
 
-        <TextView
-            android:id="@+id/summary_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="75dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="16sp"
-            android:textColor="#000"
-            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/locality_address_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/title_tv"
+                android:textStyle="bold"
+                android:text="@string/txt_vs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
 
-        <TextView
-            android:id="@+id/locality_city_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="285dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="16sp"
-            android:textColor="#000"/>
+            <TextView
+                android:id="@+id/summary_tv"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/txt_vs_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#000"
+                />
 
-        <TextView
-            android:id="@+id/display_url_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="350dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="16sp"
-            android:textColor="#000"/>
+            <TextView
+                android:id="@+id/locality_address_tv"
+                android:text="@string/txt_vs_locality_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/locality_city_tv"
+                android:text="@string/txt_vs_locality_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000"/>
+
+            <!-- LL: for the url information:-->
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_display_url"
+                    android:text="url: "
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/view_pager_color"/>
+                <TextView
+                    android:id="@+id/display_url_tv"
+                    android:text="@string/txt_vs_display_url"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/img_v2_website"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!-- !END! Linear Layout: vertical for the details -->
 
     </android.support.v7.widget.CardView>
 
