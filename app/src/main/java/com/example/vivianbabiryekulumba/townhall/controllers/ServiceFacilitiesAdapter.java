@@ -17,7 +17,7 @@ import java.util.List;
 public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacilitiesAdapter.ServiceFacilitiesViewHolder> {
 
     private List<ServiceFacilities> serviceFacilitiesList;
-    private static final String TAG = "CommBoardAdapter";
+    private static final String TAG = "ServiceFacAdapter";
     Context context;
 
     public ServiceFacilitiesAdapter(List<ServiceFacilities> serviceFacilitiesList, Context context) {
@@ -39,14 +39,13 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
         final ServiceFacilities serviceFacilities = serviceFacilitiesList.get(position);
 
         holder.facname.setText(serviceFacilities.getFacname());
-        holder.facdomain.setText(serviceFacilities.getFacdomain());
         holder.overagency.setText(serviceFacilities.getOveragency());
         holder.address.setText(serviceFacilities.getAddress());
-        holder.zipcode.setText(serviceFacilities.getZipcode());
+        holder.opname.setText(serviceFacilities.getOpname());
         holder.boro.setText(serviceFacilities.getBoro());
         holder.city.setText(serviceFacilities.getCity());
         holder.commboard.setText(serviceFacilities.getCommboard());
-        holder.council.setText(serviceFacilities.getCouncil());
+        holder.factype.setText(serviceFacilities.getFactype());
 
 //        holder.address.setOnClickListener(new View.OnClickListener() {
 //
@@ -72,26 +71,24 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
     public class ServiceFacilitiesViewHolder extends RecyclerView.ViewHolder {
 
         TextView facname;
-        TextView facdomain;
         TextView overagency;
-        TextView address;
-        TextView zipcode;
+        TextView opname;
+        TextView factype;
         TextView boro;
         TextView city;
         TextView commboard;
-        TextView council;
+        TextView address;
 
         public ServiceFacilitiesViewHolder(View itemView) {
             super(itemView);
             facname = itemView.findViewById(R.id.facname_tv);
-            facdomain = itemView.findViewById(R.id.facdomain_tv);
             overagency = itemView.findViewById(R.id.overagency_tv);
-            address = itemView.findViewById(R.id.address_service_tv);
-            zipcode = itemView.findViewById(R.id.zipcode_tv);
-            boro = itemView.findViewById(R.id.boro_tv);
-            city = itemView.findViewById(R.id.city_tv);
-            commboard = itemView.findViewById(R.id.commboard_tv);
-            council = itemView.findViewById(R.id.council_tv);
+            opname = itemView.findViewById(R.id.opname_tv);
+            factype = itemView.findViewById(R.id.factype_tv);
+            boro = itemView.findViewById(R.id.fac_boro_tv);
+            city = itemView.findViewById(R.id.fac_city_tv);
+            commboard = itemView.findViewById(R.id.fac_comm_board_tv);
+            address = itemView.findViewById(R.id.fac_address_tv);
         }
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- DIMENS FOR COMMUNITY BOARD LAYOUT: -->
+
+    <!-- Cardview: -->
+    <dimen name="cv_cardCornerRadius">4dp</dimen>
+    <dimen name="cv_cardElevation">10dp</dimen>
+    <dimen name="cv_contentPadding">2dp</dimen>
+
+    <!-- Outer_Linear_Layout: -->
+
+    <!-- Text_View_COMMUNITY_BOARD_TITLE: -->
+    <dimen name="tv_cbt_textSize">18sp</dimen>
+
+
+    <!-- Text_View_ZIP_CODE_SUBTITLE: -->
+    <dimen name="tv_zcs_maxLines">1</dimen>
+    <dimen name="tv_zcs_textSize">16sp</dimen>
+
+    <!-- Text_View_BOARD_MEETING_DETAILS: -->
+    <dimen name="tv_bmd_textSize">16sp</dimen>
+
+    <!-- Inner_Linear_Layout_Horizontal Details: -->
+    <dimen name="inner_ll_layout_width">300dp</dimen>
+    <dimen name="inner_ll_layout_height">30dp</dimen>
+    <dimen name="inner_ll_weightSum">3</dimen>
+
+    <!-- Text_View_Inner_Detail_DIMENS: -->
+    <dimen name="tv_inner_detail_layout_width">0dp</dimen>
+    <dimen name="tv_inner_detail_layout_weight">2.75</dimen>
+    <dimen name="tv_inner_detail_maxLines">1</dimen>
+    <dimen name="tv_inner_detail_textSize">12sp</dimen>
+
+    <!-- Image_View_Inner_Detail_DIMENS: -->
+    <dimen name="iv_inner_detail_layout_width">0dp</dimen>
+    <dimen name="iv_inner_detail_layout_weight">0.25</dimen>
+
+
+    <!-- Inner_linear_Layout_PetitionAndMoreDetails BUTTONS: -->
+    <dimen name="inner_ll_btn_layout_width">40dp</dimen>
+    <dimen name="inner_ll_btn_layout_height">40dp</dimen>
+    <dimen name="inner_ll_btn_layout_marginBottom">1dp</dimen>
+    <dimen name="inner_ll_btn_weightSum">2</dimen>
+
+    <!-- Inner_Button_DIMENS:-->
+
+    <dimen name="ill_button_marginBottom">1dp</dimen>
+    <dimen name="ill_button_layout_weight">1</dimen>
+    <dimen name="ill_button_textSize">15sp</dimen>
+
+
+</resources>

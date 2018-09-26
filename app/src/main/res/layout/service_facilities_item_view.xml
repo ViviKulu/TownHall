@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#fff"
         app:contentPadding="5dp"
@@ -25,81 +25,70 @@
             android:textColor="@color/colorPrimary"/>
 
         <TextView
-            android:id="@+id/facdomain_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="75dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:textSize="16sp"
-            android:textColor="#000"
-            />
-
-        <TextView
             android:id="@+id/overagency_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="70dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textSize="16sp"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
-            android:id="@+id/address_service_tv"
+            android:id="@+id/opname_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="285dp"
+            android:layout_marginTop="100dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
         <TextView
-            android:id="@+id/zipcode_tv"
+            android:id="@+id/factype_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="130dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
         <TextView
-            android:id="@+id/boro_tv"
+            android:id="@+id/fac_comm_board_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="150dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
         <TextView
-            android:id="@+id/city_tv"
+            android:id="@+id/fac_address_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="170dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
         <TextView
-            android:id="@+id/commboard_tv"
+            android:id="@+id/fac_city_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="190dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textSize="16sp"
             android:textColor="#000"/>
 
         <TextView
-            android:id="@+id/council_tv"
+            android:id="@+id/fac_boro_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="350dp"
+            android:layout_marginTop="200dp"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textSize="16sp"

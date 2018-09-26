@@ -31,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class BkRetroFragment extends Fragment {
 
-    private static final String TAG = "MainActivity.class";
+    private static final String TAG = "BkRetro.class";
     private RecyclerView recyclerView;
     private List<CommBoard> zipCodeList;
     Context context;
@@ -47,6 +47,7 @@ public class BkRetroFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bk_retro, container, false);
         recyclerView = view.findViewById(R.id.recyclerviewBk);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com/")
                 .addConverterFactory(GsonConverterFactory.create())

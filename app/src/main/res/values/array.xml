@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="service_facilities">
+        <item>Administration Of Government Services</item>
+        <item>Children Welfare and Education Services</item>
+        <item>Core Infrastructure Services</item>
+        <item>Health and Human Services</item>
+        <item>Libraries and Cultural Services</item>
+        <item>Parks, Garden and Historical Services</item>
+        <item>Public Safety Services</item>
+    </array>
+</resources>

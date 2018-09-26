@@ -1,162 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="20dp"
+    android:orientation="vertical">
 
     <android.support.v7.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#fff"
-        app:contentPadding="5dp"
         app:cardUseCompatPadding="true"
-        app:cardCornerRadius="1dp"
-        app:cardElevation="20dp"
-        >
+        app:cardCornerRadius="4dp"
+        app:cardElevation="10dp"
+        app:contentPadding="2dp">
 
+        <!-- LL: for the all the views  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <!-- Community Board Title:  -->
         <TextView
             android:id="@+id/comm_of_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:text="@string/txt_community_board"
             android:textColor="#000"
-            />
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <!-- !END! Community Board Title:  -->
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/black" />
+
+        <!-- Zip Code Sub Title: -->
         <TextView
+            android:maxLines="1"
             android:id="@+id/zip_code_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="#000"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="@string/txt_zip_code"
+            android:textColor="#000"
+            android:textSize="16sp" />
+        <!-- !END! Zip Code Sub Title: -->
 
-        <TextView
-            android:id="@+id/address_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="107dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary" />
-
-        <TextView
-            android:id="@+id/submit_petition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/view_pager_color"/>
-
-        <TextView
-            android:id="@+id/phone_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="225dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/fax_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="#000"/>
-
-        <TextView
-            android:id="@+id/email_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="275dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/website_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="310dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/chair_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="375dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/district_manager_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="400dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"/>
-
+        <!-- Board Meeting Details: -->
         <TextView
             android:id="@+id/board_meeting_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="450dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="#000"/>
+            android:layout_gravity="center_horizontal"
+            android:text="@string/txt_board_meeting"
+            android:textColor="#000"
+            android:textSize="16sp" />
+        <!-- !END! Meeting Details: -->
 
-        <TextView
-            android:id="@+id/cabinet_meeting_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="500dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="#000"/>
+        <!-- Website Horizontal Linear Layout View: -->
 
-        <TextView
-            android:id="@+id/precinct_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="550dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:textSize="16sp"
-            android:textColor="#000"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
-        <TextView
-            android:id="@+id/precinct_phone_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="575dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
-            />
+            <TextView
+                android:id="@+id/website_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.75"
+                android:maxLines="1"
+                android:layout_gravity="center_vertical"
+                android:text="@string/txt_website"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
 
+            <ImageView
+                android:id="@+id/website_iv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/img_v2_website" />
+        </LinearLayout>
+
+        <!-- !END! Website Horizontal Linear Layout View: -->
+
+
+        <!-- Phone Horizontal Linear Layout View: -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/phone_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.75"
+                android:layout_gravity="center_vertical"
+                android:text="@string/txt_phone"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/telephone_iv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/img_v2_phone" />
+
+        </LinearLayout>
+
+        <!-- !END! Phone Horizontal Linear Layout View: -->
+
+        <!-- Fax Horizontal Linear Layout View: -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/fax_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.75"
+                android:text="@string/txt_fax"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/fax_iv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/img_v2_fax" />
+        </LinearLayout>
+
+        <!-- !END! Fax Horizontal Linear Layout View: -->
+
+        <!-- Email Horizontal Linear Layout View: -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/email_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.75"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/txt_email"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/email_iv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/img_v2_email" />
+
+        </LinearLayout>
+
+        <!-- !END! Email Horizontal Linear Layout View: -->
+
+        <!-- Address Horizontal Linear Layout View: -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/address_tv"
+                android:layout_weight="2.75"
+                android:layout_width="0dp"
+                android:maxLines="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/txt_address"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/address_iv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/img_v2_globe" />
+        </LinearLayout>
+
+            <!-- !END! Address Horizontal Linear Layout View: -->
+
+
+            <!-- Layout for: Petition + More Details Button:  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/submit_petition_txt"
+                    android:layout_weight="2.75"
+                    android:layout_width="0dp"
+                    android:maxLines="1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/submit_petition"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/submit_petition"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25"
+                    android:src="@drawable/voice_action" />
+
+                <!-- Petition Button: ends layout code -->
+
+            </LinearLayout>
+            <!-- end horizontal layout for petition + more details activity -->
+
+        </LinearLayout>
+
+        <!-- !END!: LL for all the views ! -->
     </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".fragments.VolunteerFrag">
+    tools:context=".main_fragments.VolunteerFrag">
 
     <!--<TextView-->
         <!--android:id="@+id/volTvLabel"-->

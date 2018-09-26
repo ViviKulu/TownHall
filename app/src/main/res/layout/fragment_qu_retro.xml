@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".retrofit.QuRetroFragment">
 
+
     <android.support.v7.widget.RecyclerView
+        android:background="#cccc"
         android:id="@+id/recyclerviewQu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

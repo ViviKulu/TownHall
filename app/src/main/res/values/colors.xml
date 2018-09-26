@@ -13,4 +13,16 @@
     <color name="blue_grey_700">#455A64</color>
     <color name="blue_grey_800">#37474F</color>
     <color name="blue_grey_900">#263238</color>
+    <color name="black">#000</color>
+
+    <!-- community board : -->
+    <color name="txt_outer_linear_layout">#000</color>
+    <color name="txt_inner_linear_layout">#3F51B5</color>
+    <color name="button_background">#FD3E0A</color>
+    <color name="button_text">#ffff</color>
+
+
+
+
+
 </resources>

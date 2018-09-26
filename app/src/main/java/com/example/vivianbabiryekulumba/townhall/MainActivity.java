@@ -1,121 +1,242 @@
 package com.example.vivianbabiryekulumba.townhall;
 
-import android.Manifest;
-import android.app.Dialog;
-import android.content.pm.PackageManager;
-import android.location.Location;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.PagerTabStrip;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.vivianbabiryekulumba.townhall.controllers.ViewPagerAdapter;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.ServiceFacilitiesFrag;
+import com.example.vivianbabiryekulumba.townhall.util.ZoomOutPageTransformer;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.List;
 
-    private static final String TAG = MainActivity.class.getSimpleName();
-    private static final int ERROR_DIALOG_REQEUST = 9001;
-    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
-    private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1234;
-    private Boolean mLocationPermissionsGranted = false;
-    private FusedLocationProviderClient fusedLocationProviderClient;
-    private static double currentLongitude;
-    private static double currentLatitude;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String TAG = "MainActivity.class";
+    ViewPager viewPager;
+    private ViewPagerAdapter viewPagerAdapter;
+    PagerTabStrip pagerTabStrip;
+    NavigationView navigationView;
+    LayoutInflater inflater;
+
+    String[] boroughs = new String[]{
+            "Bronx",
+            "Brooklyn",
+            "Manhattan",
+            "Queens",
+            "Staten Island"
+    };
+
+    String[] service_fac = new String[]{
+            "Administration Of Government Services",
+            "Children Welfare and Education Services",
+            "Core Infrastructure Services",
+            "Health and Human Services",
+            "Libraries and Cultural Services",
+            "Parks, Garden and Historical Services",
+            "Public Safety Services"
+    };
 
 
-    public static double getCurrentLongitude() {
-        return currentLongitude;
-    }
 
-    public static double getCurrentLatitude() {
-        return currentLatitude;
-    }
+    final List<String> boroughsList = Arrays.asList(boroughs);
+    final List<String> serviceFacList = Arrays.asList(service_fac);
+
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        servicesOk();
-        getLocationPermission();
-        getDeviceLocation();
-    }
+        setContentView(R.layout.activity_navigation);
 
-    public void servicesOk() {
-        Log.d(TAG, "servicesOk: checking google service version");
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
-        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
-        if (available == ConnectionResult.SUCCESS) {
-            Log.d(TAG, "servicesOk: Google Play Services is working");
-        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
-            Log.d(TAG, "servicesOk: an error occur, but we can fix it.");
-            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this, available, ERROR_DIALOG_REQEUST);
-            dialog.show();
-        }
-    }
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setDisplayShowTitleEnabled(false);
+        actionbar.setHomeAsUpIndicator(R.drawable.list_white);
+        setNavigationViewListener();
 
-    private void getLocationPermission() {
-        String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION};
-
-        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    COURSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                mLocationPermissionsGranted = true;
-                Log.d(TAG, "getLocationPermission: PERMISSION_GRANTED");
-            } else {
-                ActivityCompat.requestPermissions(this,
-                        permissions,
-                        LOCATION_PERMISSION_REQUEST_CODE);
-            }
-        } else {
-            ActivityCompat.requestPermissions(this,
-                    permissions,
-                    LOCATION_PERMISSION_REQUEST_CODE);
-        }
-    }
-
-    private void getDeviceLocation() {
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
-        try {
-            if (mLocationPermissionsGranted) {
-                final Task location = fusedLocationProviderClient.getLastLocation();
-                location.addOnCompleteListener(new OnCompleteListener() {
+        mDrawerLayout.addDrawerListener(
+                new DrawerLayout.DrawerListener() {
+                    @Override
+                    public void onDrawerSlide(View drawerView, float slideOffset) {
+                        // Respond when the drawer's position changes
+                    }
 
                     @Override
-                    public void onComplete(@NonNull Task task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "onComplete: found location!");
-                            Location currentLocation = (Location) task.getResult();
-                            if (currentLocation == null) {
-                                Toast.makeText(MainActivity.this, "GPS is not on, please turn on GPS!", Toast.LENGTH_SHORT).show();
-                                currentLatitude = 40.743309;
-                                currentLongitude = -73.9415728;
-                            } else {
-                                currentLatitude = currentLocation.getLatitude();
-                                currentLongitude = currentLocation.getLongitude();
-                                Log.d(TAG, "onComplete: " + new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()));
-                            }
-                        } else {
-                            Log.d(TAG, "onComplete: current location is null");
-                        }
+                    public void onDrawerOpened(View drawerView) {
+                        // Respond when the drawer is opened
                     }
-                });
+
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+                        // Respond when the drawer is closed
+                    }
+
+                    @Override
+                    public void onDrawerStateChanged(int newState) {
+                        // Respond when the drawer motion state changes
+                    }
+                }
+        );
+
+        navigationView = findViewById(R.id.nav_view);
+        pagerTabStrip = findViewById(R.id.pager_header);
+        viewPager = findViewById(R.id.viewpager);
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        viewPager.setOffscreenPageLimit(3);
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+        buildCommBoardAlertDialog();
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
             }
-        } catch (SecurityException e) {
-            Log.e(TAG, "getDeviceLocation: SecurityException" + e.getMessage());
-        }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case 0:
+                        buildCommBoardAlertDialog();
+                        break;
+                    case 1:
+                        buildServFacAlertDialog();
+                    case 2:
+
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
     }
 
-}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setNavigationViewListener() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        assert navigationView != null;
+        navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        // set item as selected to persist highlight
+        menuItem.setChecked(true);
+        // close drawer when item is tapped
+        mDrawerLayout.closeDrawers();
+
+        // Add code here to update the UI based on the item selected
+        // For example, swap UI fragments here
+
+        Log.d(TAG, "onNavigationItemSelected: made it to onNavItemSelected");
+
+        int id = menuItem.getItemId();
+
+        if (id == R.id.nav_home) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            buildCommBoardAlertDialog();
+        } else if (id == R.id.nav_petitions) {
+            Intent intent1 = new Intent(MainActivity.this, PetitionListActivity.class);
+            startActivity(intent1);
+        } else if (id == R.id.nav_opportunities) {
+            Intent intent2 = new Intent(MainActivity.this, FavVolunteerOppListActivity.class);
+            startActivity(intent2);
+        } else if (id == R.id.nav_profile) {
+            //Build alert dialog to log in to profile
+            //Start database
+        }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    public void buildCommBoardAlertDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Explore your borough's Community Board!");
+
+        for (int i = 0; i < boroughsList.size(); i++) {
+            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String currentItem = boroughsList.get(which);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    CommBoardsFrag commBoardsFrag = new CommBoardsFrag();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("borough", currentItem);
+                    commBoardsFrag.setArguments(bundle);
+                    fragmentTransaction.add(commBoardsFrag, "CommBrdFrag");
+                    fragmentTransaction.addToBackStack(currentItem);
+                    fragmentTransaction.commit();
+                    Log.d(TAG, "onClick: " + currentItem + bundle);
+                }
+            });
+        }
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void buildServFacAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        builder.setTitle("Explore a service facility department!");
+
+        for (int i = 0; i < serviceFacList.size(); i++) {
+            builder.setItems(service_fac, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    ServiceFacilitiesFrag serviceFacilitiesFrag = new ServiceFacilitiesFrag();
+                    fragmentTransaction.add(serviceFacilitiesFrag, "ServiceFrag");
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+            });
+        }
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+
+    }
