@@ -1,9 +1,11 @@
 package com.example.vivianbabiryekulumba.townhall;
 
+import android.arch.lifecycle.LiveData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -13,22 +15,35 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.vivianbabiryekulumba.townhall.controllers.VolunteerListAdapter;
+import com.example.vivianbabiryekulumba.townhall.database.AppApplication;
+import com.example.vivianbabiryekulumba.townhall.database.FavCard;
+import com.example.vivianbabiryekulumba.townhall.database.FavCardDao;
+import com.example.vivianbabiryekulumba.townhall.database.FavCardDatabase;
+import com.example.vivianbabiryekulumba.townhall.database.FavCardListPresenter;
+import com.example.vivianbabiryekulumba.townhall.database.FavCardObserver;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
+import com.example.vivianbabiryekulumba.townhall.models.VolunteerDetails;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class FavVolunteerOppListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class VolunteerListActivity extends AppCompatActivity implements FavCardListPresenter.FavCardListPresentation,NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "FavVolOppActivity.class";
+    public FavCardListPresenter favCardListPresenter;
+    private List<VolunteerDetails> volunteerDetailsList;
+    RecyclerView favCardRecyclerview;
     NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
+
+
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -49,6 +64,17 @@ public class FavVolunteerOppListActivity extends AppCompatActivity implements Na
         mDrawerLayout = findViewById(R.id.drawer_layout);
         Toolbar toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.nav_view);
+        favCardRecyclerview = findViewById(R.id.fav_vol_opp_recyclerview);
+
+        FavCardDatabase favCardDatabase = ((AppApplication) getApplication()).getFavCardDatabase();
+        FavCardDao dao = favCardDatabase.favCardDao();
+
+        favCardListPresenter = new FavCardListPresenter(dao);
+
+        favCardRecyclerview.setAdapter(new VolunteerListAdapter(favCardListPresenter));
+
+        LiveData<FavCard[]> favCards = dao.getAllFavCards();
+        favCards.observe(this, new FavCardObserver(favCardListPresenter));
 
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -115,7 +141,7 @@ public class FavVolunteerOppListActivity extends AppCompatActivity implements Na
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent intent = new Intent(FavVolunteerOppListActivity.this, MainActivity.class);
+            Intent intent = new Intent(VolunteerListActivity.this, MainActivity.class);
             startActivity(intent);
             buildAlertDialog();
             Log.d(TAG, "onNavigationItemSelected: made it to home from list");
@@ -124,7 +150,7 @@ public class FavVolunteerOppListActivity extends AppCompatActivity implements Na
             startActivity(intent);
             //Start database
         } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppListActivity.class);
+            Intent intent2 = new Intent(getApplicationContext(), VolunteerListActivity.class);
             startActivity(intent2);
             //Start database
         }
@@ -133,7 +159,7 @@ public class FavVolunteerOppListActivity extends AppCompatActivity implements Na
     }
 
     public void buildAlertDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(FavVolunteerOppListActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(VolunteerListActivity.this);
         builder.setTitle("Select your borough");
 
         for (int i = 0; i < boroughsList.size(); i++) {
@@ -157,5 +183,19 @@ public class FavVolunteerOppListActivity extends AppCompatActivity implements Na
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    @Override protected void onStart() {
+        super.onStart();
+        favCardListPresenter.attach(this);
+    }
+
+    @Override protected void onStop() {
+        super.onStop();
+        favCardListPresenter.detach();
+    }
+
+    @Override public void notifyDataSetChanged() {
+        favCardRecyclerview.getAdapter().notifyDataSetChanged();
     }
 }

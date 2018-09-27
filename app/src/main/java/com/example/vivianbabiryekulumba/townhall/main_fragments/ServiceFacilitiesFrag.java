@@ -70,7 +70,6 @@ public class ServiceFacilitiesFrag extends Fragment {
                     ServiceFacilitiesAdapter serviceFacilitiesAdapter = new ServiceFacilitiesAdapter(serviceFacilitiesList, context);
                     recyclerView.setAdapter(serviceFacilitiesAdapter);
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
-                    Log.d(TAG, "onResponse: admin of gov retrofit success" + serviceFacilitiesList + response.body() + response);
                 }
             }
 

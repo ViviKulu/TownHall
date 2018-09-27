@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.retrofit;
+package com.example.vivianbabiryekulumba.townhall.network_calls;
 
 
 import android.content.Context;
@@ -29,14 +29,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BkRetroFragment extends Fragment {
+public class StatRetroFragment extends Fragment {
 
-    private static final String TAG = "BkRetro.class";
+    private static final String TAG = "StatsRetro.class";
     private RecyclerView recyclerView;
     private List<CommBoard> zipCodeList;
     Context context;
 
-    public BkRetroFragment() {
+    public StatRetroFragment() {
         // Required empty public constructor
     }
 
@@ -44,10 +44,8 @@ public class BkRetroFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bk_retro, container, false);
-        recyclerView = view.findViewById(R.id.recyclerviewBk);
-
+        View view = inflater.inflate(R.layout.fragment_stat_retro, container, false);
+        recyclerView = view.findViewById(R.id.recyclerviewStat);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -55,7 +53,7 @@ public class BkRetroFragment extends Fragment {
 
         final NetworkService networkService = retrofit.create(NetworkService.class);
 
-        final Call<List<CommBoard>> commBoardCall = networkService.getBkCommBoardData();
+        final Call<List<CommBoard>> commBoardCall = networkService.getStatCommBoardData();
         commBoardCall.enqueue(new Callback<List<CommBoard>>() {
             @Override
             public void onResponse(@NonNull Call<List<CommBoard>> call, @NonNull Response<List<CommBoard>> response) {

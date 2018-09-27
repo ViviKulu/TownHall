@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vivianbabiryekulumba.townhall.R;
-import com.example.vivianbabiryekulumba.townhall.retrofit.BkRetroFragment;
-import com.example.vivianbabiryekulumba.townhall.retrofit.BxRetroFragment;
-import com.example.vivianbabiryekulumba.townhall.retrofit.MxRetroFragment;
-import com.example.vivianbabiryekulumba.townhall.retrofit.QuRetroFragment;
-import com.example.vivianbabiryekulumba.townhall.retrofit.StatRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BkRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BxRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.MxRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.QuRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.StatRetroFragment;
 
 /**
  * A simple {@link Fragment} subclass.

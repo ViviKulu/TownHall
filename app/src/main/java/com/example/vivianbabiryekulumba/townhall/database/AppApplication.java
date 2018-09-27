@@ -1,11 +1,11 @@
 package com.example.vivianbabiryekulumba.townhall.database;
 
-import android.app.Application;
 import android.arch.persistence.room.Room;
 
-public class PetitionApplication extends Application{
+public class AppApplication extends android.app.Application {
 
     private PetitionDatabase petitionDatabase;
+    private static FavCardDatabase favCardDatabase;
 
     @Override
     public void onCreate() {
@@ -13,9 +13,16 @@ public class PetitionApplication extends Application{
 
         petitionDatabase = Room.databaseBuilder(this, PetitionDatabase.class, "petition_db")
                 .build();
+
+        favCardDatabase = Room.databaseBuilder(this, FavCardDatabase.class, "fav_card_db")
+                .build();
     }
 
     public PetitionDatabase getPetitionDatabase() {
         return petitionDatabase;
+    }
+
+    public FavCardDatabase getFavCardDatabase() {
+        return favCardDatabase;
     }
 }

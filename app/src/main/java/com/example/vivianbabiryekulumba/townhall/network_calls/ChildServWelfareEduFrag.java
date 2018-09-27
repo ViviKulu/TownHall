@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.retrofit;
+package com.example.vivianbabiryekulumba.townhall.network_calls;
 
 
 import android.os.Bundle;

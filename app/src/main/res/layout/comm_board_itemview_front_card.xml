@@ -3,23 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#fff"
-        app:cardUseCompatPadding="true"
         app:cardCornerRadius="4dp"
         app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
         app:contentPadding="2dp">
 
         <!-- LL: for the all the views  -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
         <!-- Community Board Title:  -->
         <TextView
@@ -41,6 +43,7 @@
         <!-- Zip Code Sub Title: -->
         <TextView
             android:maxLines="1"
+            android:textStyle="italic"
             android:id="@+id/zip_code_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +51,7 @@
             android:layout_marginTop="5dp"
             android:text="@string/txt_zip_code"
             android:textColor="#000"
-            android:textSize="16sp" />
+            android:textSize="17sp" />
         <!-- !END! Zip Code Sub Title: -->
 
         <!-- Board Meeting Details: -->
@@ -56,6 +59,7 @@
             android:id="@+id/board_meeting_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             android:layout_gravity="center_horizontal"
             android:text="@string/txt_board_meeting"
             android:textColor="#000"
@@ -66,10 +70,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:layout_margin="10dp">
 
             <TextView
                 android:id="@+id/website_tv"
@@ -96,10 +101,11 @@
         <!-- Phone Horizontal Linear Layout View: -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:layout_margin="10dp">
 
             <TextView
                 android:id="@+id/phone_tv"
@@ -125,10 +131,11 @@
         <!-- Fax Horizontal Linear Layout View: -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:layout_margin="10dp">
 
             <TextView
                 android:id="@+id/fax_tv"
@@ -153,10 +160,11 @@
         <!-- Email Horizontal Linear Layout View: -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:layout_margin="10dp">
 
             <TextView
                 android:id="@+id/email_tv"
@@ -183,10 +191,11 @@
         <!-- Address Horizontal Linear Layout View: -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="20dp"
             android:layout_gravity="center_horizontal"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:layout_margin="10dp">
 
             <TextView
                 android:id="@+id/address_tv"
@@ -212,6 +221,7 @@
 
             <!-- Layout for: Petition + More Details Button:  -->
             <LinearLayout
+                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
