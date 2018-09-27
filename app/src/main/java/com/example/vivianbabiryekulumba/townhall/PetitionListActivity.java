@@ -26,7 +26,7 @@ import com.example.vivianbabiryekulumba.townhall.database.PetitionDao;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionObserver;
-import com.example.vivianbabiryekulumba.townhall.database.PetitionApplication;
+import com.example.vivianbabiryekulumba.townhall.database.AppApplication;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 
 import java.util.Arrays;
@@ -60,7 +60,7 @@ public class PetitionListActivity extends AppCompatActivity
         navigationView = findViewById(R.id.nav_view);
         petitionRecyclerView = findViewById(R.id.petition_list_recyclerview);
 
-        PetitionDatabase db = ((PetitionApplication) getApplication()).getPetitionDatabase();
+        PetitionDatabase db = ((AppApplication) getApplication()).getPetitionDatabase();
         PetitionDao petitionDao = db.petitionDao();
 
         petitionListPresenter = new PetitionListPresenter(petitionDao);
@@ -143,10 +143,8 @@ public class PetitionListActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppListActivity.class);
+            Intent intent2 = new Intent(getApplicationContext(), VolunteerListActivity.class);
             startActivity(intent2);
-        } else if (id == R.id.nav_profile) {
-            //Build alert dialog to log in to profile
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -188,7 +186,7 @@ public class PetitionListActivity extends AppCompatActivity
     }
 
     @Override public void notifyDataSetChanged() {
-        Log.d("MapsActivity", "notifyDataSetChanged()");
+        Log.d("PetitionListActivity", "notifyDataSetChanged()");
         petitionRecyclerView.getAdapter().notifyDataSetChanged();
     }
 }

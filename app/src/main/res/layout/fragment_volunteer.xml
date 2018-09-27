@@ -6,22 +6,10 @@
     android:background="#ccc"
     tools:context=".main_fragments.VolunteerFrag">
 
-    <!--<TextView-->
-        <!--android:id="@+id/volTvLabel"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/volunteer_service"-->
-        <!--android:textSize="16sp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:textColor="#000"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:layout_marginStart="90dp"-->
-        <!--android:layout_marginLeft="90dp"/>-->
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/vol_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         />
 
 </FrameLayout>

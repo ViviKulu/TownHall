@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ccc"
-    tools:context=".retrofit.QuRetroFragment">
+    tools:context=".network_calls.QuRetroFragment">
 
 
     <android.support.v7.widget.RecyclerView

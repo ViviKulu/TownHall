@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="5dp"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
@@ -27,39 +24,35 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title_tv"
+                android:id="@+id/fav_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/txt_vs_title"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/summary_tv"
+                android:id="@+id/fav_summary_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/txt_vs_summary"
                 android:textColor="#000"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/locality_address_tv"
+                android:id="@+id/fav_locality_address_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/txt_vs_locality_address"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/locality_city_tv"
+                android:id="@+id/fav_locality_city_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/txt_vs_locality_city"
                 android:textColor="#000"
                 android:textSize="16sp" />
 
@@ -73,12 +66,12 @@
 
 
                 <ImageView
-                    android:id="@+id/favorite_iv"
+                    android:id="@+id/fav_favorite_iv"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="right"
-                    android:src="@drawable/not_interested_heart" />
+                    android:src="@drawable/favorite_heart" />
 
             </LinearLayout>
 

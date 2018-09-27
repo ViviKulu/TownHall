@@ -17,7 +17,7 @@
     <uses-permission android:name="com.example.permission.MAPS_RECEIVE" />
 
     <application
-        android:name=".database.PetitionApplication"
+        android:name=".database.AppApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -50,8 +50,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".PetitionListActivity" />
-        <activity android:name=".FavVolunteerOppListActivity" />
+        <activity android:name=".VolunteerListActivity" />
         <activity android:name=".PetitionAddActivity" />
+        <activity android:name=".VolunteerAddActivity"></activity>
     </application>
 
 </manifest>

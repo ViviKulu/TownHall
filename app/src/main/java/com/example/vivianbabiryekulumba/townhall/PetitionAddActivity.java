@@ -23,7 +23,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.vivianbabiryekulumba.townhall.database.Petition;
-import com.example.vivianbabiryekulumba.townhall.database.PetitionApplication;
+import com.example.vivianbabiryekulumba.townhall.database.AppApplication;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionDao;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionDatabase;
 import com.example.vivianbabiryekulumba.townhall.database.PetitionListPresenter;
@@ -101,7 +101,7 @@ public class PetitionAddActivity extends AppCompatActivity implements Navigation
 
         navigationView = findViewById(R.id.nav_view);
 
-        PetitionDatabase db = ((PetitionApplication) getApplication()).getPetitionDatabase();
+        PetitionDatabase db = ((AppApplication) getApplication()).getPetitionDatabase();
         PetitionDao petitionDao = db.petitionDao();
 
         petitionListPresenter = new PetitionListPresenter(petitionDao);
@@ -187,11 +187,8 @@ public class PetitionAddActivity extends AppCompatActivity implements Navigation
             startActivity(intent1);
             //Start database
         } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(PetitionAddActivity.this, FavVolunteerOppListActivity.class);
+            Intent intent2 = new Intent(PetitionAddActivity.this, VolunteerListActivity.class);
             startActivity(intent2);
-            //Start database
-        } else if (id == R.id.nav_profile) {
-            //Build alert dialog to log in to profile
             //Start database
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);

@@ -3,6 +3,7 @@ package com.example.vivianbabiryekulumba.townhall.database;
 import android.util.Log;
 
 public class PetitionListPresenter {
+
     private PetitionDao petitionDao;
     private Petition[] petitions = {};
     private PetitionListPresentation petitionListPresentation;

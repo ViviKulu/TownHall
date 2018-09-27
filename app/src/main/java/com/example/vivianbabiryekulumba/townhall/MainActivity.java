@@ -25,6 +25,7 @@ import android.view.View;
 import com.example.vivianbabiryekulumba.townhall.controllers.ViewPagerAdapter;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.ServiceFacilitiesFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.VolunteerFrag;
 import com.example.vivianbabiryekulumba.townhall.util.ZoomOutPageTransformer;
 
 import java.util.Arrays;
@@ -48,9 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     };
 
     String[] service_fac = new String[]{
-            "Administration Of Government Services",
             "Children Welfare and Education Services",
-            "Core Infrastructure Services",
             "Health and Human Services",
             "Libraries and Cultural Services",
             "Parks, Garden and Historical Services",
@@ -126,8 +125,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         break;
                     case 1:
                         buildServFacAlertDialog();
+                        break;
                     case 2:
-
+                        buildVolunteerAlertDialog();
+                        break;
                 }
             }
 
@@ -178,11 +179,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent1 = new Intent(MainActivity.this, PetitionListActivity.class);
             startActivity(intent1);
         } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(MainActivity.this, FavVolunteerOppListActivity.class);
+            Intent intent2 = new Intent(MainActivity.this, VolunteerListActivity.class);
             startActivity(intent2);
-        } else if (id == R.id.nav_profile) {
-            //Build alert dialog to log in to profile
-            //Start database
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -218,43 +216,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void buildServFacAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        builder.setTitle("Explore a service facility department!");
+        builder.setTitle("Popular service facility departments!");
 
         for (int i = 0; i < serviceFacList.size(); i++) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            ServiceFacilitiesFrag serviceFacilitiesFrag = new ServiceFacilitiesFrag();
+            fragmentTransaction.add(serviceFacilitiesFrag, "ServiceFrag");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
             builder.setItems(service_fac, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    ServiceFacilitiesFrag serviceFacilitiesFrag = new ServiceFacilitiesFrag();
-                    fragmentTransaction.add(serviceFacilitiesFrag, "ServiceFrag");
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
+                    builder.setCancelable(true);
                 }
             });
         }
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+    private void buildVolunteerAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-//    private void showExplanation(String title,
-//                                 String message,
-//                                 final String permission,
-//                                 final int permissionRequestCode) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//        builder.setTitle(title)
-//                .setMessage(message)
-//                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        requestPermission(permission, permissionRequestCode);
-//                    }
-//                });
-//        builder.create().show();
-//    }
-//
-//    private void requestPermission(String permissionName, int permissionRequestCode) {
-//        ActivityCompat.requestPermissions(MainActivity.this,
-//                new String[]{permissionName}, permissionRequestCode);
-//    }
+        builder.setTitle("Check out some events to volunteer at!");
+        builder.setMessage("... or save some for viewing another time!");
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            VolunteerFrag volunteerFrag = new VolunteerFrag();
+            fragmentTransaction.add(volunteerFrag, "VolunteerFrag");
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+            builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    builder.setCancelable(true);
+                }
+            });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
 
 }

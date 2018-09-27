@@ -26,13 +26,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.support.constraint.Constraints.TAG;
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class VolunteerFrag extends Fragment {
 
+    private static final String TAG = "VolunteerFrag";
     RecyclerView recyclerView;
     List<VolunteerDetails> volunteerDetailsList;
     Context context;

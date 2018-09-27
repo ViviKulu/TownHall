@@ -1,4 +1,4 @@
-package com.example.vivianbabiryekulumba.townhall.retrofit;
+package com.example.vivianbabiryekulumba.townhall.network_calls;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import com.example.vivianbabiryekulumba.townhall.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LibrariesAndCulturalFrag extends Fragment {
+public class PublicSafetyFrag extends Fragment {
 
 
-    public LibrariesAndCulturalFrag() {
+    public PublicSafetyFrag() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class LibrariesAndCulturalFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_libraries_and_cultural, container, false);
+        return inflater.inflate(R.layout.fragment_public_safety, container, false);
     }
 
 }
