@@ -11,15 +11,19 @@ import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.ServiceFacilities;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.List;
 
 public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacilitiesAdapter.ServiceFacilitiesViewHolder> {
 
     private List<ServiceFacilities> serviceFacilitiesList;
+//    private final HashSet<MapView> mMaps = new HashSet<>();
     private static final String TAG = "ServiceFacAdapter";
-    Context context;
+    static LatLng location;
+    static Context context;
 
     public ServiceFacilitiesAdapter(List<ServiceFacilities> serviceFacilitiesList, Context context) {
         this.serviceFacilitiesList = serviceFacilitiesList;
@@ -39,6 +43,8 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
     public void onBindViewHolder(@NonNull ServiceFacilitiesAdapter.ServiceFacilitiesViewHolder holder, int position) {
         final ServiceFacilities serviceFacilities = serviceFacilitiesList.get(position);
 
+//        location = new LatLng(Double.parseDouble(serviceFacilities.getLatitude()), Double.parseDouble(serviceFacilities.getLongitude()));
+
         holder.facname.setText(serviceFacilities.getFacname());
         holder.overagency.setText(serviceFacilities.getOveragency());
         holder.address.setText(serviceFacilities.getAddress());
@@ -47,23 +53,8 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
         holder.city.setText(serviceFacilities.getCity());
         holder.commboard.setText(serviceFacilities.getCommboard());
         holder.factype.setText(serviceFacilities.getFactype());
-//        holder.mapView (check out lite mode for maps component);
-
-
-//        holder.address.setOnClickListener(new View.OnClickListener() {
-//
-//            Uri uri1 = Uri.parse(serviceFacilities.getLatitude());
-//            Uri uri2 = Uri.parse(serviceFacilities.getLongitude());
-//
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.putExtra("latitude", uri1);
-//                intent.putExtra("longitude", uri2);
-//                context.startActivity(intent);
-//                Log.d(TAG, "onClick: " + uri1 + uri2 + intent);
-//            }
-//        });
+//        holder.initializeMapView();
+//        mMaps.add(holder.mapView);
     }
 
     @Override
@@ -71,7 +62,21 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
         return serviceFacilitiesList.size();
     }
 
-    public class ServiceFacilitiesViewHolder extends RecyclerView.ViewHolder {
+//    public HashSet<MapView> getMaps() {
+//        return mMaps;
+//    }
+
+//    private static void setMapLocation(GoogleMap map, LatLng latLng) {
+//        // Add a marker for this item and set the camera
+////        LatLng latLng = new google.maps.LatLng(data.lat, data.lng);
+//        map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 13f));
+//        map.addMarker(new MarkerOptions().position(location));
+//
+//        // Set the map type back to normal.
+//        map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+//    }
+
+    public static class ServiceFacilitiesViewHolder extends RecyclerView.ViewHolder{
 
         TextView facname;
         TextView overagency;
@@ -82,6 +87,8 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
         TextView commboard;
         TextView address;
         MapView mapView;
+        GoogleMap map;
+        View layout;
 
         public ServiceFacilitiesViewHolder(View itemView) {
             super(itemView);
@@ -94,7 +101,42 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
             city = itemView.findViewById(R.id.fac_city_tv);
             commboard = itemView.findViewById(R.id.fac_comm_board_tv);
             address = itemView.findViewById(R.id.fac_address_tv);
-            mapView = itemView.findViewById(R.id.map_view);
+//            mapView = itemView.findViewById(R.id.map);
+//            layout = itemView;
+//            if (mapView != null) {
+//                mapView.getMapAsync(this::onMapReady);
+//            }
         }
+
+//        @Override
+//        public void onMapReady(GoogleMap googleMap) {
+//            MapsInitializer.initialize(context);
+//            map = googleMap;
+//            if (location != null) {
+//                setMapLocation(map, location);
+//            }
+//        }
+
+//        public void initializeMapView() {
+//            if (mapView != null) {
+//                // Initialise the MapView
+//                mapView.onCreate(null);
+//                // Set the map ready callback to receive the GoogleMap object
+//                mapView.getMapAsync(this);
+//            }
+//        }
+//
+//        public static RecyclerView.RecyclerListener mRecycleListener = new RecyclerView.RecyclerListener() {
+//
+//            @Override
+//            public void onViewRecycled(RecyclerView.ViewHolder holder) {
+//                ServiceFacilitiesViewHolder serviceFacilitiesViewHolder = (ServiceFacilitiesViewHolder) holder;
+//                if (serviceFacilitiesViewHolder != null && serviceFacilitiesViewHolder.map != null) {
+//                    serviceFacilitiesViewHolder.map.clear();
+//                    serviceFacilitiesViewHolder.map.setMapType(GoogleMap.MAP_TYPE_NONE);
+//                }
+//            }
+//        };
+
     }
 }
