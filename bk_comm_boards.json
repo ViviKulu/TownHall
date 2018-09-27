@@ -5,7 +5,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Flushing Avenue, Williamsburg, Greenpoint, Northside, and Southside",
     "cb_info": {
-      "address": "Brooklyn Community Board 1, 435 Graham Avenue, Brooklyn, NY 11211",
+      "address": "435 Graham Avenue, Brooklyn, NY 11211",
       "latitude": "40.718181",
       "longitude": "-73.945190",
       "phone": "718-389-0009",
@@ -26,7 +26,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Brooklyn Heights, Fulton Mall, Boerum Hill, Fort Greene, Brooklyn Navy Yard, Fulton Ferry, and Clinton Hill",
     "cb_info": {
-      "address": "Brooklyn Community Board 2, 350 Jay Street, 8th Floor, Brooklyn, NY 11201",
+      "address": "350 Jay Street, 8th Floor, Brooklyn, NY 11201",
       "latitude": "40.693584",
       "longitude": "-73.987865",
       "phone": "718-596-5410",
@@ -47,7 +47,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Bedford-Stuyvesant, Stuyvesant Heights, and Ocean Hill",
     "cb_info": {
-      "address": "Brooklyn Community Board 3, 1360 Fulton Street, Brooklyn, NY 11216",
+      "address": "1360 Fulton Street, Brooklyn, NY 11216",
       "latitude":"40.680007",
       "longitude":"-73.946596",
       "phone": "718-622-6601",
@@ -68,7 +68,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Bushwick",
     "cb_info": {
-      "address": "Brooklyn Community Board 4, 1420 Bushwick Avenue, Suite 370, Brooklyn, NY 11207-1422",
+      "address": "1420 Bushwick Avenue, Suite 370, Brooklyn, NY 11207-1422",
       "latitude":"40.684179",
       "longitude":"-73.909227",
       "phone": "718-628-8400",
@@ -89,7 +89,7 @@
     "location": "Brooklyn",
     "neighborhoods": "East New York, Cypress Hills, Highland Park, New Lots, City Line, Starrett City, and Ridgewood",
     "cb_info": {
-      "address": "Brooklyn Community Board 5, 404 Pine Street, 3rd Floor, Brooklyn, New York 11208",
+      "address": "404 Pine Street, 3rd Floor, Brooklyn, New York 11208",
       "latitude":"40.675718",
       "longitude":"-73.871541",
       "phone": "929-221-8261",
@@ -110,7 +110,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Red Hook, Carroll Gardens, Park Slope, Gowanus, and Cobble Hill",
     "cb_info": {
-      "address": "Brooklyn Community Board 6, 250 Baltic Street, Brooklyn, NY 11201",
+      "address": "250 Baltic Street, Brooklyn, NY 11201",
       "latitude":"40.686079",
       "longitude":"-73.994802",
       "phone": "718-643-3027",
@@ -131,7 +131,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Sunset Park and Windsor Terrace",
     "cb_info": {
-      "address": "Brooklyn Community Board 7, 4201 4th Avenue, Brooklyn, NY 11232",
+      "address": "4201 4th Avenue, Brooklyn, NY 11232",
       "latitude":"40.650526",
       "longitude":"-74.007932",
       "phone": "718-854-0003",
@@ -152,7 +152,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Crown Heights, Prospect Heights, and Weeksville",
     "cb_info": {
-      "address": "Brooklyn Community Board 8, 1291 St. Marks Avenue, Brooklyn, NY 11213",
+      "address": "1291 St. Marks Avenue, Brooklyn, NY 11213",
       "latitude":"40.674045",
       "longitude":"-73.926068",
       "phone": "718-467-5574",
@@ -173,7 +173,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Crown Heights, Prospect Lefferts Gardens, and Wingate",
     "cb_info": {
-      "address": "Brooklyn Community Board 9, 890 Nostrand Avenue, Brooklyn, NY 11225",
+      "address": "890 Nostrand Avenue, Brooklyn, NY 11225",
       "latitude":"40.667633",
       "longitude":"-73.950963",
       "phone": "718-778-9279",
@@ -194,7 +194,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Bay Ridge, Dyker Heights, and Fort Hamilton",
     "cb_info": {
-      "address": "Brooklyn Community Board 10, 8119 5th Avenue, Brooklyn, New York 11209",
+      "address": "8119 5th Avenue, Brooklyn, New York 11209",
       "latitude":"40.624493",
       "longitude":"-74.024376",
       "phone": "718-745-6827",
@@ -215,7 +215,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Bath Beach, Gravesend, Mapleton, and Bensonhurst",
     "cb_info": {
-      "address": "Brooklyn Community Board 11, 2214 Bath Avenue, Brooklyn, NY 11214",
+      "address": "2214 Bath Avenue, Brooklyn, NY 11214",
       "latitude":"40.598129",
       "longitude":"-73.997006",
       "phone": "718-266-8800",
@@ -236,7 +236,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Boro Park, Kensington, Ocean Parkway, and Midwood",
     "cb_info": {
-      "address": "Brooklyn Community Board 12, 5910 13th Avenue, Brooklyn, NY 11219",
+      "address": "5910 13th Avenue, Brooklyn, NY 11219",
       "latitude":"40.629272",
       "longitude":"-73.998373",
       "phone": "718-851-0800",
@@ -257,7 +257,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Coney Island, Brighton Beach, Bensonhurst, Gravesend, and Seagate",
     "cb_info": {
-      "address": "Brooklyn Community Board 13, 1201 Surf Avenue, 3rd Floor, Brooklyn, NY 11224",
+      "address": "1201 Surf Avenue, 3rd Floor, Brooklyn, NY 11224",
       "latitude":"40.575759",
       "longitude":"-73.979812",
       "phone": "718-266-3001",
@@ -278,7 +278,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Flatbush, Midwood, Kensington, and Ocean Parkway",
     "cb_info": {
-      "address": "Brooklyn Community Board 14, 810 East 16th Street, Brooklyn, NY 11230-3010",
+      "address": "810 East 16th Street, Brooklyn, NY 11230-3010",
       "latitude":"40.629737",
       "longitude":"-73.961508",
       "phone": "718-859-6357",
@@ -299,7 +299,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Sheepshead Bay, Manhattan Beach, Kings Bay, Gerritsen Beach, Kings Highway, East Gravesend, Madison, Homecrest, and Plum Beach",
     "cb_info": {
-      "address": "Brooklyn Community Board 15, Kingsboro Community College, 2001 Oriental Boulevard, C Cluster, Room C124, Brooklyn, NY 11235",
+      "address": "2001 Oriental Boulevard, C Cluster, Room C124, Brooklyn, NY 11235",
       "latitude":"40.580602",
       "longitude":"-73.933687",
       "phone": "718-332-3008",
@@ -320,7 +320,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Brownsville and Ocean Hill",
     "cb_info": {
-      "address": "Brooklyn Community Board 16, 444 Thomas Boyland Street, Rm. 103, Brooklyn, NY 11212",
+      "address": "444 Thomas Boyland Street, Rm. 103, Brooklyn, NY 11212",
       "latitude":"40.669888",
       "longitude":"-73.914075",
       "phone": "718-385-0323",
@@ -341,7 +341,7 @@
     "location": "Brooklyn",
     "neighborhoods": "East Flatbush, Remsen Village, Farragut, Rugby, Erasmus and Ditmas Village",
     "cb_info": {
-      "address": "Brooklyn Community Board 17, 4112 Farragut Road, Brooklyn, New York 11210",
+      "address": "4112 Farragut Road, Brooklyn, New York 11210",
       "latitude":"40.636838",
       "longitude":"-73.937328",
       "phone": "718-434-3461",
@@ -362,7 +362,7 @@
     "location": "Brooklyn",
     "neighborhoods": "Canarsie, Bergen Beach, Mill Basin, Flatlands, Marine Park, Georgetown, and Mill Island",
     "cb_info": {
-      "address": "Brooklyn Community Board 18, 1097 Bergen Avenue, Brooklyn, NY 11234-4841",
+      "address": "1097 Bergen Avenue, Brooklyn, NY 11234-4841",
       "latitude":"40.628679",
       "longitude":"-73.915882",
       "phone": "718-241-0422",
