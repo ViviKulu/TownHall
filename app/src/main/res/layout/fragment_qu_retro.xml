@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ccc"
     tools:context=".retrofit.QuRetroFragment">
 
 
@@ -11,6 +10,6 @@
         android:background="#cccc"
         android:id="@+id/recyclerviewQu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
