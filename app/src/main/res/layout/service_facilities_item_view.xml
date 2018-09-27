@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="10dp"
-    android:paddingBottom="5dp"
-    >
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#fff"
-        app:cardCornerRadius="10dp"
+        app:contentPadding="5dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="1dp"
         app:cardElevation="20dp"
-        android:layout_margin="10dp"
-        app:contentPadding="5dp">
-
-        <!-- linear layout for all the views -->
-        <LinearLayout
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,129 +29,81 @@
             android:id="@+id/facname_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"/>
 
-
-            <!-- order: -->
-            <!-- oversee agency:  -->
-            <TextView
-                android:id="@+id/overagency_tv"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sf_overagency_tv"
-                android:textColor="@color/view_pager_color"
-                android:textStyle="bold"
-                android:textSize="17sp" />
-
-            <!-- facility type: -->
-            <TextView
-                android:id="@+id/factype_tv"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sf_facility_type"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="17sp" />
-
-
-            <!-- facility name: -->
-            <TextView
-                android:id="@+id/facname_tv"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sf_facility_name"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
-
-            <!-- operation name: -->
-            <TextView
-                android:id="@+id/opname_tv"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sf_opname_tv"
-                android:textColor="#000"
-                android:textSize="16sp" />
-
-            <!-- facility community board:-->
-            <!-- Inner linear layout: horizontal for the community board-->
-
-            <LinearLayout
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="3dp"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:id="@+id/fac_comm_board_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_sf_community_board_text"
-                    android:textColor="#000"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_weight="3"
-                    android:id="@+id/fac_comm_board_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_sf_community_board"
-                    android:textColor="#000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-            <!-- !END!: Inner linear layout: horizontal for the community board-->
-
-            <!-- address-->
-            <TextView
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/fac_address_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sf_facility_address"
-                android:textColor="#000"
-                android:textSize="16sp" />
-
-
-            <!-- city, + borough views: -->
-        <LinearLayout
-            android:layout_margin="3dp"
-            android:layout_width="200dp"
-            android:layout_gravity="center_horizontal"
+        <TextView
+            android:id="@+id/overagency_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"/>
 
+        <TextView
+            android:id="@+id/opname_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="#000"/>
 
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/fac_city_tv"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sf_faciity_city"
-                android:textColor="#000"
-                android:textSize="16sp" />
+        <TextView
+            android:id="@+id/factype_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="#000"/>
 
-            <TextView
-                android:layout_weight="1"
-                android:id="@+id/fac_boro_tv"
-                android:layout_gravity="center_horizontal"
+        <TextView
+            android:id="@+id/fac_comm_board_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="#000"/>
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_sf_facility_borough"
-                android:textColor="#000"
-                android:textSize="16sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/fac_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="#000"/>
 
-            <!-- !END! linear layout for all the views -->
-        </LinearLayout>
+        <TextView
+            android:id="@+id/fac_city_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/fac_boro_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="16sp"
+            android:textColor="#000"/>
 
     </android.support.v7.widget.CardView>
 
