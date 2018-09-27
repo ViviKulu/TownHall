@@ -1,9 +1,15 @@
+![Alt text](Townhall_icon.png)
+
+
 TOWNHALL!
 ===========
+
 Stay engaged within your local communities and up to date with matters that affect home. 
+
 ----------------------------------------------------------------------------------------
 Be sure to always implement voice and reason to counciling services that can make a difference. 
 Whether you're speaking out for or against issues, NYC wants to hear it! 
+
 ----------------------------------------------------------------------
 Townhall provides a mobile connection between convenience and communication to be as effective as you need to be in your community.
 
