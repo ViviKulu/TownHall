@@ -190,9 +190,6 @@ public class PetitionAddActivity extends AppCompatActivity implements Navigation
             Intent intent2 = new Intent(PetitionAddActivity.this, FavVolunteerOppListActivity.class);
             startActivity(intent2);
             //Start database
-        } else if (id == R.id.nav_profile) {
-            //Build alert dialog to log in to profile
-            //Start database
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

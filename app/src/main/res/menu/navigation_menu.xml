@@ -6,14 +6,6 @@
             android:id="@+id/nav_home"
             android:title="Home" />
         <!-- Home is the community boards frag-->
-        <item
-            android:id="@+id/nav_petitions"
-            android:title="View petitions" />
-        <!--Petition is the petition frag-->
-        <item
-            android:id="@+id/nav_opportunities"
-            android:title="Saved volunteer opportunities" />
-        <!--Favorite is the fav_vol_opp frag-->
 
         <View
             android:layout_width="match_parent"
@@ -21,10 +13,18 @@
             android:background="@android:color/black" />
 
         <item
-            android:id="@+id/nav_profile"
-            android:title="Login to profile"
-            />
+            android:id="@+id/nav_petitions"
+            android:title="View petitions" />
 
-        <!--Profile is the user profile frag-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/black" />
+        <!--Petition is the petition frag-->
+        <item
+            android:id="@+id/nav_opportunities"
+            android:title="Saved volunteer opportunities" />
+        <!--Favorite is the fav_vol_opp frag-->
+
     </group>
 </menu>

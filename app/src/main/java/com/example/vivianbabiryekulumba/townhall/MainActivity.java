@@ -48,9 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     };
 
     String[] service_fac = new String[]{
-            "Administration Of Government Services",
             "Children Welfare and Education Services",
-            "Core Infrastructure Services",
             "Health and Human Services",
             "Libraries and Cultural Services",
             "Parks, Garden and Historical Services",
@@ -179,9 +177,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_opportunities) {
             Intent intent2 = new Intent(MainActivity.this, FavVolunteerOppListActivity.class);
             startActivity(intent2);
-        } else if (id == R.id.nav_profile) {
-            //Build alert dialog to log in to profile
-            //Start database
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -217,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void buildServFacAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        builder.setTitle("Explore a service facility department!");
+        builder.setTitle("Popular service facility departments!");
 
         for (int i = 0; i < serviceFacList.size(); i++) {
             builder.setItems(service_fac, new DialogInterface.OnClickListener() {
@@ -235,25 +230,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-//    private void showExplanation(String title,
-//                                 String message,
-//                                 final String permission,
-//                                 final int permissionRequestCode) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//        builder.setTitle(title)
-//                .setMessage(message)
-//                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        requestPermission(permission, permissionRequestCode);
-//                    }
-//                });
-//        builder.create().show();
-//    }
-//
-//    private void requestPermission(String permissionName, int permissionRequestCode) {
-//        ActivityCompat.requestPermissions(MainActivity.this,
-//                new String[]{permissionName}, permissionRequestCode);
-//    }
 
 }

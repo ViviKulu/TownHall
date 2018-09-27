@@ -145,8 +145,6 @@ public class PetitionListActivity extends AppCompatActivity
         } else if (id == R.id.nav_opportunities) {
             Intent intent2 = new Intent(getApplicationContext(), FavVolunteerOppListActivity.class);
             startActivity(intent2);
-        } else if (id == R.id.nav_profile) {
-            //Build alert dialog to log in to profile
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

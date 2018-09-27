@@ -65,7 +65,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             }
         });
 
-        holder.submit_petition.setOnClickListener(new View.OnClickListener() {
+        holder.submit_petition_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, PetitionAddActivity.class);
@@ -122,6 +122,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView comm_Of_tv;
         TextView zip_code_tv;
         TextView address;
+        TextView submit_petition_txt;
         ImageView submit_petition;
         TextView phone;
         TextView fax;
@@ -140,6 +141,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             comm_Of_tv = itemView.findViewById(R.id.comm_of_tv);
             zip_code_tv = itemView.findViewById(R.id.zip_code_tv);
             address = itemView.findViewById(R.id.address_tv);
+            submit_petition_txt = itemView.findViewById(R.id.submit_petition_txt);
             submit_petition = itemView.findViewById(R.id.submit_petition);
             phone = itemView.findViewById(R.id.phone_tv);
             fax = itemView.findViewById(R.id.fax_tv);
