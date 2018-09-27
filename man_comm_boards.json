@@ -5,7 +5,7 @@
     "location": "Manhattan",
     "neighborhoods": "Tribeca, Seaport/Civic Center, Financial District, Battery Park City",
     "cb_info": {
-      "address": "Manhattan Community Board 1, 1 Centre Street, Room 2202-N, New York, NY 10007",
+      "address": "1 Centre Street, Room 2202-N, New York, NY 10007",
       "latitude":"40.712840",
       "longitude":"-74.003709",
       "phone": "212-669-7970",
@@ -26,7 +26,7 @@
     "location": "Manhattan",
     "neighborhoods": "Greenwich Village, West Village, NoHo, SoHo, Lower East Side, Chinatown, Little Italy",
     "cb_info": {
-      "address": "Manhattan Community Board 2, 3 Washington Square Village, #1A, New York, NY 10012",
+      "address": "3 Washington Square Village, #1A, New York, NY 10012",
       "latitude":"40.727822",
       "longitude":"-73.997971",
       "phone": "212-979-2272",
@@ -47,7 +47,7 @@
     "location": "Manhattan",
     "neighborhoods": "Tompkins Square, East Village, Lower East Side, Chinatown, Two Bridges",
     "cb_info": {
-      "address": "Manhattan Community Board 3, 59 East 4th Street, New York, NY 10003",
+      "address": "59 East 4th Street, New York, NY 10003",
       "latitude":"40.727039",
       "longitude":"-73.990828",
       "phone": "212-533-5300",
@@ -68,7 +68,7 @@
     "location": "Manhattan",
     "neighborhoods": "Clinton, Chelsea",
     "cb_info": {
-      "address": "Manhattan Community Board 4, 330 West 42nd Street, Suite 2618, New York, NY 10036",
+      "address": "330 West 42nd Street, Suite 2618, New York, NY 10036",
       "latitude":"40.757589",
       "longitude":"-73.991611",
       "phone": "212-736-4536",
@@ -89,7 +89,7 @@
     "location": "Manhattan",
     "neighborhoods": "Midtown",
     "cb_info": {
-      "address": "Manhattan Community Board 5, 450 7th Avenue, Rm. 2109, New York, NY 10123",
+      "address": "450 7th Avenue, Rm. 2109, New York, NY 10123",
       "latitude":"40.751458",
       "longitude":"-73.990675",
       "phone": "212-465-0907",
@@ -110,7 +110,7 @@
     "location": "Manhattan",
     "neighborhoods": "Stuyvesant Town, Tudor City, Turtle Bay, Peter Cooper Village, Murray Hill, Gramercy Park, Kips Bay, Sutton Place",
     "cb_info": {
-      "address": "Manhattan Community Board 6, 211 East 43rd Street, Suite 1404, New York, NY 10017",
+      "address": "211 East 43rd Street, Suite 1404, New York, NY 10017",
       "latitude":"40.751282",
       "longitude":"-73.973158",
       "phone": "212-319-3750",
@@ -131,7 +131,7 @@
     "location": "Manhattan",
     "neighborhoods": "Manhattan Valley, Upper West Side, and Lincoln Square",
     "cb_info": {
-      "address": "Manhattan Community Board 7, 250 W. 87th Street, New York, NY 10024",
+      "address": "250 W. 87th Street, New York, NY 10024",
       "latitude":"40.789086",
       "longitude":"-73.976548",
       "phone": "212-362-4008",
@@ -152,7 +152,7 @@
     "location": "Manhattan",
     "neighborhoods": "Upper East Side, LenoxHill, Yorkville, and Roosevelt Island",
     "cb_info": {
-      "address": "Manhattan Community Board 8, 505 Park Avenue, Suite 620, New York, NY 10022",
+      "address": "505 Park Avenue, Suite 620, New York, NY 10022",
       "latitude":"40.762940",
       "longitude":"-73.969366",
       "phone": "212-758-4340",
@@ -173,7 +173,7 @@
     "location": "Manhattan",
     "neighborhoods": "Hamilton Heights, Manhattanville, Morningside Heights, and West Harlem",
     "cb_info": {
-      "address": "Manhattan Community Board 9, 16-18 Old Broadway, New York, NY 10027",
+      "address": "16-18 Old Broadway, New York, NY 10027",
       "latitude":"40.815649",
       "longitude":"-73.957348",
       "phone": "212-864-6200",
@@ -194,7 +194,7 @@
     "location": "Manhattan",
     "neighborhoods": "Central Harlem",
     "cb_info": {
-      "address": "Manhattan Community Board 10, 215 West 125th Street, 4th Floor, New York, NY 10027",
+      "address": "215 West 125th Street, 4th Floor, New York, NY 10027",
       "latitude":"40.809706",
       "longitude":"-73.948886",
       "phone": "212.749.3105",
@@ -215,7 +215,7 @@
     "location": "Manhattan",
     "neighborhoods": "East Harlem",
     "cb_info": {
-      "address": "Manhattan Community Board 11, 1664 Park Avenue, Ground Floor, New York, NY 10035",
+      "address": "1664 Park Avenue, Ground Floor, New York, NY 10035",
       "latitude":"40.800390",
       "longitude":"-73.942892",
       "phone": "212-831-8929",
@@ -236,7 +236,7 @@
     "location": "Manhattan",
     "neighborhoods": "Inwood and Washington Heights",
     "cb_info": {
-      "address": "Manhattan Community Board 12, 530 West 166th Street, 6th Floor, New York, NY 10032",
+      "address": "530 West 166th Street, 6th Floor, New York, NY 10032",
       "latitude":"40.839206",
       "longitude":"-73.939620",
       "phone": "212-568-8500",
