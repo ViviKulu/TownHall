@@ -163,5 +163,16 @@
     <string name="txt_vs_locality_city">Queens</string>
     <string name="txt_vs_display_url">/opportunities/5141</string>
 
+    <!-- SERVICE FACILITY STRINGS: -->
+    <string name="txt_sf_facility_name">Crooke Avenue</string>
+    <string name="txt_sf_overagency_tv">NYC Department of Homeless Services</string>
+    <string name="txt_sf_opname_tv">Camba</string>
+    <string name="txt_sf_facility_type">Supportive Housing</string>
+    <string name="txt_sf_community_board_text">Community Board: </string>
+    <string name="txt_sf_community_board">314</string>
+    <string name="txt_sf_facility_address">97 Crooke Avenue</string>
+    <string name="txt_sf_faciity_city">Brooklyn</string>
+    <string name="txt_sf_facility_borough">Brooklyn</string>
+
 
 </resources>

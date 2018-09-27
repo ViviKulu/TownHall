@@ -22,6 +22,10 @@
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
+                app:titleTextColor="@color/white"
+                android:textAlignment="center"
+                app:title="Townhall: Make a difference today"
+                app:titleTextAppearance="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="#000"
