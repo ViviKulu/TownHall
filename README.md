@@ -35,3 +35,5 @@ CREDITS:
 ----------
 * Tech Lead - UI/UX : Vivian Kulumba
 * Design Lead - UI/UX : Niema Widaha
+* Project Manager - Daniel Cortes
+* Tech Lead inspiration and special thanks - Taishawn Williams
