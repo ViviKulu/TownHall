@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.ServiceFacilities;
+import com.google.android.gms.maps.MapView;
 
 import java.util.List;
 
@@ -46,6 +47,8 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
         holder.city.setText(serviceFacilities.getCity());
         holder.commboard.setText(serviceFacilities.getCommboard());
         holder.factype.setText(serviceFacilities.getFactype());
+//        holder.mapView (check out lite mode for maps component);
+
 
 //        holder.address.setOnClickListener(new View.OnClickListener() {
 //
@@ -78,9 +81,11 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
         TextView city;
         TextView commboard;
         TextView address;
+        MapView mapView;
 
         public ServiceFacilitiesViewHolder(View itemView) {
             super(itemView);
+
             facname = itemView.findViewById(R.id.facname_tv);
             overagency = itemView.findViewById(R.id.overagency_tv);
             opname = itemView.findViewById(R.id.opname_tv);
@@ -89,6 +94,7 @@ public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacili
             city = itemView.findViewById(R.id.fac_city_tv);
             commboard = itemView.findViewById(R.id.fac_comm_board_tv);
             address = itemView.findViewById(R.id.fac_address_tv);
+            mapView = itemView.findViewById(R.id.map_view);
         }
     }
 }

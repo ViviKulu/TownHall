@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     };
 
 
-
     final List<String> boroughsList = Arrays.asList(boroughs);
     final List<String> serviceFacList = Arrays.asList(service_fac);
 
@@ -121,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onPageSelected(int position) {
-                switch (position){
+                switch (position) {
                     case 0:
                         buildCommBoardAlertDialog();
                         break;
@@ -238,6 +237,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dialog.show();
     }
 
+//    private void showExplanation(String title,
+//                                 String message,
+//                                 final String permission,
+//                                 final int permissionRequestCode) {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//        builder.setTitle(title)
+//                .setMessage(message)
+//                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        requestPermission(permission, permissionRequestCode);
+//                    }
+//                });
+//        builder.create().show();
+//    }
+//
+//    private void requestPermission(String permissionName, int permissionRequestCode) {
+//        ActivityCompat.requestPermissions(MainActivity.this,
+//                new String[]{permissionName}, permissionRequestCode);
+//    }
 
-
-    }
+}
