@@ -14,28 +14,28 @@ import com.example.vivianbabiryekulumba.townhall.models.ServiceFacilities;
 
 import java.util.List;
 
-public class ServiceFacilitiesAdapter extends RecyclerView.Adapter<ServiceFacilitiesAdapter.ServiceFacilitiesViewHolder> {
+public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.ServiceFacilitiesViewHolder> {
 
     private List<ServiceFacilities> serviceFacilitiesList;
     private static final String TAG = "ServiceFacAdapter";
     static Context context;
 
-    public ServiceFacilitiesAdapter(List<ServiceFacilities> serviceFacilitiesList, Context context) {
+    public MoreDetailsAdapter(List<ServiceFacilities> serviceFacilitiesList, Context context) {
         this.serviceFacilitiesList = serviceFacilitiesList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public ServiceFacilitiesAdapter.ServiceFacilitiesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_facilities_item_view, parent, false);
+    public MoreDetailsAdapter.ServiceFacilitiesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.more_details_item_view, parent, false);
         context = parent.getContext();
         Log.d(TAG, "onCreateViewHolder: " + context);
         return new ServiceFacilitiesViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ServiceFacilitiesAdapter.ServiceFacilitiesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MoreDetailsAdapter.ServiceFacilitiesViewHolder holder, int position) {
         final ServiceFacilities serviceFacilities = serviceFacilitiesList.get(position);
 
         holder.facname.setText("Facility:\n" + serviceFacilities.getFacname());
