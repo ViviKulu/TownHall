@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vivianbabiryekulumba.townhall.R;
-import com.example.vivianbabiryekulumba.townhall.controllers.ServiceFacilitiesAdapter;
+import com.example.vivianbabiryekulumba.townhall.controllers.MoreDetailsAdapter;
 import com.example.vivianbabiryekulumba.townhall.models.ServiceFacilities;
 import com.example.vivianbabiryekulumba.townhall.network_service.NetworkService;
 
@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ServiceFacilitiesFrag extends Fragment {
+public class MoreDetailsFrag extends Fragment {
 
     private static final String TAG = "ServiceFrag";
     private RecyclerView recyclerView;
@@ -38,8 +38,8 @@ public class ServiceFacilitiesFrag extends Fragment {
     Context context;
 
 
-    public static ServiceFacilitiesFrag newInstance() {
-        ServiceFacilitiesFrag serviceFacilitiesFrag = new ServiceFacilitiesFrag();
+    public static MoreDetailsFrag newInstance() {
+        MoreDetailsFrag serviceFacilitiesFrag = new MoreDetailsFrag();
         return serviceFacilitiesFrag;
     }
 
@@ -47,7 +47,7 @@ public class ServiceFacilitiesFrag extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.services_fac_frag, container, false);
+        View view = inflater.inflate(R.layout.more_details_frag, container, false);
         Log.d(TAG, "onCreateView: admin of gov success");
 
         recyclerView = view.findViewById(R.id.serv_fac_recyclerview);
@@ -67,7 +67,7 @@ public class ServiceFacilitiesFrag extends Fragment {
                     serviceFacilitiesList = response.body();
                     recyclerView.setHasFixedSize(true);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-                    ServiceFacilitiesAdapter serviceFacilitiesAdapter = new ServiceFacilitiesAdapter(serviceFacilitiesList, context);
+                    MoreDetailsAdapter serviceFacilitiesAdapter = new MoreDetailsAdapter(serviceFacilitiesList, context);
                     recyclerView.setAdapter(serviceFacilitiesAdapter);
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
                 }

@@ -24,7 +24,7 @@ import android.view.View;
 
 import com.example.vivianbabiryekulumba.townhall.controllers.ViewPagerAdapter;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.main_fragments.ServiceFacilitiesFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.VolunteerFrag;
 import com.example.vivianbabiryekulumba.townhall.util.ZoomOutPageTransformer;
 
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         for (int i = 0; i < serviceFacList.size(); i++) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            ServiceFacilitiesFrag serviceFacilitiesFrag = new ServiceFacilitiesFrag();
+            MoreDetailsFrag serviceFacilitiesFrag = new MoreDetailsFrag();
             fragmentTransaction.add(serviceFacilitiesFrag, "ServiceFrag");
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
