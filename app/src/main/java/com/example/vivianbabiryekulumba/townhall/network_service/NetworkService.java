@@ -1,7 +1,6 @@
 package com.example.vivianbabiryekulumba.townhall.network_service;
 
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
-import com.example.vivianbabiryekulumba.townhall.models.ServiceFacilities;
 import com.example.vivianbabiryekulumba.townhall.models.VolunteerDetails;
 
 import java.util.List;
@@ -30,7 +29,7 @@ public interface NetworkService {
     Call<List<VolunteerDetails>> getVolunteerDetailsData();
 
     @GET("resource/67g2-p84d.json")
-    Call<List<ServiceFacilities>> getServiceFragDomain();
+    Call<List<CommBoard>> getServiceFragDomain();
 
 
 }

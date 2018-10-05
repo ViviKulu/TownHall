@@ -10,63 +10,58 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
-import com.example.vivianbabiryekulumba.townhall.models.ServiceFacilities;
+import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 
 import java.util.List;
 
-public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.ServiceFacilitiesViewHolder> {
+public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.MoreDetailsViewHolder> {
 
-    private List<ServiceFacilities> serviceFacilitiesList;
-    private static final String TAG = "ServiceFacAdapter";
-    static Context context;
+    private List<CommBoard> moreDetailsList;
+    private static final String TAG = "MoreDetailsFragAdapter";
+    Context context;
 
-    public MoreDetailsAdapter(List<ServiceFacilities> serviceFacilitiesList, Context context) {
-        this.serviceFacilitiesList = serviceFacilitiesList;
+    public MoreDetailsAdapter(List<CommBoard> moreDetailsList, Context context) {
+        this.moreDetailsList = moreDetailsList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public MoreDetailsAdapter.ServiceFacilitiesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MoreDetailsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.more_details_item_view, parent, false);
-        context = parent.getContext();
         Log.d(TAG, "onCreateViewHolder: " + context);
-        return new ServiceFacilitiesViewHolder(view);
+        return new MoreDetailsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MoreDetailsAdapter.ServiceFacilitiesViewHolder holder, int position) {
-        final ServiceFacilities serviceFacilities = serviceFacilitiesList.get(position);
-
-        holder.facname.setText("Facility:\n" + serviceFacilities.getFacname());
-        holder.overagency.setText("Over Agency:\n" + serviceFacilities.getOveragency());
-        holder.address.setText("Address:\n" + serviceFacilities.getAddress());
-        holder.city.setText("City:\n" + serviceFacilities.getCity());
-        holder.factype.setText(serviceFacilities.getFactype());
+    public void onBindViewHolder(@NonNull MoreDetailsViewHolder holder, int position) {
+        final CommBoard moreDetails = moreDetailsList.get(position);
+        holder.chair.setText("Chair of the board is: " + moreDetails.getCbInfo().getChair());
+        holder.district_manager.setText("District manager of the board is: " + moreDetails.getCbInfo().getDistrictManager());
+        holder.board_meeting.setText("Board meetings meet every: " + moreDetails.getCbInfo().getBoardMeeting());
+        holder.cabinet_meeting.setText("Cabinet meetings meet every: " + moreDetails.getCbInfo().getCabinetMeeting());
     }
 
     @Override
     public int getItemCount() {
-        return serviceFacilitiesList.size();
+        return moreDetailsList.size();
     }
 
 
-    public static class ServiceFacilitiesViewHolder extends RecyclerView.ViewHolder{
+    public static class MoreDetailsViewHolder extends RecyclerView.ViewHolder{
 
-        TextView facname;
-        TextView overagency;
-        TextView factype;
-        TextView city;
-        TextView address;
+        TextView chair;
+        TextView district_manager;
+        TextView board_meeting;
+        TextView cabinet_meeting;
 
-        public ServiceFacilitiesViewHolder(View itemView) {
+        public MoreDetailsViewHolder(View itemView) {
             super(itemView);
 
-            facname = itemView.findViewById(R.id.facname_tv);
-            overagency = itemView.findViewById(R.id.overagency_tv);
-            factype = itemView.findViewById(R.id.factype_tv);
-            city = itemView.findViewById(R.id.fac_city_tv);
-            address = itemView.findViewById(R.id.fac_address_tv);
+            chair = itemView.findViewById(R.id.more_details_chair_tv);
+            district_manager = itemView.findViewById(R.id.more_details_district_manager_tv);
+            board_meeting = itemView.findViewById(R.id.more_details_board_meeting_tv);
+            cabinet_meeting = itemView.findViewById(R.id.more_details_cabinet_meeting_tv);
         }
 
     }
