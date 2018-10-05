@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -65,14 +66,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             }
         });
 
-        holder.submit_petition_txt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, PetitionAddActivity.class);
-                context.startActivity(intent);
-            }
-        });
-
 
         //Intent of email to email services.
         holder.email.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +115,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView comm_Of_tv;
         TextView zip_code_tv;
         TextView address;
-        TextView submit_petition_txt;
-        ImageView submit_petition;
+        Button submit_petition;
+        Button more_details;
         TextView phone;
         TextView fax;
         TextView email;
@@ -141,8 +134,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             comm_Of_tv = itemView.findViewById(R.id.comm_of_tv);
             zip_code_tv = itemView.findViewById(R.id.zip_code_tv);
             address = itemView.findViewById(R.id.address_tv);
-            submit_petition_txt = itemView.findViewById(R.id.submit_petition_txt);
-            submit_petition = itemView.findViewById(R.id.submit_petition);
+            submit_petition = itemView.findViewById(R.id.submit_petition_button);
+            more_details = itemView.findViewById(R.id.more_details_button);
             phone = itemView.findViewById(R.id.phone_tv);
             fax = itemView.findViewById(R.id.fax_tv);
             email = itemView.findViewById(R.id.email_tv);

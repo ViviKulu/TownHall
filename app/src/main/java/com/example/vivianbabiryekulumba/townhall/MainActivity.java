@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ViewPagerAdapter viewPagerAdapter;
     PagerTabStrip pagerTabStrip;
     NavigationView navigationView;
-    LayoutInflater inflater;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -58,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     final List<String> boroughsList = Arrays.asList(boroughs);
-    final List<String> serviceFacList = Arrays.asList(service_fac);
 
     private DrawerLayout mDrawerLayout;
 
@@ -124,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         buildCommBoardAlertDialog();
                         break;
                     case 1:
-                        buildServFacAlertDialog();
+                        buildMoreDetailsAlertDialog();
                         break;
                     case 2:
                         buildVolunteerAlertDialog();
@@ -208,52 +206,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
         }
-
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
-    private void buildServFacAlertDialog() {
+    private void buildMoreDetailsAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        builder.setTitle("Popular service facility departments!");
+        builder.setTitle("Check out some more details about your community board!");
 
-        for (int i = 0; i < serviceFacList.size(); i++) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            MoreDetailsFrag serviceFacilitiesFrag = new MoreDetailsFrag();
-            fragmentTransaction.add(serviceFacilitiesFrag, "ServiceFrag");
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-            builder.setItems(service_fac, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    builder.setCancelable(true);
-                }
-            });
-        }
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                builder.setCancelable(true);
+            }
+        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
     private void buildVolunteerAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
         builder.setTitle("Check out some events to volunteer at!");
         builder.setMessage("... or save some for viewing another time!");
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            VolunteerFrag volunteerFrag = new VolunteerFrag();
-            fragmentTransaction.add(volunteerFrag, "VolunteerFrag");
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-            builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    builder.setCancelable(true);
-                }
-            });
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        VolunteerFrag volunteerFrag = new VolunteerFrag();
+        fragmentTransaction.add(volunteerFrag, "VolunteerFrag");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                builder.setCancelable(true);
+            }
+        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
+    public void submitPetitionClick(View view) {
+        Intent intent = new Intent(MainActivity.this, PetitionAddActivity.class);
+        startActivity(intent);
+    }
+
+    public void moreDetailsClick(View view) {
+        viewPager.setCurrentItem(1);
+    }
 }

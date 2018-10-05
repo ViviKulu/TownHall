@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +18,12 @@ import android.view.ViewGroup;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.controllers.MoreDetailsAdapter;
-import com.example.vivianbabiryekulumba.townhall.models.ServiceFacilities;
+import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BkRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BxRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.MxRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.QuRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.StatRetroFragment;
 import com.example.vivianbabiryekulumba.townhall.network_service.NetworkService;
 
 import java.util.List;
@@ -32,15 +39,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class MoreDetailsFrag extends Fragment {
 
-    private static final String TAG = "ServiceFrag";
-    private RecyclerView recyclerView;
-    private List<ServiceFacilities> serviceFacilitiesList;
-    Context context;
-
+    private static final String TAG = "MoreDetailsFrag";
+    BxRetroFragment bxRetroFragment;
+    BkRetroFragment bkRetroFragment;
+    MxRetroFragment mxRetroFragment;
+    QuRetroFragment quRetroFragment;
+    StatRetroFragment statRetroFragment;
 
     public static MoreDetailsFrag newInstance() {
-        MoreDetailsFrag serviceFacilitiesFrag = new MoreDetailsFrag();
-        return serviceFacilitiesFrag;
+        MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
+        return moreDetailsFrag;
     }
 
     @Nullable
@@ -48,37 +56,70 @@ public class MoreDetailsFrag extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.more_details_frag, container, false);
-        Log.d(TAG, "onCreateView: admin of gov success");
 
-        recyclerView = view.findViewById(R.id.serv_fac_recyclerview);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://data.cityofnewyork.us/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
-        final NetworkService networkService = retrofit.create(NetworkService.class);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            String myBorough = bundle.getString("borough");
+            Log.d(TAG, "onCreateView: ");
 
-        final Call<List<ServiceFacilities>> adminOfGovCall = networkService.getServiceFragDomain();
-
-        adminOfGovCall.enqueue(new Callback<List<ServiceFacilities>>() {
-            @Override
-            public void onResponse(Call<List<ServiceFacilities>> call, Response<List<ServiceFacilities>> response) {
-                if(response.isSuccessful()){
-                    serviceFacilitiesList = response.body();
-                    recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-                    MoreDetailsAdapter serviceFacilitiesAdapter = new MoreDetailsAdapter(serviceFacilitiesList, context);
-                    recyclerView.setAdapter(serviceFacilitiesAdapter);
-                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+            if (myBorough != null) {
+                switch (myBorough) {
+                    case "Bronx":
+                        bxRetroFragment = new BxRetroFragment();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.main_container, bxRetroFragment);
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.commit();
+                        Bundle bxBundle = new Bundle();
+                        bxBundle.putString("bxFrag", bxRetroFragment.toString());
+                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        break;
+                    case "Brooklyn":
+                        bkRetroFragment = new BkRetroFragment();
+                        FragmentTransaction fragmentTransaction2 = fragmentManager.beginTransaction();
+                        fragmentTransaction2.replace(R.id.main_container, bkRetroFragment);
+                        fragmentTransaction2.addToBackStack(null);
+                        fragmentTransaction2.commit();
+                        Bundle bkBundle = new Bundle();
+                        bkBundle.putString("bkFrag", bkRetroFragment.toString());
+                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        break;
+                    case "Manhattan":
+                        mxRetroFragment = new MxRetroFragment();
+                        FragmentTransaction fragmentTransaction3 = fragmentManager.beginTransaction();
+                        fragmentTransaction3.replace(R.id.main_container, mxRetroFragment);
+                        fragmentTransaction3.addToBackStack(null);
+                        fragmentTransaction3.commit();
+                        Bundle mxBundle = new Bundle();
+                        mxBundle.putString("mxFrag", mxRetroFragment.toString());
+                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        break;
+                    case "Queens":
+                        quRetroFragment = new QuRetroFragment();
+                        FragmentTransaction fragmentTransaction4 = fragmentManager.beginTransaction();
+                        fragmentTransaction4.replace(R.id.main_container, quRetroFragment);
+                        fragmentTransaction4.addToBackStack(null);
+                        fragmentTransaction4.commit();
+                        Bundle quBundle = new Bundle();
+                        quBundle.putString("quFrag", quRetroFragment.toString());
+                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        break;
+                    case "Staten Island":
+                        statRetroFragment = new StatRetroFragment();
+                        FragmentTransaction fragmentTransaction5 = fragmentManager.beginTransaction();
+                        fragmentTransaction5.replace(R.id.main_container, statRetroFragment);
+                        fragmentTransaction5.addToBackStack(null);
+                        fragmentTransaction5.commit();
+                        Bundle statBundle = new Bundle();
+                        statBundle.putString("statFrag", statRetroFragment.toString());
+                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        break;
                 }
             }
+        }
 
-            @Override
-            public void onFailure(Call<List<ServiceFacilities>> call, Throwable t) {
-                t.printStackTrace();
-                Log.d(TAG, "onFailure: not successful");
-            }
-        });
         return view;
     }
 
