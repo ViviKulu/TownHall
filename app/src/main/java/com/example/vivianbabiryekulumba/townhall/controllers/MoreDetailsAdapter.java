@@ -14,29 +14,28 @@ import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
 
 import java.util.List;
 
-public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.ServiceFacilitiesViewHolder> {
+public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.MoreDetailsViewHolder> {
 
     private List<CommBoard> moreDetailsList;
     private static final String TAG = "MoreDetailsFragAdapter";
     Context context;
 
-    public MoreDetailsAdapter(List<CommBoard> serviceFacilitiesList, Context context) {
-        this.moreDetailsList = serviceFacilitiesList;
+    public MoreDetailsAdapter(List<CommBoard> moreDetailsList, Context context) {
+        this.moreDetailsList = moreDetailsList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public MoreDetailsAdapter.ServiceFacilitiesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MoreDetailsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.more_details_item_view, parent, false);
         Log.d(TAG, "onCreateViewHolder: " + context);
-        return new ServiceFacilitiesViewHolder(view);
+        return new MoreDetailsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MoreDetailsAdapter.ServiceFacilitiesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MoreDetailsViewHolder holder, int position) {
         final CommBoard moreDetails = moreDetailsList.get(position);
-
         holder.chair.setText("Chair of the board is: " + moreDetails.getCbInfo().getChair());
         holder.district_manager.setText("District manager of the board is: " + moreDetails.getCbInfo().getDistrictManager());
         holder.board_meeting.setText("Board meetings meet every: " + moreDetails.getCbInfo().getBoardMeeting());
@@ -49,14 +48,14 @@ public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.
     }
 
 
-    public static class ServiceFacilitiesViewHolder extends RecyclerView.ViewHolder{
+    public static class MoreDetailsViewHolder extends RecyclerView.ViewHolder{
 
         TextView chair;
         TextView district_manager;
         TextView board_meeting;
         TextView cabinet_meeting;
 
-        public ServiceFacilitiesViewHolder(View itemView) {
+        public MoreDetailsViewHolder(View itemView) {
             super(itemView);
 
             chair = itemView.findViewById(R.id.more_details_chair_tv);

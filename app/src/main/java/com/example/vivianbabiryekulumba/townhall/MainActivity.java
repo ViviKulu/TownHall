@@ -246,12 +246,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dialog.show();
     }
 
-    public void submitPetitionClick(View view) {
-        Intent intent = new Intent(MainActivity.this, PetitionAddActivity.class);
-        startActivity(intent);
-    }
-
-    public void moreDetailsClick(View view) {
-        viewPager.setCurrentItem(1);
-    }
+//    public void submitPetitionClick(View view) {
+//        Intent intent = new Intent(MainActivity.this, PetitionAddActivity.class);
+//        startActivity(intent);
+//    }
+//
+//    public void moreDetailsClick(View view) {
+//        viewPager.setCurrentItem(1);
+//    }
 }

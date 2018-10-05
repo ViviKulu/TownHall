@@ -239,8 +239,7 @@
                     android:text="@string/submit_petition"
                     android:textColor="#fff"
                     android:textSize="16sp"
-                    android:layout_marginLeft="20dp"
-                    android:onClick="submitPetitionClick"/>
+                    android:layout_marginLeft="20dp" />
 
                 <Button
                     android:id="@+id/more_details_button"
@@ -253,8 +252,7 @@
                     android:text="@string/more_details"
                     android:textColor="#fff"
                     android:textSize="16sp"
-                    android:layout_marginLeft="5dp"
-                    android:onClick="moreDetailsClick"/>
+                    android:layout_marginLeft="5dp" />
 
                 <!-- Petition Button: ends layout code -->
 

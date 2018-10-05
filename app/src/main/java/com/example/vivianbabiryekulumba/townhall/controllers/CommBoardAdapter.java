@@ -3,7 +3,9 @@ package com.example.vivianbabiryekulumba.townhall.controllers;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +26,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     private List<CommBoard> zipCodeList;
     private static final String TAG = "CommBoardAdapter";
     Context context;
+    ViewPager viewPager;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
         this.zipCodeList = zipCodeList;
@@ -102,6 +105,23 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             }
         });
         Log.d(TAG, "onBindViewHolder: " + zipCodeList.size());
+
+        holder.submit_petition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PetitionAddActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.more_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+//                bundle.putString();
+                viewPager.setCurrentItem(1);
+            }
+        });
     }
 
     @Override
