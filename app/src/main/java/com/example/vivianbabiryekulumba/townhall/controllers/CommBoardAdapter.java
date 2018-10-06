@@ -1,10 +1,13 @@
 package com.example.vivianbabiryekulumba.townhall.controllers;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -124,11 +127,15 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             @Override
             public void onClick(View v) {
                 MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
+                String myLocation = commBoard.getLocation();
                 Bundle bundle = new Bundle();
-                bundle.putString("location", commBoard.getLocation());
+                bundle.putString("location", myLocation);
                 moreDetailsFrag.setArguments(bundle);
-                Log.d(TAG, "onClick: " + bundle);
-                viewPager.setCurrentItem(1);
+                Log.d(TAG, "onClick: more details " + bundle);
+                ((FragmentActivity) v.getContext()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.more_details_container, moreDetailsFrag)
+                        .commit();
+                viewPager.setCurrentItem(1, true);
             }
         });
     }
