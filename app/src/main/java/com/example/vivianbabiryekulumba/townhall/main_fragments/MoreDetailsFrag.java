@@ -40,12 +40,9 @@ public class MoreDetailsFrag extends Fragment {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         Bundle bundle = this.getArguments();
-        Log.d(TAG, "onCreateView: " + bundle);
-
         if (bundle != null) {
-            String myLocation = bundle.getString("location");
-            Log.d(TAG, "onCreateView: my locaton" + myLocation);
-
+            String myLocation = bundle.getString("borough");
+            Log.d(TAG, "onCreateView: " + myLocation);
             if (myLocation != null) {
                 switch (myLocation) {
                     case "Bronx":

@@ -44,12 +44,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     PagerTabStrip pagerTabStrip;
     NavigationView navigationView;
 
-    BxMoreDetailsFrag bxMoreDetailsFrag;
-    BkMoreDetailsFrag bkMoreDetailsFrag;
-    MxMoreDetailsFrag mxMoreDetailsFrag;
-    QuMoreDetailsFrag quMoreDetailsFrag;
-    StatsMoreDetailsFrag statsMoreDetailsFrag;
-
     String[] boroughs = new String[]{
             "Bronx",
             "Brooklyn",
@@ -122,13 +116,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
-                        buildCommBoardAlertDialog();
                         break;
                     case 1:
-                        buildMoreDetailsAlertDialog();
                         break;
                     case 2:
-                        buildVolunteerAlertDialog();
                         break;
                 }
             }
