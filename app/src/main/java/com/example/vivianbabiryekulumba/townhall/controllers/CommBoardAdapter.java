@@ -142,7 +142,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 viewPager.post(new Runnable() {
                     @Override
                     public void run() {
-                        viewPager.setCurrentItem(1);
+                        viewPager.setCurrentItem(1, true);
                     }
                 });
             }
