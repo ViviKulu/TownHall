@@ -45,14 +45,9 @@ public class CommBoardsFrag extends Fragment{
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         Bundle bundle = this.getArguments();
+        Log.d(TAG, "onCreateView: commBoardFrag receiving bundle " + bundle);
         if (bundle != null) {
             String myBorough = bundle.getString("borough");
-            Bundle bundleMore = new Bundle();
-            bundleMore.putString("borough", myBorough);
-            Intent intent = new Intent();
-            intent.putExtras(bundleMore);
-
-            Log.d(TAG, "onCreateView: " + bundleMore);
 
             if (myBorough != null) {
                 switch (myBorough) {
