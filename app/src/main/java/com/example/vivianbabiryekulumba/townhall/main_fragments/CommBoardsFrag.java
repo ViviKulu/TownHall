@@ -1,6 +1,7 @@
 package com.example.vivianbabiryekulumba.townhall.main_fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -46,7 +47,12 @@ public class CommBoardsFrag extends Fragment{
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             String myBorough = bundle.getString("borough");
-            Log.d(TAG, "onCreateView: ");
+            Bundle bundleMore = new Bundle();
+            bundleMore.putString("borough", myBorough);
+            Intent intent = new Intent();
+            intent.putExtras(bundleMore);
+
+            Log.d(TAG, "onCreateView: " + bundleMore);
 
             if (myBorough != null) {
                 switch (myBorough) {
@@ -78,7 +84,7 @@ public class CommBoardsFrag extends Fragment{
                         fragmentTransaction3.commit();
                         Bundle mxBundle = new Bundle();
                         mxBundle.putString("mxFrag", mxRetroFragment.toString());
-                        Log.d(TAG, "onCreateView: success"+ myBorough);
+                        Log.d(TAG, "onCreateView: success" + myBorough);
                         break;
                     case "Queens":
                         quRetroFragment = new QuRetroFragment();
@@ -102,7 +108,9 @@ public class CommBoardsFrag extends Fragment{
                         break;
                 }
             }
+
         }
+
         return view;
     }
 }

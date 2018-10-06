@@ -39,9 +39,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
             case 0:
                 return "Community Boards";
             case 1:
-                return "Service Facilities";
+                return "More Details";
             case 2:
-                return "Volunteer!";
+                return "Petitions Circulating Your Borough";
             default:
                 return "Community Boards";
         }
