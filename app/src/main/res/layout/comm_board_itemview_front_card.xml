@@ -183,8 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2.75"
                     android:layout_gravity="center_vertical"
-                    android:maxLines="3"
-                    android:text="@string/txt_address"
+                    android:maxLines="4"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
 
