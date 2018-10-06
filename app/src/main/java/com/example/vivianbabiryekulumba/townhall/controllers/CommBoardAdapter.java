@@ -1,8 +1,13 @@
 package com.example.vivianbabiryekulumba.townhall.controllers;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,7 +62,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.phone.setText("phone: " + commBoard.getCbInfo().getPhone());
         holder.fax.setText("fax: " + commBoard.getCbInfo().getFax());
         holder.email.setText("email: " + commBoard.getCbInfo().getEmail());
-        holder.address.setText("address: " + commBoard.getCbInfo().getAddress());
+        holder.address.setText("GET DIRECTIONS TO: " + commBoard.getCbInfo().getAddress());
         holder.website.setText("website: " + commBoard.getCbInfo().getWebsite());
 
         holder.bindView(position);
@@ -72,13 +78,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             }
         });
 
-        holder.address.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent to google maps api!
-            }
-        });
-
         //Intent of phone number to call services.
         holder.phone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +86,22 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 intent.setData(Uri.parse("tel:" + commBoard.getCbInfo().getPhone()));
                 context.startActivity(intent);
                 Log.d(TAG, "onClick: " + intent + commBoard.getCbInfo().getPhone() + context);
+            }
+        });
+
+        holder.address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double latitude = Double.parseDouble(commBoard.getCbInfo().getLatitude());
+                double longitude = Double.parseDouble(commBoard.getCbInfo().getLongitude());
+
+                String url = "https://www.google.com/maps/dir/?api=1&destination=" + latitude + "," + longitude + "&travelmode=transit";
+
+                Uri gmmIntentUri = Uri.parse(url);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                context.startActivity(mapIntent);
+                Log.d(TAG, "onClick: maps" + gmmIntentUri);
             }
         });
 
