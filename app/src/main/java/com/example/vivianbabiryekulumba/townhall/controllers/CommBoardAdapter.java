@@ -51,11 +51,12 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     public void onBindViewHolder(@NonNull final CommBoardAdapter.CommBoardViewHolder holder, int position) {
         final CommBoard commBoard = commBoardList.get(position);
 
-        holder.comm_Of_tv.setText(commBoard.getCommunityBoard() + "of " + commBoard.getLocation());
+        holder.comm_Of_tv.setText(commBoard.getCommunityBoard() + " of " + commBoard.getLocation());
         holder.zip_code_tv.setText("zip codes include: " + commBoard.getZipCodes());
         holder.phone.setText("phone: " + commBoard.getCbInfo().getPhone());
         holder.fax.setText("fax: " + commBoard.getCbInfo().getFax());
         holder.email.setText("email: " + commBoard.getCbInfo().getEmail());
+        holder.address.setText("address: " + commBoard.getCbInfo().getAddress());
         holder.website.setText("website: " + commBoard.getCbInfo().getWebsite());
 
         holder.bindView(position);
@@ -71,6 +72,12 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             }
         });
 
+        holder.address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent to google maps api!
+            }
+        });
 
         //Intent of phone number to call services.
         holder.phone.setOnClickListener(new View.OnClickListener() {
@@ -114,11 +121,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView phone;
         TextView fax;
         TextView email;
+        TextView address;
         TextView website;
-        ImageView website_iv;
-        ImageView telephone_iv;
-        ImageView fax_iv;
-        ImageView email_iv;
         MapView mapView;
         GoogleMap map;
         Context context;
@@ -133,11 +137,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             phone = itemView.findViewById(R.id.phone_tv);
             fax = itemView.findViewById(R.id.fax_tv);
             email = itemView.findViewById(R.id.email_tv);
+            address = itemView.findViewById(R.id.address_tv);
             website = itemView.findViewById(R.id.website_tv);
-            website_iv = itemView.findViewById(R.id.website_iv);
-            telephone_iv = itemView.findViewById(R.id.telephone_iv);
-            fax_iv = itemView.findViewById(R.id.fax_iv);
-            email_iv = itemView.findViewById(R.id.email_iv);
             mapView = itemView.findViewById(R.id.mapView);
             if (mapView != null) {
                 // Initialise the MapView
