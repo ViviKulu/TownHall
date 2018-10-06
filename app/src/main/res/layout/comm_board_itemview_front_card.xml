@@ -91,12 +91,6 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/website_iv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:background="@drawable/img_v2_website" />
         </LinearLayout>
 
         <!-- !END! Website Horizontal Linear Layout View: -->
@@ -121,12 +115,6 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/telephone_iv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:background="@drawable/img_v2_phone" />
 
         </LinearLayout>
 
@@ -151,12 +139,6 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/fax_iv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:background="@drawable/img_v2_fax" />
         </LinearLayout>
 
         <!-- !END! Fax Horizontal Linear Layout View: -->
@@ -181,19 +163,34 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/email_iv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:background="@drawable/img_v2_email" />
-
         </LinearLayout>
 
         <!-- !END! Email Horizontal Linear Layout View: -->
 
-            <!-- !END! Address Horizontal Linear Layout View: -->
+            <!-- Address Horizontal Linear Layout -->
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/address_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.75"
+                    android:layout_gravity="center_vertical"
+                    android:maxLines="3"
+                    android:text="@string/txt_address"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <!-- !END! Address Horizontal Linear Layout View: -->
 
         </LinearLayout>
 
