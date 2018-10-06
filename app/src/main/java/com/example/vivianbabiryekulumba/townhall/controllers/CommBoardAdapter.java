@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.vivianbabiryekulumba.townhall.MainActivity;
 import com.example.vivianbabiryekulumba.townhall.PetitionAddActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
@@ -36,6 +38,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     private static final String TAG = "CommBoardAdapter";
     Context context;
     ViewPager viewPager;
+    ViewPagerAdapter viewPagerAdapter;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
         this.zipCodeList = zipCodeList;
@@ -135,7 +138,13 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 ((FragmentActivity) v.getContext()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.more_details_container, moreDetailsFrag)
                         .commit();
-                viewPager.setCurrentItem(1, true);
+                viewPager = ((MainActivity) v.getContext()).findViewById(R.id.viewpager);
+                viewPager.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewPager.setCurrentItem(1);
+                    }
+                });
             }
         });
     }
