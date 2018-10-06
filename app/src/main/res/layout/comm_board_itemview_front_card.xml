@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
+    android:background="#fff"
     android:layout_marginBottom="5dp"
     android:orientation="vertical">
 
@@ -43,15 +44,31 @@
 
         <!-- Zip Code Sub Title: -->
         <TextView
-            android:maxLines="1"
+            android:maxLines="3"
             android:textStyle="italic"
             android:id="@+id/zip_code_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
             android:textColor="#000"
-            android:textSize="17sp" />
+            android:textSize="16sp"
+            android:layout_marginLeft="5dp" />
         <!-- !END! Zip Code Sub Title: -->
+
+            <!-- Address Horizontal Linear Layout View: -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/mapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
 
         <!-- Website Horizontal Linear Layout View: -->
 
@@ -174,34 +191,6 @@
         </LinearLayout>
 
         <!-- !END! Email Horizontal Linear Layout View: -->
-
-        <!-- Address Horizontal Linear Layout View: -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_margin="10dp">
-
-            <TextView
-                android:id="@+id/address_tv"
-                android:layout_weight="2.75"
-                android:layout_width="0dp"
-                android:maxLines="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/txt_address"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/address_iv"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.25"
-                android:background="@drawable/img_v2_globe" />
-        </LinearLayout>
 
             <!-- !END! Address Horizontal Linear Layout View: -->
 
