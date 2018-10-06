@@ -36,8 +36,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     private List<CommBoard> commBoardList;
     private static final String TAG = "CommBoardAdapter";
     Context context;
-    ViewPager viewPager;
-    ViewPagerAdapter viewPagerAdapter;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
         this.commBoardList = zipCodeList;
@@ -62,7 +60,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.phone.setText("phone: " + commBoard.getCbInfo().getPhone());
         holder.fax.setText("fax: " + commBoard.getCbInfo().getFax());
         holder.email.setText("email: " + commBoard.getCbInfo().getEmail());
-        holder.address.setText("GET DIRECTIONS TO: " + commBoard.getCbInfo().getAddress());
+        holder.address.setText("get directions: " + commBoard.getCbInfo().getAddress());
         holder.website.setText("website: " + commBoard.getCbInfo().getWebsite());
 
         holder.bindView(position);
