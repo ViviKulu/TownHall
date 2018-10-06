@@ -216,27 +216,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void buildMoreDetailsAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-        builder.setTitle("Check out some more details about your community board!");
+        builder.setTitle("More details about your community board!");
 
-        for (int i = 0; i < boroughsList.size(); i++) {
-            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    String currentItem = boroughsList.get(which);
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("borough", currentItem);
-                    moreDetailsFrag.setArguments(bundle);
-                    fragmentTransaction.add(moreDetailsFrag, "MoreDetailsFrag");
-                    fragmentTransaction.addToBackStack(currentItem);
-                    fragmentTransaction.commit();
-                    Log.d(TAG, "onClick: " + currentItem + bundle);
-                }
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                builder.setCancelable(true);
+            }
+        });
 
-            });
-        }
         AlertDialog dialog = builder.create();
         dialog.show();
     }
@@ -260,10 +248,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-    }
-
-    public void moreDetailsOnClick(View view) {
-        viewPager.setCurrentItem(1, true);
-        buildMoreDetailsAlertDialog();
     }
 }
