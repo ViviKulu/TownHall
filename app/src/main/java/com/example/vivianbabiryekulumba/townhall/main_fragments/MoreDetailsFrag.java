@@ -1,7 +1,5 @@
 package com.example.vivianbabiryekulumba.townhall.main_fragments;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -45,9 +43,9 @@ public class MoreDetailsFrag extends Fragment {
         Log.d(TAG, "onCreateView: " + bundle);
 
         if (bundle != null) {
-            String myBorough = bundle.getString("borough");
-            if (myBorough != null) {
-                switch (myBorough) {
+            String myLocation = bundle.getString("location");
+            if (myLocation != null) {
+                switch (myLocation) {
                     case "Bronx":
                         bxMoreDetailsFrag = new BxMoreDetailsFrag();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -63,7 +61,7 @@ public class MoreDetailsFrag extends Fragment {
                         fragmentTransaction2.commit();
                         Bundle bkBundle = new Bundle();
                         bkBundle.putString("bkFrag", bkMoreDetailsFrag.toString());
-                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        Log.d(TAG, "onCreateView: success" + myLocation);
                         break;
                     case "Manhattan":
                         mxMoreDetailsFrag = new MxMoreDetailsFrag();
@@ -73,7 +71,7 @@ public class MoreDetailsFrag extends Fragment {
                         fragmentTransaction3.commit();
                         Bundle mxBundle = new Bundle();
                         mxBundle.putString("mxFrag", mxMoreDetailsFrag.toString());
-                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        Log.d(TAG, "onCreateView: success" + myLocation);
                         break;
                     case "Queens":
                         quMoreDetailsFrag = new QuMoreDetailsFrag();
@@ -83,7 +81,7 @@ public class MoreDetailsFrag extends Fragment {
                         fragmentTransaction4.commit();
                         Bundle quBundle = new Bundle();
                         quBundle.putString("quFrag", quMoreDetailsFrag.toString());
-                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        Log.d(TAG, "onCreateView: success" + myLocation);
                         break;
                     case "Staten Island":
                         statsMoreDetailsFrag = new StatsMoreDetailsFrag();
@@ -93,7 +91,7 @@ public class MoreDetailsFrag extends Fragment {
                         fragmentTransaction5.commit();
                         Bundle statBundle = new Bundle();
                         statBundle.putString("statFrag", statsMoreDetailsFrag.toString());
-                        Log.d(TAG, "onCreateView: success" + myBorough);
+                        Log.d(TAG, "onCreateView: success" + myLocation);
                         break;
                 }
             }
