@@ -36,7 +36,7 @@ public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.
     @Override
     public void onBindViewHolder(@NonNull MoreDetailsViewHolder holder, int position) {
         final CommBoard moreDetails = moreDetailsList.get(position);
-        holder.community_board.setText(moreDetails.getCommunityBoard());
+        holder.community_board.setText(moreDetails.getCommunityBoard() + " of " + moreDetails.getLocation());
         holder.chair.setText("Chair of the board is: " + moreDetails.getCbInfo().getChair());
         holder.district_manager.setText("District manager of the board is: " + moreDetails.getCbInfo().getDistrictManager());
         holder.board_meeting.setText("Board meetings meet every: " + moreDetails.getCbInfo().getBoardMeeting());

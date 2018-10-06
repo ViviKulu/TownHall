@@ -59,12 +59,11 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         final CommBoard commBoard = zipCodeList.get(position);
 
         holder.comm_Of_tv.setText(commBoard.getCommunityBoard());
-        holder.zip_code_tv.setText(String.format("Zip codes: %s", commBoard.getZipCodes()));
-        holder.address.setText(String.format("Address: %s", commBoard.getCbInfo().getAddress()));
-        holder.phone.setText(String.format("p: %s", commBoard.getCbInfo().getPhone()));
-        holder.fax.setText(String.format("f: %s", commBoard.getCbInfo().getFax()));
-        holder.email.setText(String.format("e: %s", commBoard.getCbInfo().getEmail()));
-        holder.website.setText(String.format("w: %s", commBoard.getCbInfo().getWebsite()));
+        holder.zip_code_tv.setText("zip codes: \n" + commBoard.getZipCodes());
+        holder.phone.setText("phone: %s" + commBoard.getCbInfo().getPhone());
+        holder.fax.setText("fax: %s" + commBoard.getCbInfo().getFax());
+        holder.email.setText("email: %s" + commBoard.getCbInfo().getEmail());
+        holder.website.setText("website: %s" + commBoard.getCbInfo().getWebsite());
 
         holder.address.setOnClickListener(new View.OnClickListener() {
 
@@ -118,35 +117,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         });
         Log.d(TAG, "onBindViewHolder: " + zipCodeList.size());
 
-        holder.submit_petition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, PetitionAddActivity.class);
-                context.startActivity(intent);
-            }
-        });
-
-        holder.more_details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
-                String myLocation = commBoard.getLocation();
-                Bundle bundle = new Bundle();
-                bundle.putString("location", myLocation);
-                moreDetailsFrag.setArguments(bundle);
-                Log.d(TAG, "onClick: more details " + bundle);
-                ((FragmentActivity) v.getContext()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.more_details_container, moreDetailsFrag)
-                        .commit();
-                viewPager = ((MainActivity) v.getContext()).findViewById(R.id.viewpager);
-                viewPager.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(1, true);
-                    }
-                });
-            }
-        });
     }
 
     @Override
@@ -160,8 +130,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView comm_Of_tv;
         TextView zip_code_tv;
         TextView address;
-        Button submit_petition;
-        Button more_details;
+        ImageView submit_petition;
+        ImageView more_details;
         TextView phone;
         TextView fax;
         TextView email;

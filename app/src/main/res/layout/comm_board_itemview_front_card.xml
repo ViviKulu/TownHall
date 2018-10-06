@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
@@ -47,24 +48,10 @@
             android:id="@+id/zip_code_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:text="@string/txt_zip_code"
             android:textColor="#000"
             android:textSize="17sp" />
         <!-- !END! Zip Code Sub Title: -->
-
-        <!-- Board Meeting Details: -->
-        <TextView
-            android:id="@+id/board_meeting_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/txt_board_meeting"
-            android:textColor="#000"
-            android:textSize="16sp" />
-        <!-- !END! Meeting Details: -->
 
         <!-- Website Horizontal Linear Layout View: -->
 
@@ -218,46 +205,6 @@
 
             <!-- !END! Address Horizontal Linear Layout View: -->
 
-
-            <!-- Layout for: Petition + More Details Button:  -->
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <Button
-                    android:id="@+id/submit_petition_button"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:maxLines="1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:background="@color/view_pager_color"
-                    android:text="@string/submit_petition"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    android:layout_marginLeft="20dp" />
-
-                <Button
-                    android:id="@+id/more_details_button"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:maxLines="1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:background="@color/view_pager_color"
-                    android:text="@string/more_details"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    android:layout_marginLeft="5dp" />
-
-                <!-- Petition Button: ends layout code -->
-
-            </LinearLayout>
-            <!-- end horizontal layout for petition + more details activity -->
 
         </LinearLayout>
 
