@@ -18,6 +18,11 @@ import android.widget.TextView;
 import com.example.vivianbabiryekulumba.townhall.PetitionAddActivity;
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.models.CommBoard;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BkRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BxRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.MxRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.QuRetroFragment;
+import com.example.vivianbabiryekulumba.townhall.network_calls.StatRetroFragment;
 
 import java.util.List;
 
@@ -27,6 +32,11 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     private static final String TAG = "CommBoardAdapter";
     Context context;
     ViewPager viewPager;
+    BxRetroFragment bxRetroFragment;
+    BkRetroFragment bkRetroFragment;
+    MxRetroFragment mxRetroFragment;
+    QuRetroFragment quRetroFragment;
+    StatRetroFragment statRetroFragment;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
         this.zipCodeList = zipCodeList;
@@ -113,15 +123,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
                 context.startActivity(intent);
             }
         });
-
-        holder.more_details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-//                bundle.putString();
-                viewPager.setCurrentItem(1);
-            }
-        });
     }
 
     @Override
@@ -136,7 +137,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView zip_code_tv;
         TextView address;
         Button submit_petition;
-        Button more_details;
         TextView phone;
         TextView fax;
         TextView email;
@@ -155,7 +155,6 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             zip_code_tv = itemView.findViewById(R.id.zip_code_tv);
             address = itemView.findViewById(R.id.address_tv);
             submit_petition = itemView.findViewById(R.id.submit_petition_button);
-            more_details = itemView.findViewById(R.id.more_details_button);
             phone = itemView.findViewById(R.id.phone_tv);
             fax = itemView.findViewById(R.id.fax_tv);
             email = itemView.findViewById(R.id.email_tv);

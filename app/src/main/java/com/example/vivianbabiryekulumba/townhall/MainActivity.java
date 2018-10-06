@@ -26,6 +26,11 @@ import com.example.vivianbabiryekulumba.townhall.controllers.ViewPagerAdapter;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.VolunteerFrag;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BkMoreDetailsFrag;
+import com.example.vivianbabiryekulumba.townhall.network_calls.BxMoreDetailsFrag;
+import com.example.vivianbabiryekulumba.townhall.network_calls.MxMoreDetailsFrag;
+import com.example.vivianbabiryekulumba.townhall.network_calls.QuMoreDetailsFrag;
+import com.example.vivianbabiryekulumba.townhall.network_calls.StatsMoreDetailsFrag;
 import com.example.vivianbabiryekulumba.townhall.util.ZoomOutPageTransformer;
 
 import java.util.Arrays;
@@ -39,20 +44,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     PagerTabStrip pagerTabStrip;
     NavigationView navigationView;
 
+    BxMoreDetailsFrag bxMoreDetailsFrag;
+    BkMoreDetailsFrag bkMoreDetailsFrag;
+    MxMoreDetailsFrag mxMoreDetailsFrag;
+    QuMoreDetailsFrag quMoreDetailsFrag;
+    StatsMoreDetailsFrag statsMoreDetailsFrag;
+
     String[] boroughs = new String[]{
             "Bronx",
             "Brooklyn",
             "Manhattan",
             "Queens",
             "Staten Island"
-    };
-
-    String[] service_fac = new String[]{
-            "Children Welfare and Education Services",
-            "Health and Human Services",
-            "Libraries and Cultural Services",
-            "Parks, Garden and Historical Services",
-            "Public Safety Services"
     };
 
 
@@ -215,12 +218,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         builder.setTitle("Check out some more details about your community board!");
 
-        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                builder.setCancelable(true);
-            }
-        });
+        for (int i = 0; i < boroughsList.size(); i++) {
+            builder.setItems(boroughs, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    String currentItem = boroughsList.get(which);
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("borough", currentItem);
+                    moreDetailsFrag.setArguments(bundle);
+                    fragmentTransaction.add(moreDetailsFrag, "MoreDetailsFrag");
+                    fragmentTransaction.addToBackStack(currentItem);
+                    fragmentTransaction.commit();
+                    Log.d(TAG, "onClick: " + currentItem + bundle);
+                }
+
+            });
+        }
         AlertDialog dialog = builder.create();
         dialog.show();
     }
@@ -246,12 +262,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dialog.show();
     }
 
-//    public void submitPetitionClick(View view) {
-//        Intent intent = new Intent(MainActivity.this, PetitionAddActivity.class);
-//        startActivity(intent);
-//    }
-//
-//    public void moreDetailsClick(View view) {
-//        viewPager.setCurrentItem(1);
-//    }
+    public void moreDetailsOnClick(View view) {
+        viewPager.setCurrentItem(1, true);
+        buildMoreDetailsAlertDialog();
+    }
 }
