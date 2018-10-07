@@ -6,77 +6,40 @@
     android:id="@+id/registration_container"
     tools:context=".main_fragments.RegisterToVoteFrag">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/register_by_mail_button"
+        android:id="@+id/commissions_letter_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/register_online"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginStart="90dp"
-        android:layout_marginLeft="125dp" />
+        android:src="@drawable/commissions_letter" />
 
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/register_online_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/register_by_mail"
         android:layout_gravity="bottom"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="180dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginLeft="180dp" />
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/register_online" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/revision_commission_letter_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:textColor="#000"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/commission_letter_title"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        android:layout_marginBottom="70dp">
-
-        <TextView
-            android:id="@+id/revision_commission_letter_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:text="@string/commission_letter"
-            android:textColor="#000"
-            android:textSize="16sp"
-            android:layout_marginBottom="25dp"/>
-
-    </ScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/register_by_mail_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="211dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/register_by_mail" />
 
 </FrameLayout>
