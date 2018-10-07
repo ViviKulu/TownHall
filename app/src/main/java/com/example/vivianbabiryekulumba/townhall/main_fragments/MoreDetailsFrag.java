@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.vivianbabiryekulumba.townhall.R;
 import com.example.vivianbabiryekulumba.townhall.network_calls.BkMoreDetailsFrag;
@@ -32,6 +33,7 @@ public class MoreDetailsFrag extends Fragment {
     QuMoreDetailsFrag quMoreDetailsFrag;
     StatsMoreDetailsFrag statsMoreDetailsFrag;
     FloatingActionButton liveStreamMeetings;
+    TextView quote;
 
     public static MoreDetailsFrag newInstance() {
         MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
@@ -45,6 +47,7 @@ public class MoreDetailsFrag extends Fragment {
         View view = inflater.inflate(R.layout.more_details_frag, container, false);
 
         liveStreamMeetings = view.findViewById(R.id.live_stream_fab);
+        quote = view.findViewById(R.id.inspiration_quote_tv);
 
         liveStreamMeetings.setOnClickListener(new View.OnClickListener() {
             @Override
