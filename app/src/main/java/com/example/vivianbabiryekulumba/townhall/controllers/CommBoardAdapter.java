@@ -137,6 +137,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView address;
         TextView website;
         MapView mapView;
+        TextView tapMap;
         GoogleMap map;
         Context context;
 
@@ -152,6 +153,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             email = itemView.findViewById(R.id.email_tv);
             address = itemView.findViewById(R.id.address_tv);
             website = itemView.findViewById(R.id.website_tv);
+            tapMap = itemView.findViewById(R.id.tap_screen_tv);
             mapView = itemView.findViewById(R.id.mapView);
             if (mapView != null) {
                 // Initialise the MapView

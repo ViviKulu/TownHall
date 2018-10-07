@@ -186,8 +186,8 @@ public class PetitionAddActivity extends AppCompatActivity implements Navigation
             Intent intent1 = new Intent(PetitionAddActivity.this, PetitionListActivity.class);
             startActivity(intent1);
             //Start database
-        } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(PetitionAddActivity.this, VolunteerListActivity.class);
+        } else if (id == R.id.nav_user_profile) {
+            Intent intent2 = new Intent(PetitionAddActivity.this, UserProfileActivity.class);
             startActivity(intent2);
             //Start database
         }

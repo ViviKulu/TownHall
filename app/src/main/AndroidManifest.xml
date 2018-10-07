@@ -42,18 +42,18 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".MapsActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".PetitionListActivity" />
-        <activity android:name=".VolunteerListActivity" />
         <activity android:name=".PetitionAddActivity" />
-        <activity android:name=".VolunteerAddActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
 
 </manifest>

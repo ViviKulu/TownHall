@@ -70,6 +70,13 @@
                     android:layout_height="match_parent"/>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tap_screen_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(Tap Map to Zoom)"
+                android:layout_gravity="center_horizontal"/>
+
         <!-- Website Horizontal Linear Layout View: -->
 
         <LinearLayout

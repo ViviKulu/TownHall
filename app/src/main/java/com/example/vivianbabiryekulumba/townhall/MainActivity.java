@@ -18,19 +18,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.vivianbabiryekulumba.townhall.controllers.ViewPagerAdapter;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
-import com.example.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
-import com.example.vivianbabiryekulumba.townhall.main_fragments.VolunteerFrag;
-import com.example.vivianbabiryekulumba.townhall.network_calls.BkMoreDetailsFrag;
-import com.example.vivianbabiryekulumba.townhall.network_calls.BxMoreDetailsFrag;
-import com.example.vivianbabiryekulumba.townhall.network_calls.MxMoreDetailsFrag;
-import com.example.vivianbabiryekulumba.townhall.network_calls.QuMoreDetailsFrag;
-import com.example.vivianbabiryekulumba.townhall.network_calls.StatsMoreDetailsFrag;
 import com.example.vivianbabiryekulumba.townhall.util.ZoomOutPageTransformer;
 
 import java.util.Arrays;
@@ -170,8 +162,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_petitions) {
             Intent intent1 = new Intent(MainActivity.this, PetitionListActivity.class);
             startActivity(intent1);
-        } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(MainActivity.this, VolunteerListActivity.class);
+        } else if (id == R.id.nav_user_profile) {
+            Intent intent2 = new Intent(MainActivity.this, UserProfileActivity.class);
             startActivity(intent2);
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -200,43 +192,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             });
         }
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private void buildMoreDetailsAlertDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
-        builder.setTitle("More details about your community board!");
-
-        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                builder.setCancelable(true);
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private void buildVolunteerAlertDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-
-        builder.setTitle("Check out some events to volunteer at!");
-        builder.setMessage("... or save some for viewing another time!");
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        VolunteerFrag volunteerFrag = new VolunteerFrag();
-        fragmentTransaction.add(volunteerFrag, "VolunteerFrag");
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                builder.setCancelable(true);
-            }
-        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }
