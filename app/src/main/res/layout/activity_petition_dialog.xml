@@ -74,29 +74,10 @@
                     android:layout_marginStart="180dp"
                     android:background="#000"
                     android:textColor="#fff"
-                    android:text="submit petition"
+                    android:text="save petition"
                     android:layout_marginLeft="180dp" />
 
             </android.support.v7.widget.Toolbar>
-
-            <!--<android.support.v4.view.ViewPager-->
-                <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-                <!--android:id="@+id/viewpager"-->
-                <!--android:layout_marginTop="57dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent" >-->
-
-                <!--<android.support.v4.view.PagerTabStrip-->
-                    <!--android:id="@+id/pager_header"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:paddingBottom="4dp"-->
-                    <!--android:paddingTop="15dp" >-->
-
-                <!--</android.support.v4.view.PagerTabStrip>-->
-
-            <!--</android.support.v4.view.ViewPager>-->
-            <!---->
         </FrameLayout>
 
         <!-- Container for contents of drawer - use NavigationView to make configuration easier -->

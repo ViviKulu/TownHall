@@ -142,8 +142,8 @@ public class PetitionListActivity extends AppCompatActivity
         } else if (id == R.id.nav_petitions) {
             Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_opportunities) {
-            Intent intent2 = new Intent(getApplicationContext(), VolunteerListActivity.class);
+        } else if (id == R.id.nav_user_profile) {
+            Intent intent2 = new Intent(getApplicationContext(), UserProfileActivity.class);
             startActivity(intent2);
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
