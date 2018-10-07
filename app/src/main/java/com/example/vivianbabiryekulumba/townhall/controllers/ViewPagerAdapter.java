@@ -6,12 +6,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
+import com.example.vivianbabiryekulumba.townhall.main_fragments.RegisterToVoteFrag;
 import com.example.vivianbabiryekulumba.townhall.main_fragments.VolunteerFrag;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter{
 
     private static final String TAG = "ViewPagerAdapter";
-    private static int NUM_ITEMS = 3;
+    private static int NUM_ITEMS = 4;
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -27,6 +28,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
                 return MoreDetailsFrag.newInstance();
             case 2:
                 return VolunteerFrag.newInstance();
+            case 3:
+                return RegisterToVoteFrag.newInstance();
             default:
                 return CommBoardsFrag.newInstance();
         }
@@ -42,6 +45,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
                 return "More Details";
             case 2:
                 return "Petitions Circulating Your Borough";
+            case 3:
+                return "Register To Vote!";
             default:
                 return "Community Boards";
         }
