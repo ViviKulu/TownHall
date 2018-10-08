@@ -36,6 +36,36 @@
                 android:layout_marginTop="57dp"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/delete_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/delete_icon"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/edit_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/edit_icon"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="85dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/submit_revised_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/submit_icon"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="167dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"/>
+
         </FrameLayout>
 
         <!-- Container for contents of drawer - use NavigationView to make configuration easier -->

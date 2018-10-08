@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 public class UserProfileActivity extends AppCompatActivity {
 
+    private static final String TAG = "UserProfile";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
