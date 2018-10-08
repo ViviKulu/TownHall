@@ -20,7 +20,7 @@ Townhall provides a mobile connection between convenience and communication to b
 * Become an advocate for your community and have your voice be heard today!
 -----------------------------------------------------------------------------
 
-![Alt text](Screenshot_2018-09-27-06-29-49.png),![Alt text](Screenshot_2018-09-27-06-30-03.png),![Alt text](Screenshot_2018-09-27-06-29-57.png)
+![Alt text](Screenshot_2018-10-07-22-39-59.png),![Alt text](Screenshot_2018-10-07-22-40-09.png),![Alt text](Screenshot_2018-10-07-22-40-18.png),![Alt text](Screenshot_2018-10-07-22-40-25.png),![Alt text](Screenshot_2018-10-07-22-40-41.png),![Alt text](Screenshot_2018-10-07-22-40-45.png)
 
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
