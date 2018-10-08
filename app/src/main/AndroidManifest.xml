@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.update.vivianbabiryekulumba.townhall">
+    package="com.tap.vivianbabiryekulumba.townhall">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -18,7 +18,7 @@
     <uses-permission android:name="com.example.permission.MAPS_RECEIVE" />
 
     <application
-        android:name="com.update.vivianbabiryekulumba.townhall.database.AppApplication"
+        android:name="com.tap.vivianbabiryekulumba.townhall.database.AppApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@drawable/app_city_hall_icon"
@@ -42,11 +42,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name="com.update.vivianbabiryekulumba.townhall.MapsActivity" />
-        <activity android:name="com.update.vivianbabiryekulumba.townhall.MainActivity" />
-        <activity android:name="com.update.vivianbabiryekulumba.townhall.PetitionListActivity" />
-        <activity android:name="com.update.vivianbabiryekulumba.townhall.PetitionAddActivity" />
-        <activity android:name="com.update.vivianbabiryekulumba.townhall.SplashActivity">
+        <activity android:name="com.tap.vivianbabiryekulumba.townhall.MapsActivity" />
+        <activity android:name="com.tap.vivianbabiryekulumba.townhall.MainActivity" />
+        <activity android:name="com.tap.vivianbabiryekulumba.townhall.PetitionListActivity" />
+        <activity android:name="com.tap.vivianbabiryekulumba.townhall.PetitionAddActivity" />
+        <activity android:name="com.tap.vivianbabiryekulumba.townhall.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -54,7 +54,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.update.vivianbabiryekulumba.townhall.UserProfileActivity"/>
+        <activity android:name="com.tap.vivianbabiryekulumba.townhall.UserProfileActivity"/>
     </application>
 
 </manifest>
