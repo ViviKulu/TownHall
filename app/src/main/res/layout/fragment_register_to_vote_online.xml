@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".main_fragments.RegisterToVoteOnlineFrag">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <WebView
+        android:id="@+id/dmv_web_registration"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Online Voting" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
