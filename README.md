@@ -13,10 +13,11 @@ Whether you're speaking out for or against issues, NYC wants to hear it!
 ----------------------------------------------------------------------
 Townhall provides a mobile connection between convenience and communication to be as effective as you need to be in your community.
 
-* Visit an actual Townhall meeting.
-* Submit a petition!
-* Volunteer at an event or two.
-* Explore facilities that are here for you and your community.
+* Get directions to an actual Townhall meeting.
+* Prepare a petition!
+* Register to vote.
+* Contact your board.
+* Gather more information about your community board and members of elected seats.
 * Become an advocate for your community and have your voice be heard today!
 -----------------------------------------------------------------------------
 
@@ -30,8 +31,9 @@ LIBRARIES:
 * Retrofit
 * Room Persistence
 * Google Play Services
+* Intents
 
 CREDITS:
 ----------
-* Tech Lead - UI/UX : Vivian Kulumba
-* Design Lead - UI/UX : Niema Widaha
+* v1 - current dev : Vivian Kulumba
+* v1 Design Lead - UI/UX : Niema Widaha
