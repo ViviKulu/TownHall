@@ -1,11 +1,13 @@
 package com.example.vivianbabiryekulumba.townhall;
 
 import android.arch.lifecycle.LiveData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -40,6 +42,9 @@ public class PetitionListActivity extends AppCompatActivity
     private DrawerLayout mDrawerLayout;
     public PetitionListPresenter petitionListPresenter;
     private RecyclerView petitionRecyclerView;
+    FloatingActionButton submit;
+    FloatingActionButton edit;
+    FloatingActionButton delete;
 
     String[] boroughs = new String[]{
             "Bronx",
@@ -49,16 +54,54 @@ public class PetitionListActivity extends AppCompatActivity
             "Staten Island"
     };
 
+    String[] features = new String[]{
+            "Submit revised petitions to Community Boards.",
+            "Interact with local network.",
+            "Volunteer within your community.",
+            "Post community events.",
+            "Campaign for a seat on your local community board!",
+            "and many more..."
+    };
+
     final List<String> boroughsList = Arrays.asList(boroughs);
+    final List<String> featuresList = Arrays.asList(features);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petition);
-        //Navigation Drawer
+
         mDrawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         petitionRecyclerView = findViewById(R.id.petition_list_recyclerview);
+        submit = findViewById(R.id.submit_revised_button);
+        edit = findViewById(R.id.edit_button);
+        delete = findViewById(R.id.delete_button);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionListActivity.this);
+                builder.setTitle("Submitting revised petitions is coming soon!");
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Make @UPDATE request
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Make @DELETE request
+            }
+        });
+
 
         PetitionDatabase db = ((AppApplication) getApplication()).getPetitionDatabase();
         PetitionDao petitionDao = db.petitionDao();
@@ -125,12 +168,8 @@ public class PetitionListActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        // set item as selected to persist highlight
         menuItem.setChecked(true);
-        // close drawer when item is tapped
         mDrawerLayout.closeDrawers();
-        // Add code here to update the UI based on the item selected
-        // For example, swap UI fragments here
         Log.d(TAG, "onNavigationItemSelected: made it to onNavItemSelected");
 
         int id = menuItem.getItemId();
@@ -143,8 +182,21 @@ public class PetitionListActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), PetitionListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_user_profile) {
-            Intent intent2 = new Intent(getApplicationContext(), UserProfileActivity.class);
-            startActivity(intent2);
+//            Intent intent2 = new Intent(getApplicationContext(), UserProfileActivity.class);
+//            startActivity(intent2);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionListActivity.this);
+            builder.setTitle("Feature coming soon!");
+
+            for (int i = 0; i < featuresList.size(); i++) {
+                builder.setItems(features, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        builder.setCancelable(true);
+                    }
+                });
+            }
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
