@@ -3,6 +3,8 @@ package com.tap.vivianbabiryekulumba.townhall.controllers;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,6 +24,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.CommBoardViewHolder> {
@@ -29,6 +32,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
     private List<CommBoard> commBoardList;
     private static final String TAG = "CommBoardAdapter";
     Context context;
+    Thread thread;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
         this.commBoardList = zipCodeList;
@@ -83,19 +87,23 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double latitude = Double.parseDouble(commBoard.getCbInfo().getLatitude());
-                double longitude = Double.parseDouble(commBoard.getCbInfo().getLongitude());
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        double latitude = Double.parseDouble(commBoard.getCbInfo().getLatitude());
+                        double longitude = Double.parseDouble(commBoard.getCbInfo().getLongitude());
 
-                String url = "https://www.google.com/maps/dir/?api=1&destination=" + latitude + "," + longitude + "&travelmode=transit";
+                        String url = "https://www.google.com/maps/dir/?api=1&destination=" + latitude + "," + longitude + "&travelmode=transit";
 
-                Uri gmmIntentUri = Uri.parse(url);
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps");
-                context.startActivity(mapIntent);
-                Log.d(TAG, "onClick: maps" + gmmIntentUri);
+                        Uri gmmIntentUri = Uri.parse(url);
+                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                        mapIntent.setPackage("com.google.android.apps.maps");
+                        context.startActivity(mapIntent);
+                        Log.d(TAG, "onClick: maps" + gmmIntentUri);
+                    }
+                }).start();
             }
         });
-
 
         //Intent of Website to external source of actual website.
         holder.website.setOnClickListener(new View.OnClickListener() {
