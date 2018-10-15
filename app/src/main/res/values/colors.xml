@@ -14,6 +14,13 @@
     <color name="blue_grey_800">#37474F</color>
     <color name="blue_grey_900">#263238</color>
     <color name="black">#000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="transparent_black_percent_60">#99000000</color>
+    <color name="red">#ff6767</color>
+    <color name="orange">#ffb067</color>
+    <color name="green">#67ffae</color>
+    <color name="blue">#6785ff</color>
 
     <!-- community board : -->
     <color name="txt_outer_linear_layout">#000</color>
