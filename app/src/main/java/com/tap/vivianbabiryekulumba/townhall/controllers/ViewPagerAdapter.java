@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tap.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 import com.tap.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
-import com.tap.vivianbabiryekulumba.townhall.main_fragments.RegisterToVoteFrag;
+import com.tap.vivianbabiryekulumba.townhall.main_fragments.LiveStreamMeetingFrag;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter{
 
@@ -26,7 +26,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
             case 1:
                 return MoreDetailsFrag.newInstance();
             case 2:
-                return RegisterToVoteFrag.newInstance();
+                return LiveStreamMeetingFrag.newInstance();
             default:
                 return CommBoardsFrag.newInstance();
         }
@@ -41,7 +41,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
             case 1:
                 return "More Details";
             case 2:
-                return "Register To Vote!";
+                return "LiveStreamMeetings";
             default:
                 return "Community Boards";
         }
