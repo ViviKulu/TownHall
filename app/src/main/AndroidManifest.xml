@@ -9,6 +9,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
@@ -18,7 +19,7 @@
     <uses-permission android:name="com.example.permission.MAPS_RECEIVE" />
 
     <application
-        android:name="com.tap.vivianbabiryekulumba.townhall.database.AppApplication"
+        android:name=".database.AppApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@drawable/app_city_hall_icon"
@@ -42,11 +43,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name="com.tap.vivianbabiryekulumba.townhall.MapsActivity" />
-        <activity android:name="com.tap.vivianbabiryekulumba.townhall.MainActivity" />
-        <activity android:name="com.tap.vivianbabiryekulumba.townhall.PetitionListActivity" />
-        <activity android:name="com.tap.vivianbabiryekulumba.townhall.PetitionAddActivity" />
-        <activity android:name="com.tap.vivianbabiryekulumba.townhall.SplashActivity">
+        <activity android:name=".MapsActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PetitionListActivity" />
+        <activity android:name=".PetitionAddActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -54,7 +55,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tap.vivianbabiryekulumba.townhall.UserProfileActivity"/>
+        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".YouTubeActivity"></activity>
     </application>
 
 </manifest>

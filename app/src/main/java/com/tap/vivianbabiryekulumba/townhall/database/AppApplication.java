@@ -1,8 +1,9 @@
 package com.tap.vivianbabiryekulumba.townhall.database;
 
 import android.arch.persistence.room.Room;
+import android.support.multidex.MultiDexApplication;
 
-public class AppApplication extends android.app.Application {
+public class AppApplication extends MultiDexApplication {
 
     private PetitionDatabase petitionDatabase;
 

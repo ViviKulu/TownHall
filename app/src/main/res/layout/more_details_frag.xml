@@ -25,7 +25,7 @@
         android:layout_marginTop="67dp"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/live_stream_fab"
+        android:id="@+id/streamed_meetings_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/youtube_icon"

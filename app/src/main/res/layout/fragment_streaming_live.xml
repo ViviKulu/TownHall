@@ -5,14 +5,4 @@
     android:layout_height="match_parent"
     tools:context=".main_fragments.LiveStreamMeetingFrag">
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtube_player_view"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center">
-
-    </com.google.android.youtube.player.YouTubePlayerView>
-
-
-
 </FrameLayout>
