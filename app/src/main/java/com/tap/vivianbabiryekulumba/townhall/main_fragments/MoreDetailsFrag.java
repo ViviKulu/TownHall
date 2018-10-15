@@ -1,9 +1,6 @@
 package com.tap.vivianbabiryekulumba.townhall.main_fragments;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.tap.vivianbabiryekulumba.townhall.R;
+import com.tap.vivianbabiryekulumba.townhall.YouTubeActivity;
 import com.tap.vivianbabiryekulumba.townhall.network_calls.BkMoreDetailsFrag;
 import com.tap.vivianbabiryekulumba.townhall.network_calls.BxMoreDetailsFrag;
 import com.tap.vivianbabiryekulumba.townhall.network_calls.MxMoreDetailsFrag;
@@ -32,7 +29,7 @@ public class MoreDetailsFrag extends Fragment {
     MxMoreDetailsFrag mxMoreDetailsFrag;
     QuMoreDetailsFrag quMoreDetailsFrag;
     StatsMoreDetailsFrag statsMoreDetailsFrag;
-    FloatingActionButton liveStreamMeetings;
+    FloatingActionButton streamedMeetings;
     TextView quote;
 
     public static MoreDetailsFrag newInstance() {
@@ -46,16 +43,14 @@ public class MoreDetailsFrag extends Fragment {
 
         View view = inflater.inflate(R.layout.more_details_frag, container, false);
 
-        liveStreamMeetings = view.findViewById(R.id.live_stream_fab);
+        streamedMeetings = view.findViewById(R.id.streamed_meetings_button);
         quote = view.findViewById(R.id.inspiration_quote_tv);
 
-        liveStreamMeetings.setOnClickListener(new View.OnClickListener() {
+        streamedMeetings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=miVnU3wybEY&list=UUHip-wiEtSSRtJtA2OoChOA"));
-                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=miVnU3wybEY&list=UUHip-wiEtSSRtJtA2OoChOA"));
-                getContext().startActivity(appIntent);
-                getContext().startActivity(webIntent);
+                Intent youTubeActivity = new Intent(getContext(), YouTubeActivity.class);
+                getContext().startActivity(youTubeActivity);
             }
         });
 
@@ -118,16 +113,5 @@ public class MoreDetailsFrag extends Fragment {
             }
         }
         return view;
-    }
-
-    public static void watchYoutubeVideo(Context context, String id) {
-        Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
-        Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://www.youtube.com/watch?v=" + id));
-        try {
-            context.startActivity(appIntent);
-        } catch (ActivityNotFoundException ex) {
-            context.startActivity(webIntent);
-        }
     }
 }

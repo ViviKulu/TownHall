@@ -51,17 +51,8 @@ public class PetitionAddActivity extends AppCompatActivity implements Navigation
             "Staten Island"
     };
 
-    String[] features = new String[]{
-            "Submit revised petitions to Community Boards.",
-            "Interact with local network.",
-            "Volunteer within your community.",
-            "Post community events.",
-            "Campaign for a seat on your local community board!",
-            "and many more..."
-    };
 
     final List<String> boroughsList = Arrays.asList(boroughs);
-    final List<String> featuresList = Arrays.asList(features);
     private DrawerLayout mDrawerLayout;
 
 
@@ -190,23 +181,6 @@ public class PetitionAddActivity extends AppCompatActivity implements Navigation
         } else if (id == R.id.nav_petitions) {
             Intent intent1 = new Intent(PetitionAddActivity.this, PetitionListActivity.class);
             startActivity(intent1);
-        } else if (id == R.id.nav_user_profile) {
-//            Intent intent2 = new Intent(PetitionAddActivity.this, UserProfileActivity.class);
-//            startActivity(intent2);
-            final AlertDialog.Builder builder = new AlertDialog.Builder(PetitionAddActivity.this);
-            builder.setTitle("Feature coming soon!");
-
-            for (int i = 0; i < featuresList.size(); i++) {
-                builder.setItems(features, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        builder.setCancelable(true);
-                    }
-                });
-            }
-            AlertDialog dialog = builder.create();
-            dialog.show();
-
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
