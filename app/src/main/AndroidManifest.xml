@@ -56,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserProfileActivity" />
-        <activity android:name=".YouTubeActivity"></activity>
+        <activity android:name=".YouTubeActivity"/>
     </application>
 
 </manifest>
