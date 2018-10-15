@@ -19,7 +19,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-
 import com.tap.vivianbabiryekulumba.townhall.controllers.YouTubeRecyclerViewAdapter;
 import com.tap.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 import java.util.Arrays;
