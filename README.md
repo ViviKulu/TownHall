@@ -32,7 +32,7 @@ LIBRARIES:
 * Room Persistence
 * Google Play Services
 * Android Youtube Player Services - Pierfrancesco Soffritti 
-* Intents
+* Intent Services
 
 CREDITS:
 ----------
