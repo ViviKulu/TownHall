@@ -1,6 +1,5 @@
 package com.tap.vivianbabiryekulumba.townhall;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -12,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,7 +22,6 @@ import com.tap.vivianbabiryekulumba.townhall.controllers.YouTubeRecyclerViewAdap
 import com.tap.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 import java.util.Arrays;
 import java.util.List;
-
 
 public class YouTubeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private static final String TAG = "YouTubeActivity";
@@ -87,7 +86,6 @@ public class YouTubeActivity extends AppCompatActivity implements NavigationView
         return super.onOptionsItemSelected(item);
     }
 
-
     private void setNavigationViewListener() {
         navigationView = findViewById(R.id.nav_view);
         assert navigationView != null;
@@ -117,7 +115,7 @@ public class YouTubeActivity extends AppCompatActivity implements NavigationView
     }
 
     public void buildCommBoardAlertDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(YouTubeActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(YouTubeActivity.this);
         builder.setTitle("Explore your borough's Community Board!");
 
         for (int i = 0; i < boroughsList.size(); i++) {

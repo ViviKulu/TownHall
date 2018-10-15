@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.tap.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
 import com.tap.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
-
 public class ViewPagerAdapter extends FragmentPagerAdapter{
 
     private static final String TAG = "ViewPagerAdapter";

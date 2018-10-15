@@ -21,7 +21,7 @@ import com.tap.vivianbabiryekulumba.townhall.network_calls.MxMoreDetailsFrag;
 import com.tap.vivianbabiryekulumba.townhall.network_calls.QuMoreDetailsFrag;
 import com.tap.vivianbabiryekulumba.townhall.network_calls.StatsMoreDetailsFrag;
 
-public class MoreDetailsFrag extends Fragment {
+public class MoreDetailsFrag extends Fragment{
 
     private static final String TAG = "MoreDetailsFrag";
     BxMoreDetailsFrag bxMoreDetailsFrag;
@@ -42,7 +42,6 @@ public class MoreDetailsFrag extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.more_details_frag, container, false);
-
         streamedMeetings = view.findViewById(R.id.streamed_meetings_button);
         quote = view.findViewById(R.id.inspiration_quote_tv);
 

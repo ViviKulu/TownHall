@@ -64,7 +64,7 @@ public class YouTubeRecyclerViewAdapter extends RecyclerView.Adapter<YouTubeRecy
         void cueVideo(String videoId) {
             currentVideoId = videoId;
 
-            if(youTubePlayer == null)
+            if (youTubePlayer == null)
                 return;
 
             youTubePlayer.cueVideo(videoId, 0);
