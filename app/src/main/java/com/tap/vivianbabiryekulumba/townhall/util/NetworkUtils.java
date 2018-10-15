@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class NetworkUtils {
+
     public static Bitmap getBitmapFromURL(String src) {
         try {
             URL url = new URL(src);

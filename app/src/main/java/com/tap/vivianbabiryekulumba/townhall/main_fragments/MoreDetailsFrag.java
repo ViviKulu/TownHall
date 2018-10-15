@@ -1,6 +1,5 @@
 package com.tap.vivianbabiryekulumba.townhall.main_fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,7 +31,6 @@ public class MoreDetailsFrag extends Fragment{
     StatsMoreDetailsFrag statsMoreDetailsFrag;
     FloatingActionButton streamedMeetings;
     TextView quote;
-    Context context;
 
     public static MoreDetailsFrag newInstance() {
         MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
@@ -50,8 +48,8 @@ public class MoreDetailsFrag extends Fragment{
         streamedMeetings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentToYoutubeActivity = new Intent(getContext(), YouTubeActivity.class);
-                getContext().startActivity(intentToYoutubeActivity);
+                Intent youTubeActivity = new Intent(getContext(), YouTubeActivity.class);
+                getContext().startActivity(youTubeActivity);
             }
         });
 

@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayerView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.AbstractYouTubePlayerListener;
@@ -65,7 +64,7 @@ public class YouTubeRecyclerViewAdapter extends RecyclerView.Adapter<YouTubeRecy
         void cueVideo(String videoId) {
             currentVideoId = videoId;
 
-            if(youTubePlayer == null)
+            if (youTubePlayer == null)
                 return;
 
             youTubePlayer.cueVideo(videoId, 0);

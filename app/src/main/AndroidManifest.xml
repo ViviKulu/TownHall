@@ -45,6 +45,7 @@
 
         <activity android:name=".MapsActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".YouTubeActivity" />
         <activity android:name=".PetitionListActivity" />
         <activity android:name=".PetitionAddActivity" />
         <activity android:name=".SplashActivity">
@@ -55,8 +56,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserProfileActivity" />
-        <activity android:name=".YouTubeActivity"/>
     </application>
 
 </manifest>

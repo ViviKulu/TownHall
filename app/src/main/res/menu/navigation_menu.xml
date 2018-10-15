@@ -22,10 +22,5 @@
             android:background="@android:color/black" />
         <!--Petition is the petition frag-->
 
-        <item
-            android:id="@+id/nav_user_profile"
-            android:title="Sign in to profile" />
-        <!--Favorite is the fav_vol_opp frag-->
-
     </group>
 </menu>

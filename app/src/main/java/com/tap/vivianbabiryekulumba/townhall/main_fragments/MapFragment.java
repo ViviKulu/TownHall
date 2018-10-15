@@ -12,9 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
-import com.tap.vivianbabiryekulumba.townhall.MapsActivity;
-import com.tap.vivianbabiryekulumba.townhall.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -23,6 +20,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.tap.vivianbabiryekulumba.townhall.MapsActivity;
+import com.tap.vivianbabiryekulumba.townhall.R;
 
 /**
  * A simple {@link Fragment} subclass.

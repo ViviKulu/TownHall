@@ -32,7 +32,6 @@ public class MapsActivity extends AppCompatActivity {
     private static double currentLongitude;
     private static double currentLatitude;
 
-
     public static double getCurrentLongitude() {
         return currentLongitude;
     }
@@ -44,7 +43,7 @@ public class MapsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_maps);
         servicesOk();
         getLocationPermission();
         getDeviceLocation();
