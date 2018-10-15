@@ -35,5 +35,4 @@ LIBRARIES:
 
 CREDITS:
 ----------
-* v1 - current dev : Vivian Kulumba
-* v1 Design Lead - UI/UX : Niema Widaha
+* Mobile Dev - Vivian Kulumba
