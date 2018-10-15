@@ -31,6 +31,7 @@ LIBRARIES:
 * Retrofit
 * Room Persistence
 * Google Play Services
+* Android Youtube Player Services - Pierfrancesco Soffritti 
 * Intents
 
 CREDITS:
