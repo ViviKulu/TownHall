@@ -38,4 +38,4 @@ CREDITS:
 ----------
 * Mobile Dev - Vivian Kulumba
 
-View on Google Play: https://play.google.com/store/apps/details?id=com.tap.vivianbabiryekulumba.townhall
+![Alt text](google_play_icon.png) https://play.google.com/store/apps/details?id=com.tap.vivianbabiryekulumba.townhall
