@@ -37,3 +37,5 @@ LIBRARIES:
 CREDITS:
 ----------
 * Mobile Dev - Vivian Kulumba
+
+View on Google Play: https://play.google.com/store/apps/details?id=com.tap.vivianbabiryekulumba.townhall
