@@ -38,6 +38,6 @@ CREDITS:
 ----------
 * Mobile Dev - Vivian Kulumba
 
-![Alt text](google_play_icon.png) 
+Get the Beta on Google Play!
 
 https://play.google.com/store/apps/details?id=com.tap.vivianbabiryekulumba.townhall
