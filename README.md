@@ -37,7 +37,7 @@ LIBRARIES:
 CREDITS:
 ----------
 * Tech Lead - Vivian Kulumba
-* Design Lead - Niema Widaha
+* Design Lead - Niema Widaha https://github.com/anemokid
 * Project Manager - Daniel Cortes
 
 Get the Beta on Google Play!
