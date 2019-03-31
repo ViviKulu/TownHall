@@ -36,7 +36,9 @@ LIBRARIES:
 
 CREDITS:
 ----------
-* Mobile Dev - Vivian Kulumba
+* Tech Lead - Vivian Kulumba
+* Design Lead - Niema Widaha
+* Project Manager - Daniel Cortes
 
 Get the Beta on Google Play!
 
