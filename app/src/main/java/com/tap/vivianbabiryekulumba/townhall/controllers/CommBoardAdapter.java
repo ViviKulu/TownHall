@@ -1,20 +1,30 @@
 package com.tap.vivianbabiryekulumba.townhall.controllers;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tap.vivianbabiryekulumba.townhall.MainActivity;
 import com.tap.vivianbabiryekulumba.townhall.R;
+import com.tap.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
 import com.tap.vivianbabiryekulumba.townhall.models.CommBoard;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,14 +33,24 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.tap.vivianbabiryekulumba.townhall.network_calls.BkMoreDetailsFrag;
+import com.tap.vivianbabiryekulumba.townhall.network_calls.BxMoreDetailsFrag;
+import com.tap.vivianbabiryekulumba.townhall.network_calls.MxMoreDetailsFrag;
+import com.tap.vivianbabiryekulumba.townhall.network_calls.QuMoreDetailsFrag;
+import com.tap.vivianbabiryekulumba.townhall.network_calls.StatsMoreDetailsFrag;
+
 import java.util.List;
 
 public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.CommBoardViewHolder> {
 
     private List<CommBoard> commBoardList;
     private static final String TAG = "CommBoardAdapter";
-    Context context;
-    Thread thread;
+    private Context context;
+    BxMoreDetailsFrag bxMoreDetailsFrag;
+    BkMoreDetailsFrag bkMoreDetailsFrag;
+    MxMoreDetailsFrag mxMoreDetailsFrag;
+    QuMoreDetailsFrag quMoreDetailsFrag;
+    StatsMoreDetailsFrag statsMoreDetailsFrag;
 
     public CommBoardAdapter(List<CommBoard> zipCodeList, Context context) {
         this.commBoardList = zipCodeList;
@@ -55,7 +75,8 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         holder.phone.setText("phone: " + commBoard.getCbInfo().getPhone());
         holder.fax.setText("fax: " + commBoard.getCbInfo().getFax());
         holder.email.setText("email: " + commBoard.getCbInfo().getEmail());
-        holder.address.setText("get directions: " + commBoard.getCbInfo().getAddress());
+        holder.address.setText("get directions");
+        holder.more_details.setText("more details");
         holder.website.setText("website: " + commBoard.getCbInfo().getWebsite());
 
         holder.bindView(position);
@@ -129,11 +150,11 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
         TextView comm_Of_tv;
         TextView zip_code_tv;
         ImageView submit_petition;
-        ImageView more_details;
         TextView phone;
         TextView fax;
         TextView email;
         TextView address;
+        TextView more_details;
         TextView website;
         MapView mapView;
         TextView tapMap;
@@ -146,7 +167,7 @@ public class CommBoardAdapter extends RecyclerView.Adapter<CommBoardAdapter.Comm
             comm_Of_tv = itemView.findViewById(R.id.comm_of_tv);
             zip_code_tv = itemView.findViewById(R.id.zip_code_tv);
             submit_petition = itemView.findViewById(R.id.submit_petition_button);
-            more_details = itemView.findViewById(R.id.more_details_button);
+            more_details = itemView.findViewById(R.id.more_details_tv);
             phone = itemView.findViewById(R.id.phone_tv);
             fax = itemView.findViewById(R.id.fax_tv);
             email = itemView.findViewById(R.id.email_tv);

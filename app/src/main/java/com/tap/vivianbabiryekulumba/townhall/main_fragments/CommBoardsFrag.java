@@ -40,7 +40,7 @@ public class CommBoardsFrag extends Fragment{
     QuRetroFragment quRetroFragment;
     StatRetroFragment statRetroFragment;
     FloatingActionButton submit_button;
-    FloatingActionButton more_details;
+    FloatingActionButton streamedMeetings;
     ViewPager viewPager;
 
     String[] boroughs = new String[]{
@@ -67,55 +67,13 @@ public class CommBoardsFrag extends Fragment{
         View view = inflater.inflate(R.layout.fragment_comm_board, container, false);
 
         submit_button = view.findViewById(R.id.submit_petition_button);
-        more_details = view.findViewById(R.id.more_details_button);
+        streamedMeetings = view.findViewById(R.id.streamed_meetings_button);
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), PetitionAddActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        more_details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-                builder.setTitle("Confirm your borough to see more details.");
-
-                for (int i = 0; i < boroughsList.size(); i++) {
-                    builder.setItems(boroughs, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String currentItem = boroughsList.get(which);
-                            FragmentManager fragmentManager = getChildFragmentManager();
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
-                            Bundle bundle = new Bundle();
-                            bundle.putString("borough", currentItem);
-                            moreDetailsFrag.setArguments(bundle);
-                            fragmentTransaction.add(moreDetailsFrag, "MoreDetailsFrag");
-                            fragmentTransaction.addToBackStack(currentItem);
-                            fragmentTransaction.commit();
-                            Log.d(TAG, "onClick: " + currentItem + bundle);
-                        }
-                    });
-                }
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-                MoreDetailsFrag moreDetailsFrag = new MoreDetailsFrag();
-
-                ((FragmentActivity) v.getContext()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.more_details_container, moreDetailsFrag)
-                        .commit();
-                viewPager = ((MainActivity) v.getContext()).findViewById(R.id.viewpager);
-                viewPager.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        viewPager.setCurrentItem(1, true);
-                    }
-                });
             }
         });
 
