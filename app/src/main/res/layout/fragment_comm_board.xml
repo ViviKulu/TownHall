@@ -18,10 +18,10 @@
         android:layout_marginRight="5dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/more_details_button"
+        android:id="@+id/streamed_meetings_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/more_details_button"
+        android:src="@drawable/youtube_icon"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="85dp"
         android:layout_marginEnd="5dp"

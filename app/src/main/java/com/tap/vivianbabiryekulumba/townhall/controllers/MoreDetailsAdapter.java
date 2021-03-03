@@ -8,28 +8,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.tap.vivianbabiryekulumba.townhall.R;
 import com.tap.vivianbabiryekulumba.townhall.models.CommBoard;
-
 import java.util.List;
 
 public class MoreDetailsAdapter extends RecyclerView.Adapter<MoreDetailsAdapter.MoreDetailsViewHolder> {
 
     private List<CommBoard> moreDetailsList;
     private static final String TAG = "MoreDetailsFragAdapter";
-    Context context;
+    Context moreDetailsContext;
 
     public MoreDetailsAdapter(List<CommBoard> moreDetailsList, Context context) {
         this.moreDetailsList = moreDetailsList;
-        this.context = context;
+        this.moreDetailsContext = context;
     }
 
     @NonNull
     @Override
     public MoreDetailsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.more_details_item_view, parent, false);
-        Log.d(TAG, "onCreateViewHolder: " + context);
+        Log.d(TAG, "onCreateViewHolder: " + moreDetailsContext);
         return new MoreDetailsViewHolder(view);
     }
 

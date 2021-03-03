@@ -4,11 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.tap.vivianbabiryekulumba.townhall.main_fragments.CommBoardsFrag;
-import com.tap.vivianbabiryekulumba.townhall.main_fragments.MoreDetailsFrag;
 public class ViewPagerAdapter extends FragmentPagerAdapter{
 
     private static final String TAG = "ViewPagerAdapter";
-    private static int NUM_ITEMS = 2;
+    private static int NUM_ITEMS = 1;
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -20,8 +19,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
         switch (position) {
             case 0:
                 return CommBoardsFrag.newInstance();
-            case 1:
-                return MoreDetailsFrag.newInstance();
             default:
                 return CommBoardsFrag.newInstance();
         }
@@ -33,8 +30,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter{
         switch (position) {
             case 0:
                 return "Community Boards";
-            case 1:
-                return "More Details";
             default:
                 return "Community Boards";
         }

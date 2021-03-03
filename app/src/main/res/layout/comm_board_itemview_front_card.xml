@@ -186,11 +186,19 @@
 
                 <TextView
                     android:id="@+id/address_tv"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.75"
-                    android:layout_gravity="center_vertical"
-                    android:maxLines="4"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/more_details_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.75"
+                    android:maxLines="1"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
 
